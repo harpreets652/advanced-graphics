@@ -94,7 +94,6 @@ void initializeShaders() {
     };
      
     addShader(program, vertexShader.c_str(), GL_VERTEX_SHADER);
-cout << "I;m here" << endl;
     addShader(program, fragmentShader.c_str(), GL_FRAGMENT_SHADER);
 
     GLint success = 0;
@@ -139,7 +138,7 @@ void addShader(GLuint pProgram,
         GLchar infoLog[1024];
         glGetShaderInfoLog(shaderObj, 1024, NULL, infoLog);
         cerr << "Error compiling shader " << pShaderType
-        << ". Reason: " << infoLog << endl;
+             << ". Reason: " << infoLog << endl;
         exit(1);
     }
 
