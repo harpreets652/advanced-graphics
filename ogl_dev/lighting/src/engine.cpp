@@ -18,8 +18,8 @@ Engine::Engine(string name) {
 Engine::~Engine() {
     delete m_window;
     delete m_graphics;
-    m_window = NULL;
-    m_graphics = NULL;
+    m_window = nullptr;
+    m_graphics = nullptr;
 }
 
 bool Engine::Initialize() {
@@ -53,7 +53,7 @@ void Engine::Run() {
 
         // Check the keyboard input
         while (SDL_PollEvent(&m_event) != 0) {
-            Keyboard();
+            keyboard();
         }
 
         // Update and render the graphics
@@ -65,7 +65,7 @@ void Engine::Run() {
     }
 }
 
-void Engine::Keyboard() {
+void Engine::keyboard() {
     if (m_event.type == SDL_QUIT) {
         m_running = false;
     } else if (m_event.type == SDL_KEYDOWN) {
@@ -79,14 +79,14 @@ void Engine::Keyboard() {
 unsigned int Engine::getDT() {
     long long TimeNowMillis = GetCurrentTimeMillis();
     assert(TimeNowMillis >= m_currentTimeMillis);
-    unsigned int DeltaTimeMillis = (unsigned int) (TimeNowMillis - m_currentTimeMillis);
+    auto DeltaTimeMillis = (unsigned int) (TimeNowMillis - m_currentTimeMillis);
     m_currentTimeMillis = TimeNowMillis;
     return DeltaTimeMillis;
 }
 
 long long Engine::GetCurrentTimeMillis() {
     timeval t;
-    gettimeofday(&t, NULL);
+    gettimeofday(&t, nullptr);
     long long ret = t.tv_sec * 1000 + t.tv_usec / 1000;
     return ret;
 }

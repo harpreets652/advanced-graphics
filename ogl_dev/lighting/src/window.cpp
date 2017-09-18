@@ -1,13 +1,13 @@
 #include <window.h>
 
 Window::Window() {
-    gWindow = NULL;
+    gWindow = nullptr;
 }
 
 Window::~Window() {
     SDL_StopTextInput();
     SDL_DestroyWindow(gWindow);
-    gWindow = NULL;
+    gWindow = nullptr;
     SDL_Quit();
 }
 
