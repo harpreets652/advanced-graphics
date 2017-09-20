@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/Texture.cpp.o"
   "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o"
   "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/engine.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/engine.cpp.o"
   "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/graphics.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o"

@@ -98,6 +98,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp">
+			<Option target="Lighting"/>
+		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp">
 			<Option target="Lighting"/>
 		</Unit>

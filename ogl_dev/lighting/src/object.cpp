@@ -10,7 +10,7 @@ Object::Object(std::string fileName) {
     //Note~ ASSIMP expects a newline at the end of the object file...otherwise it will not read the last face
     const aiScene *scene = importer.ReadFile(fileName.c_str(), aiProcess_Triangulate | //make triangles
                                                                aiProcess_JoinIdenticalVertices |
-                                                               aiProcess_GenUVCoords |  //generate texture coordinates
+                                                               aiProcess_GenUVCoords |  //generate Texture coordinates
                                                                aiProcess_GenSmoothNormals); //normals
 
     if (scene == nullptr) {
