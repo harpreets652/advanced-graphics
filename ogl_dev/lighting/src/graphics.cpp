@@ -40,49 +40,49 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Create the object
-    m_cube = new Object();
+    m_cube = new Object("../objects/table.obj");
 
     // Set up the shaders
     m_shader = new Shader();
-    if (!m_shader->Initialize()) {
+    if (!m_shader->initialize()) {
         printf("Shader Failed to Initialize\n");
         return false;
     }
 
     // Add the vertex shader
-    if (!m_shader->AddShader(GL_VERTEX_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/shader.vs", GL_VERTEX_SHADER)) {
         printf("Vertex Shader failed to Initialize\n");
         return false;
     }
 
     // Add the fragment shader
-    if (!m_shader->AddShader(GL_FRAGMENT_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/shader.fs", GL_FRAGMENT_SHADER)) {
         printf("Fragment Shader failed to Initialize\n");
         return false;
     }
 
     // Connect the program
-    if (!m_shader->Finalize()) {
+    if (!m_shader->finalize()) {
         printf("Program to Finalize\n");
         return false;
     }
 
     // Locate the projection matrix in the shader
-    m_projectionMatrix = m_shader->GetUniformLocation("projectionMatrix");
+    m_projectionMatrix = m_shader->getUniformLocation("projectionMatrix");
     if (m_projectionMatrix == INVALID_UNIFORM_LOCATION) {
         printf("m_projectionMatrix not found\n");
         return false;
     }
 
     // Locate the view matrix in the shader
-    m_viewMatrix = m_shader->GetUniformLocation("viewMatrix");
+    m_viewMatrix = m_shader->getUniformLocation("viewMatrix");
     if (m_viewMatrix == INVALID_UNIFORM_LOCATION) {
         printf("m_viewMatrix not found\n");
         return false;
     }
 
     // Locate the model matrix in the shader
-    m_modelMatrix = m_shader->GetUniformLocation("modelMatrix");
+    m_modelMatrix = m_shader->getUniformLocation("modelMatrix");
     if (m_modelMatrix == INVALID_UNIFORM_LOCATION) {
         printf("m_modelMatrix not found\n");
         return false;
@@ -106,7 +106,7 @@ void Graphics::Render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Start the correct program
-    m_shader->Enable();
+    m_shader->enable();
 
     // Send in the projection and view to the shader
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));

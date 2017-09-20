@@ -15,7 +15,7 @@ Shader::~Shader() {
     }
 }
 
-bool Shader::Initialize() {
+bool Shader::initialize() {
     m_shaderProg = glCreateProgram();
 
     if (m_shaderProg == 0) {
@@ -26,47 +26,24 @@ bool Shader::Initialize() {
     return true;
 }
 
-// Use this method to add shaders to the program. When finished - call finalize()
-bool Shader::AddShader(GLenum ShaderType) {
-    std::string s;
 
-    if (ShaderType == GL_VERTEX_SHADER) {
-        s = "#version 330\n \
-          \
-          layout (location = 0) in vec3 v_position; \
-          layout (location = 1) in vec3 v_color; \
-          \
-          smooth out vec3 color; \
-          \
-          uniform mat4 projectionMatrix; \
-          uniform mat4 viewMatrix; \
-          uniform mat4 modelMatrix; \
-          \
-          void main(void) \
-          { \
-            vec4 v = vec4(v_position, 1.0); \
-            gl_Position = (projectionMatrix * viewMatrix * modelMatrix) * v; \
-            color = v_color; \
-          } \
-          ";
-    } else if (ShaderType == GL_FRAGMENT_SHADER) {
-        s = "#version 330\n \
-          \
-          smooth in vec3 color; \
-          \
-          out vec4 frag_color; \
-          \
-          void main(void) \
-          { \
-             frag_color = vec4(color.rgb, 1.0); \
-          } \
-          ";
+// Use this method to add shaders to the program. When finished - call finalize()
+bool Shader::addShaderFromFile(std::string fileName, GLenum shaderType) {
+    std::string shaderText;
+
+    if (!readFile(fileName, shaderText)) {
+        std::cerr << "Error reading shader from file " << fileName << " for " << shaderType << std::endl;
+        return false;
     }
 
-    GLuint ShaderObj = glCreateShader(ShaderType);
+    return addShaderFromText(shaderText, shaderType);
+}
+
+bool Shader::addShaderFromText(std::string &shaderText, GLenum shaderType) {
+    GLuint ShaderObj = glCreateShader(shaderType);
 
     if (ShaderObj == 0) {
-        std::cerr << "Error creating shader type " << ShaderType << std::endl;
+        std::cerr << "Error creating shader type " << shaderType << std::endl;
         return false;
     }
 
@@ -74,8 +51,8 @@ bool Shader::AddShader(GLenum ShaderType) {
     m_shaderObjList.push_back(ShaderObj);
 
     const GLchar *p[1];
-    p[0] = s.c_str();
-    GLint Lengths[1] = {(GLint) s.size()};
+    p[0] = shaderText.c_str();
+    GLint Lengths[1] = {(GLint) shaderText.size()};
 
     glShaderSource(ShaderObj, 1, p, Lengths);
 
@@ -96,10 +73,30 @@ bool Shader::AddShader(GLenum ShaderType) {
     return true;
 }
 
+bool Shader::readFile(std::string &fileName, std::string &output) {
+    std::ifstream f(fileName);
+
+    bool ret = false;
+    if (f.is_open()) {
+        std::string line;
+        while (getline(f, line)) {
+            output.append(line);
+            output.append("\n");
+        }
+
+        f.close();
+
+        ret = true;
+    } else {
+        std::cerr << "Could not open file : " << fileName << std::endl;
+    }
+
+    return ret;
+}
 
 // After all the shaders have been added to the program call this function
 // to link and validate the program.
-bool Shader::Finalize() {
+bool Shader::finalize() {
     GLint Success = 0;
     GLchar ErrorLog[1024] = {0};
 
@@ -131,12 +128,12 @@ bool Shader::Finalize() {
 }
 
 
-void Shader::Enable() {
+void Shader::enable() {
     glUseProgram(m_shaderProg);
 }
 
 
-GLint Shader::GetUniformLocation(const char *pUniformName) {
+GLint Shader::getUniformLocation(const char *pUniformName) {
     GLint Location = glGetUniformLocation(m_shaderProg, pUniformName);
 
     if (Location == INVALID_UNIFORM_LOCATION) {

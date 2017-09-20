@@ -10,8 +10,6 @@
 
 class Object {
 public:
-    Object();
-
     Object(std::string fileName);
 
     ~Object();
@@ -24,9 +22,13 @@ public:
 
 private:
     void getVertices(const aiMesh *mesh, std::vector<glm::vec3> &vertices);
+
     void getFaces(const aiMesh *mesh, std::vector<glm::uvec3> &faces);
+
     void getNormals(const aiMesh *mesh, std::vector<glm::vec3> &normals);
+
     void getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &texCoords);
+
     void buildGeometry(std::vector<glm::vec3> vertices, std::vector<glm::uvec3> faces);
 
     glm::mat4 model;

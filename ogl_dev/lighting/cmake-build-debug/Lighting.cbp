@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="Tutorial"/>
+		<Option title="Lighting"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="clang"/>
 		<Option virtualFolders="CMake Files\;CMake Files\CMakeModules\;"/>
@@ -37,27 +37,27 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Tutorial_SUCCESSFUL">
+			<Target title="Lighting_SUCCESSFUL">
 				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 Tutorial_SUCCESSFUL"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lighting_SUCCESSFUL"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Tutorial">
-				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Tutorial" prefix_auto="0" extension_auto="0"/>
+			<Target title="Lighting">
+				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Lighting" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
 				<Compiler>
 					<Add option="-DUNIX"/>
-					<Add directory="/usr/local/include"/>
 					<Add directory="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/include"/>
 					<Add directory="/usr/local/include/SDL2"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -66,23 +66,23 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 Tutorial"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lighting"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Tutorial/fast">
-				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Tutorial" prefix_auto="0" extension_auto="0"/>
+			<Target title="Lighting/fast">
+				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Lighting" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
 				<Compiler>
 					<Add option="-DUNIX"/>
-					<Add directory="/usr/local/include"/>
 					<Add directory="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/include"/>
 					<Add directory="/usr/local/include/SDL2"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -91,7 +91,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 Tutorial/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lighting/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -99,25 +99,25 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/engine.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/graphics.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/main.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/object.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/shader.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/window.cpp">
-			<Option target="Tutorial"/>
+			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

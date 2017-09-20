@@ -246,6 +246,7 @@ Tutorial: CMakeFiles/Tutorial.dir/src/object.cpp.o
 Tutorial: CMakeFiles/Tutorial.dir/src/shader.cpp.o
 Tutorial: CMakeFiles/Tutorial.dir/src/window.cpp.o
 Tutorial: CMakeFiles/Tutorial.dir/build.make
+Tutorial: /usr/local/lib/libassimp.dylib
 Tutorial: /usr/local/lib/libSDL2main.a
 Tutorial: /usr/local/lib/libSDL2.dylib
 Tutorial: CMakeFiles/Tutorial.dir/link.txt

@@ -60,76 +60,76 @@ CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lightin
 CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Tutorial_SUCCESSFUL.dir
+# Target rules for target CMakeFiles/Lighting_SUCCESSFUL.dir
 
 # All Build rule for target.
-CMakeFiles/Tutorial_SUCCESSFUL.dir/all: CMakeFiles/Tutorial.dir/all
-	$(MAKE) -f CMakeFiles/Tutorial_SUCCESSFUL.dir/build.make CMakeFiles/Tutorial_SUCCESSFUL.dir/depend
-	$(MAKE) -f CMakeFiles/Tutorial_SUCCESSFUL.dir/build.make CMakeFiles/Tutorial_SUCCESSFUL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num= "Built target Tutorial_SUCCESSFUL"
-.PHONY : CMakeFiles/Tutorial_SUCCESSFUL.dir/all
+CMakeFiles/Lighting_SUCCESSFUL.dir/all: CMakeFiles/Lighting.dir/all
+	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/depend
+	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num= "Built target Lighting_SUCCESSFUL"
+.PHONY : CMakeFiles/Lighting_SUCCESSFUL.dir/all
 
 # Include target in all.
-all: CMakeFiles/Tutorial_SUCCESSFUL.dir/all
+all: CMakeFiles/Lighting_SUCCESSFUL.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Tutorial_SUCCESSFUL.dir/rule: cmake_check_build_system
+CMakeFiles/Lighting_SUCCESSFUL.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Tutorial_SUCCESSFUL.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Lighting_SUCCESSFUL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Tutorial_SUCCESSFUL.dir/rule
+.PHONY : CMakeFiles/Lighting_SUCCESSFUL.dir/rule
 
 # Convenience name for target.
-Tutorial_SUCCESSFUL: CMakeFiles/Tutorial_SUCCESSFUL.dir/rule
+Lighting_SUCCESSFUL: CMakeFiles/Lighting_SUCCESSFUL.dir/rule
 
-.PHONY : Tutorial_SUCCESSFUL
-
-# clean rule for target.
-CMakeFiles/Tutorial_SUCCESSFUL.dir/clean:
-	$(MAKE) -f CMakeFiles/Tutorial_SUCCESSFUL.dir/build.make CMakeFiles/Tutorial_SUCCESSFUL.dir/clean
-.PHONY : CMakeFiles/Tutorial_SUCCESSFUL.dir/clean
+.PHONY : Lighting_SUCCESSFUL
 
 # clean rule for target.
-clean: CMakeFiles/Tutorial_SUCCESSFUL.dir/clean
+CMakeFiles/Lighting_SUCCESSFUL.dir/clean:
+	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/clean
+.PHONY : CMakeFiles/Lighting_SUCCESSFUL.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Lighting_SUCCESSFUL.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Tutorial.dir
+# Target rules for target CMakeFiles/Lighting.dir
 
 # All Build rule for target.
-CMakeFiles/Tutorial.dir/all:
-	$(MAKE) -f CMakeFiles/Tutorial.dir/build.make CMakeFiles/Tutorial.dir/depend
-	$(MAKE) -f CMakeFiles/Tutorial.dir/build.make CMakeFiles/Tutorial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Tutorial"
-.PHONY : CMakeFiles/Tutorial.dir/all
+CMakeFiles/Lighting.dir/all:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/depend
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Lighting"
+.PHONY : CMakeFiles/Lighting.dir/all
 
 # Include target in all.
-all: CMakeFiles/Tutorial.dir/all
+all: CMakeFiles/Lighting.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Tutorial.dir/rule: cmake_check_build_system
+CMakeFiles/Lighting.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Tutorial.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Lighting.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Tutorial.dir/rule
+.PHONY : CMakeFiles/Lighting.dir/rule
 
 # Convenience name for target.
-Tutorial: CMakeFiles/Tutorial.dir/rule
+Lighting: CMakeFiles/Lighting.dir/rule
 
-.PHONY : Tutorial
-
-# clean rule for target.
-CMakeFiles/Tutorial.dir/clean:
-	$(MAKE) -f CMakeFiles/Tutorial.dir/build.make CMakeFiles/Tutorial.dir/clean
-.PHONY : CMakeFiles/Tutorial.dir/clean
+.PHONY : Lighting
 
 # clean rule for target.
-clean: CMakeFiles/Tutorial.dir/clean
+CMakeFiles/Lighting.dir/clean:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/clean
+.PHONY : CMakeFiles/Lighting.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Lighting.dir/clean
 
 .PHONY : clean
 

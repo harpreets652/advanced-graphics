@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//Path to a file.
+ASSIMP_INCLUDE_DIR:PATH=/usr/local/include
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ar
 
@@ -135,7 +138,7 @@ CMAKE_OSX_DEPLOYMENT_TARGET:STRING=
 CMAKE_OSX_SYSROOT:STRING=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Tutorial
+CMAKE_PROJECT_NAME:STATIC=Lighting
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -195,6 +198,15 @@ GLEW_LIBRARY_PATH:FILEPATH=/usr/local/lib/libGLEW.dylib
 //The directory where glm/glm.hpp resides
 GLM_INCLUDE_DIR:PATH=/usr/local/include
 
+//Path to a library.
+LIBASSIMP:FILEPATH=/usr/local/lib/libassimp.dylib
+
+//Value Computed by CMake
+Lighting_BINARY_DIR:STATIC=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug
+
+//Value Computed by CMake
+Lighting_SOURCE_DIR:STATIC=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting
+
 //Include for OpenGL on OS X
 OPENGL_INCLUDE_DIR:PATH=/System/Library/Frameworks/OpenGL.framework
 
@@ -227,6 +239,8 @@ Tutorial_SOURCE_DIR:STATIC=/Users/harpreetsingh/github/advanced-graphics/ogl_dev
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: ASSIMP_INCLUDE_DIR
+ASSIMP_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -380,5 +394,5 @@ OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
-SDL2_LIBRARY_TEMP:INTERNAL=/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2.dylib;-framework Cocoa
+SDL2_LIBRARY_TEMP:INTERNAL=/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2main.a;/usr/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
 

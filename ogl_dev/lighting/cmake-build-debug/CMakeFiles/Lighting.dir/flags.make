@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=gnu++11 -g
 
 CXX_DEFINES = -DUNIX
 
-CXX_INCLUDES = -I/usr/local/include -I/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/include -I/usr/local/include/SDL2 
+CXX_INCLUDES = -I/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/include -I/usr/local/include/SDL2 -I/usr/local/include 
 

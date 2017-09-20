@@ -1,46 +1,5 @@
 #include "object.h"
 
-Object::Object() {
-    Vertices = {{{1.0f,  -1.0f, -1.0f}, {0.0f, 0.0f, 0.0f}},
-                {{1.0f,  -1.0f, 1.0f},  {1.0f, 0.0f, 0.0f}},
-                {{-1.0f, -1.0f, 1.0f},  {0.0f, 1.0f, 0.0f}},
-                {{-1.0f, -1.0f, -1.0f}, {0.0f, 0.0f, 1.0f}},
-                {{1.0f,  1.0f,  -1.0f}, {1.0f, 1.0f, 0.0f}},
-                {{1.0f,  1.0f,  1.0f},  {1.0f, 0.0f, 1.0f}},
-                {{-1.0f, 1.0f,  1.0f},  {0.0f, 1.0f, 1.0f}},
-                {{-1.0f, 1.0f,  -1.0f}, {1.0f, 1.0f, 1.0f}}
-    };
-
-    Indices = {2, 3, 4,
-               8, 7, 6,
-               1, 5, 6,
-               2, 6, 7,
-               7, 8, 4,
-               1, 4, 8,
-               1, 2, 4,
-               5, 8, 6,
-               2, 1, 6,
-               3, 2, 7,
-               3, 7, 4,
-               5, 1, 8
-    };
-
-    // The index works at a 0th index
-    for (unsigned int i = 0; i < Indices.size(); i++) {
-        Indices[i] = Indices[i] - 1;
-    }
-
-    angle = 0.0f;
-
-    glGenBuffers(1, &VB);
-    glBindBuffer(GL_ARRAY_BUFFER, VB);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * Vertices.size(), &Vertices[0], GL_STATIC_DRAW);
-
-    glGenBuffers(1, &IB);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * Indices.size(), &Indices[0], GL_STATIC_DRAW);
-}
-
 Object::~Object() {
     Vertices.clear();
     Indices.clear();
@@ -48,8 +7,9 @@ Object::~Object() {
 
 Object::Object(std::string fileName) {
     Assimp::Importer importer;
+    //Note~ ASSIMP expects a newline at the end of the object file...otherwise it will not read the last face
     const aiScene *scene = importer.ReadFile(fileName.c_str(), aiProcess_Triangulate | //make triangles
-                                                               aiProcess_SortByPType |  //if multiple meshes in the file
+                                                               aiProcess_JoinIdenticalVertices |
                                                                aiProcess_GenUVCoords |  //generate texture coordinates
                                                                aiProcess_GenSmoothNormals); //normals
 
@@ -67,6 +27,8 @@ Object::Object(std::string fileName) {
 
     std::vector<glm::vec3> vertices;
     std::vector<glm::uvec3> faces;
+
+    //todo: for lighting and textures
     std::vector<glm::vec3> normals;
     std::vector<glm::vec2> textureCoordinates;
 
@@ -76,21 +38,34 @@ Object::Object(std::string fileName) {
         getVertices(mesh, vertices);
         getFaces(mesh, faces);
 
+        buildGeometry(vertices, faces);
     }
+
+    angle = 0.0f;
+
+    glGenBuffers(1, &VB);
+    glBindBuffer(GL_ARRAY_BUFFER, VB);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * Vertices.size(), &Vertices[0], GL_STATIC_DRAW);
+
+    glGenBuffers(1, &IB);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * Indices.size(), &Indices[0], GL_STATIC_DRAW);
 }
 
 void Object::buildGeometry(std::vector<glm::vec3> vertices, std::vector<glm::uvec3> faces) {
     Vertex temp(glm::vec3(0.0), glm::vec3(0.0));
 
-    for(auto vertex : vertices) {
+    for (auto vertex : vertices) {
         temp.vertex = vertex;
-        //todo: will the rand work?
-        temp.color = glm::vec3(float(rand()%100) / 100.0f, float(rand()%100) / 100.0f, float(rand()%100) / 100.0f);
+        temp.color = glm::vec3(float(rand() % 100) / 100.0f,
+                               float(rand() % 100) / 100.0f,
+                               float(rand() % 100) / 100.0f);
 
         Vertices.push_back(temp);
     }
 
-    for (auto face : faces) { //for each face
+    //each face contains indices; first index needs to be 0 so subtracting by one
+    for (auto face : faces) {
         Indices.push_back(face.x);
         Indices.push_back(face.y);
         Indices.push_back(face.z);
@@ -111,15 +86,16 @@ void Object::getVertices(const aiMesh *mesh, std::vector<glm::vec3> &vertices) {
 }
 
 void Object::getFaces(const aiMesh *mesh, std::vector<glm::uvec3> &faces) {
-    glm::uvec3 face;
+    glm::uvec3 tempFace;
 
     for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
-        aiFace Face = mesh->mFaces[i];
-        face.x = Face.mIndices[0];
-        face.y = Face.mIndices[1];
-        face.z = Face.mIndices[2];
+        aiFace face = mesh->mFaces[i];
 
-        faces.push_back(face);
+        tempFace.x = face.mIndices[0];
+        tempFace.y = face.mIndices[1];
+        tempFace.z = face.mIndices[2];
+
+        faces.push_back(tempFace);
     }
 }
 
@@ -153,7 +129,7 @@ void Object::getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &t
 }
 
 void Object::Update(unsigned int dt) {
-    angle += dt * M_PI / 1000;
+    angle += dt * M_PI / 10000;
     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
 }
 

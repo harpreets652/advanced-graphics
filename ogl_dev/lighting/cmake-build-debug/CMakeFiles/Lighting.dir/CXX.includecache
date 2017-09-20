@@ -67,6 +67,10 @@ graphics_headers.h
 ../include/shader.h
 vector
 -
+string
+-
+fstream
+-
 graphics_headers.h
 ../include/graphics_headers.h
 
