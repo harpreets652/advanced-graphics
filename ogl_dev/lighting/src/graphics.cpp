@@ -118,6 +118,10 @@ void Graphics::Render() {
     m_shader->enable();
 
     // Send in the projection and view to the shader
+    /*
+     * Note: to project an object on another, multiply the model matrices of the target(say, board) by the source (say chess piece)
+     * to get the model matrix of the source; View and project same for both and belong to the camera.
+     */
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
 
