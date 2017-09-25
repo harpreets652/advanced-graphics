@@ -98,7 +98,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.cpp">
+			<Option target="Lighting"/>
+		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp">
+			<Option target="Lighting"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.cpp">
 			<Option target="Lighting"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp">
@@ -135,6 +141,12 @@
 			<Option virtualFolder="CMake Files\CMakeModules\"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/CMakeModules/FindAssimp.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/CMakeModules/FindSDL2_Image.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/CMakeModules/FindDevIL.cmake">
 			<Option virtualFolder="CMake Files\CMakeModules\"/>
 		</Unit>
 	</Project>

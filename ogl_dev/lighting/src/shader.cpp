@@ -81,7 +81,7 @@ bool Shader::readFile(std::string &fileName, std::string &output) {
         std::string line;
         while (getline(f, line)) {
             output.append(line);
-            output.append("\n");
+            output.append(" \n ");
         }
 
         f.close();

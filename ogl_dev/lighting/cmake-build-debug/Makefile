@@ -136,6 +136,33 @@ Lighting/fast:
 	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/build
 .PHONY : Lighting/fast
 
+src/LightingModel.o: src/LightingModel.cpp.o
+
+.PHONY : src/LightingModel.o
+
+# target to build an object file
+src/LightingModel.cpp.o:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/LightingModel.cpp.o
+.PHONY : src/LightingModel.cpp.o
+
+src/LightingModel.i: src/LightingModel.cpp.i
+
+.PHONY : src/LightingModel.i
+
+# target to preprocess a source file
+src/LightingModel.cpp.i:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/LightingModel.cpp.i
+.PHONY : src/LightingModel.cpp.i
+
+src/LightingModel.s: src/LightingModel.cpp.s
+
+.PHONY : src/LightingModel.s
+
+# target to generate assembly for a file
+src/LightingModel.cpp.s:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/LightingModel.cpp.s
+.PHONY : src/LightingModel.cpp.s
+
 src/Texture.o: src/Texture.cpp.o
 
 .PHONY : src/Texture.o
@@ -162,6 +189,33 @@ src/Texture.s: src/Texture.cpp.s
 src/Texture.cpp.s:
 	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/Texture.cpp.s
 .PHONY : src/Texture.cpp.s
+
+src/TextureManager.o: src/TextureManager.cpp.o
+
+.PHONY : src/TextureManager.o
+
+# target to build an object file
+src/TextureManager.cpp.o:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/TextureManager.cpp.o
+.PHONY : src/TextureManager.cpp.o
+
+src/TextureManager.i: src/TextureManager.cpp.i
+
+.PHONY : src/TextureManager.i
+
+# target to preprocess a source file
+src/TextureManager.cpp.i:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/TextureManager.cpp.i
+.PHONY : src/TextureManager.cpp.i
+
+src/TextureManager.s: src/TextureManager.cpp.s
+
+.PHONY : src/TextureManager.s
+
+# target to generate assembly for a file
+src/TextureManager.cpp.s:
+	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/TextureManager.cpp.s
+.PHONY : src/TextureManager.cpp.s
 
 src/camera.o: src/camera.cpp.o
 
@@ -362,9 +416,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... Lighting_SUCCESSFUL"
 	@echo "... Lighting"
+	@echo "... src/LightingModel.o"
+	@echo "... src/LightingModel.i"
+	@echo "... src/LightingModel.s"
 	@echo "... src/Texture.o"
 	@echo "... src/Texture.i"
 	@echo "... src/Texture.s"
+	@echo "... src/TextureManager.o"
+	@echo "... src/TextureManager.i"
+	@echo "... src/TextureManager.s"
 	@echo "... src/camera.o"
 	@echo "... src/camera.i"
 	@echo "... src/camera.s"

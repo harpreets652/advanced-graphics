@@ -7,8 +7,9 @@
 
 
 #include "graphics_headers.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include<IL/il.h>
+//#include <SDL2/SDL.h>
+//#include <SDL2/SDL_image.h>
 #include <string>
 
 class Texture {
@@ -17,7 +18,7 @@ public:
 
     ~Texture();
 
-    bool loadTexture(std::string imageName);
+    bool loadTexture(std::string &imageName);
 
     void enable();
 

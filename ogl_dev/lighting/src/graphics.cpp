@@ -40,7 +40,10 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Create the object
-    m_cube = new Object("../objects/table.obj");
+    m_board = new Object("../objects/chessboard.obj");
+
+    //load textures Note~ come back to this
+//    TextureManager::getInstance()->loadTexture((string &) "chessboard", "../textures/chessboard-super-small-texture.png");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -50,13 +53,13 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Add the vertex shader
-    if (!m_shader->addShaderFromFile("../shaders/shader.vs", GL_VERTEX_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/lighting.vs", GL_VERTEX_SHADER)) {
         printf("Vertex Shader failed to Initialize\n");
         return false;
     }
 
     // Add the fragment shader
-    if (!m_shader->addShaderFromFile("../shaders/shader.fs", GL_FRAGMENT_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/lighting.fs", GL_FRAGMENT_SHADER)) {
         printf("Fragment Shader failed to Initialize\n");
         return false;
     }
@@ -88,6 +91,13 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    lightingModel = new LightingModel();
+
+    if (!lightingModel->initialize((*m_shader))) {
+        printf("lighting model to Initialize\n");
+        return false;
+    }
+
     //enable depth testing
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
@@ -97,7 +107,7 @@ bool Graphics::Initialize(int width, int height) {
 
 void Graphics::Update(unsigned int dt) {
     // Update the object
-    m_cube->Update(dt);
+    m_board->Update(dt);
 }
 
 void Graphics::Render() {
@@ -113,14 +123,51 @@ void Graphics::Render() {
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
 
     // Render the object
-    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_cube->GetModel()));
-    m_cube->Render();
+    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
+
+    //Add lighting
+    lightingModel->renderLighting();
+
+    //render models
+    m_board->Render();
 
     // Get any errors from OpenGL
     auto error = glGetError();
     if (error != GL_NO_ERROR) {
         string val = ErrorString(error);
         std::cout << "Error initializing OpenGL! " << error << ", " << val << std::endl;
+    }
+}
+
+void Graphics::cameraInput(SDL_Keycode input) {
+    switch (input) {
+        case SDLK_UP:
+            m_camera->updatePosition(UP);
+            break;
+        case SDLK_DOWN:
+            m_camera->updatePosition(DOWN);
+            break;
+        case SDLK_LEFT:
+            m_camera->updatePosition(LEFT);
+            break;
+        case SDLK_RIGHT:
+            m_camera->updatePosition(RIGHT);
+            break;
+        case SDLK_w:
+            m_camera->updateDirection(UP);
+            break;
+        case SDLK_s:
+            m_camera->updateDirection(DOWN);
+            break;
+        case SDLK_d:
+            m_camera->updateDirection(RIGHT);
+            break;
+        case SDLK_a:
+            m_camera->updateDirection(LEFT);
+            break;
+        default:
+            cout << input << " not mapped to camera update" << endl;
+            break;
     }
 }
 

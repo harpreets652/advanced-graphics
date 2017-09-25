@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Lighting.dir/src/LightingModel.cpp.o"
   "CMakeFiles/Lighting.dir/src/Texture.cpp.o"
+  "CMakeFiles/Lighting.dir/src/TextureManager.cpp.o"
   "CMakeFiles/Lighting.dir/src/camera.cpp.o"
   "CMakeFiles/Lighting.dir/src/engine.cpp.o"
   "CMakeFiles/Lighting.dir/src/graphics.cpp.o"

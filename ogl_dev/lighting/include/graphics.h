@@ -2,33 +2,45 @@
 #define GRAPHICS_H
 
 #include <iostream>
-using namespace std;
+#include <SDL2/SDL_keycode.h>
 
 #include "graphics_headers.h"
 #include "camera.h"
+#include "Direction.h"
 #include "shader.h"
 #include "object.h"
+#include "TextureManager.h"
+#include "LightingModel.h"
 
-class Graphics
-{
-  public:
+using namespace std;
+
+
+class Graphics {
+public:
     Graphics();
+
     ~Graphics();
+
     bool Initialize(int width, int height);
+
+    void cameraInput(SDL_Keycode input);
+
     void Update(unsigned int dt);
+
     void Render();
 
-  private:
+private:
     std::string ErrorString(GLenum error);
 
     Camera *m_camera;
     Shader *m_shader;
+    LightingModel *lightingModel;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;
     GLint m_modelMatrix;
 
-    Object *m_cube;
+    Object *m_board;
 };
 
 #endif /* GRAPHICS_H */

@@ -6,19 +6,37 @@
 
 #IncludeRegexTransform: 
 
+../include/Direction.h
+
+../include/LightingModel.h
+graphics_headers.h
+../include/graphics_headers.h
+shader.h
+../include/shader.h
+limits.h
+-
+string.h
+-
+
 ../include/Texture.h
 graphics_headers.h
 ../include/graphics_headers.h
-SDL2/SDL.h
--
-SDL2/SDL_image.h
+IL/il.h
 -
 string
+-
+
+../include/TextureManager.h
+Texture.h
+../include/Texture.h
+unordered_map
 -
 
 ../include/camera.h
 graphics_headers.h
 ../include/graphics_headers.h
+Direction.h
+../include/Direction.h
 
 ../include/engine.h
 sys/time.h
@@ -33,14 +51,22 @@ graphics.h
 ../include/graphics.h
 iostream
 -
+SDL2/SDL_keycode.h
+-
 graphics_headers.h
 ../include/graphics_headers.h
 camera.h
 ../include/camera.h
+Direction.h
+../include/Direction.h
 shader.h
 ../include/shader.h
 object.h
 ../include/object.h
+TextureManager.h
+../include/TextureManager.h
+LightingModel.h
+../include/LightingModel.h
 
 ../include/graphics_headers.h
 iostream
@@ -90,9 +116,19 @@ SDL2/SDL.h
 string
 -
 
+/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.cpp
+LightingModel.h
+-
+LightingModel.h
+/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.h
+
 /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp
 Texture.h
 /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.h
+
+/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.cpp
+TextureManager.h
+/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.h
 
 /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp
 camera.h
@@ -138,6 +174,14 @@ Availability.h
 OpenGL/glu.h
 -
 GL/glu.h
+-
+
+/usr/local/include/IL/il.h
+stdio.h
+-
+limits.h
+-
+wchar.h
 -
 
 /usr/local/include/SDL2/SDL.h
@@ -375,16 +419,6 @@ close_code.h
 /usr/local/include/SDL2/SDL_hints.h
 SDL_stdinc.h
 /usr/local/include/SDL2/SDL_stdinc.h
-begin_code.h
-/usr/local/include/SDL2/begin_code.h
-close_code.h
-/usr/local/include/SDL2/close_code.h
-
-/usr/local/include/SDL2/SDL_image.h
-SDL.h
-/usr/local/include/SDL2/SDL.h
-SDL_version.h
-/usr/local/include/SDL2/SDL_version.h
 begin_code.h
 /usr/local/include/SDL2/begin_code.h
 close_code.h

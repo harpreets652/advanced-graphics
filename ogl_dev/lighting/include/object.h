@@ -29,7 +29,7 @@ private:
 
     void getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &texCoords);
 
-    void buildGeometry(std::vector<glm::vec3> vertices, std::vector<glm::uvec3> faces);
+    void buildGeometry(std::vector<glm::vec3> vertices, std::vector<glm::uvec3> faces, std::vector<glm::vec3> normals);
 
     glm::mat4 model;
     std::vector<Vertex> Vertices;

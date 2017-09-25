@@ -72,7 +72,27 @@ void Engine::keyboard() {
         // handle key down events here
         if (m_event.key.keysym.sym == SDLK_ESCAPE) {
             m_running = false;
+            return;
         }
+
+        switch (m_event.key.keysym.sym) {
+            case SDLK_UP:
+            case SDLK_DOWN:
+            case SDLK_LEFT:
+            case SDLK_RIGHT:
+            case SDLK_w:
+            case SDLK_s:
+            case SDLK_d:
+            case SDLK_a:
+                //camera movement
+                m_graphics->cameraInput(m_event.key.keysym.sym);
+                break;
+            default:
+                cout << m_event.key.keysym.sym << " KEY NOT USED " << endl;
+                break;
+        }
+
+
     }
 }
 

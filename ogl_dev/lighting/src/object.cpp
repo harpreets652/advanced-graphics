@@ -27,9 +27,9 @@ Object::Object(std::string fileName) {
 
     std::vector<glm::vec3> vertices;
     std::vector<glm::uvec3> faces;
+    std::vector<glm::vec3> normals;
 
     //todo: for lighting and textures
-    std::vector<glm::vec3> normals;
     std::vector<glm::vec2> textureCoordinates;
 
     for (int i = 0; i < scene->mNumMeshes; i++) {
@@ -37,8 +37,9 @@ Object::Object(std::string fileName) {
 
         getVertices(mesh, vertices);
         getFaces(mesh, faces);
+        getNormals(mesh, normals);
 
-        buildGeometry(vertices, faces);
+        buildGeometry(vertices, faces, normals);
     }
 
     angle = 0.0f;
@@ -52,11 +53,18 @@ Object::Object(std::string fileName) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * Indices.size(), &Indices[0], GL_STATIC_DRAW);
 }
 
-void Object::buildGeometry(std::vector<glm::vec3> vertices, std::vector<glm::uvec3> faces) {
-    Vertex temp(glm::vec3(0.0), glm::vec3(0.0));
+void Object::buildGeometry(std::vector<glm::vec3> vertices,
+                           std::vector<glm::uvec3> faces,
+                           std::vector<glm::vec3> normals) {
+    Vertex temp(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0));
 
-    for (auto vertex : vertices) {
-        temp.vertex = vertex;
+    for (int i = 0; i < vertices.size(); ++i) {
+        temp.vertex = vertices[i];
+
+        if (!normals.empty()) {
+            temp.normal = normals[i];
+        }
+
         temp.color = glm::vec3(float(rand() % 100) / 100.0f,
                                float(rand() % 100) / 100.0f,
                                float(rand() % 100) / 100.0f);
@@ -130,7 +138,7 @@ void Object::getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &t
 
 void Object::Update(unsigned int dt) {
     angle += dt * M_PI / 10000;
-    model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+//    model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
 }
 
 glm::mat4 Object::GetModel() {
@@ -140,10 +148,12 @@ glm::mat4 Object::GetModel() {
 void Object::Render() {
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
 
     glBindBuffer(GL_ARRAY_BUFFER, VB);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, normal));
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
 
@@ -151,5 +161,6 @@ void Object::Render() {
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
+    glDisableVertexAttribArray(2);
 }
 
