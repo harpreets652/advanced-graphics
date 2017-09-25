@@ -91,7 +91,6 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    //Note~ lighting model
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
         printf("lighting model to Initialize\n");

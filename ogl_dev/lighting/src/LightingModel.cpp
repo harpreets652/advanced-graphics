@@ -1,8 +1,6 @@
 //
 // Created by Harpreet Singh on 9/24/17.
 //
-
-#include <LightingModel.h>
 #include "LightingModel.h"
 
 LightingModel::LightingModel() {
@@ -104,9 +102,6 @@ bool LightingModel::initialize(Shader &shaderManager) {
 }
 
 void LightingModel::renderLighting() {
-    const float fieldDepth = 20.0f;
-    const float m_scale = 0.0057f;
-
     DirectionalLight directionalLight;
     directionalLight.color = glm::vec3(1.0f, 1.0f, 1.0f);
     directionalLight.ambientIntensity = 0.2f;
@@ -124,32 +119,41 @@ void LightingModel::renderLighting() {
     pl[1].diffuseIntensity = 0.25f;
     pl[1].color = glm::vec3(0.0f, 0.0f, 1.0f);
     pl[1].ambientIntensity = 2.0;
-    pl[1].position = glm::vec3(5.0f, 1.0f, 0);
-    pl[1].attenuation.linear = 0.0f;
-    pl[1].attenuation.exp = 0.5f;
-    setPointLights(2, pl);
+    pl[1].position = glm::vec3(5.0, 1.0f, 0);
+    pl[1].attenuation.linear = 0.0;
+    pl[1].attenuation.exp = 0.5;
+    setPointLights(0, pl);
 
     SpotLight sl[2];
-    sl[0].diffuseIntensity = 0.9f;
+    sl[0].diffuseIntensity = 0.25f;
     sl[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
-    sl[0].position = glm::vec3(0.0, 7.0, -18.0);
-    sl[0].direction = glm::vec3(0.0, 3.0, -18.0);
+    sl[0].ambientIntensity = 2.0;
+    sl[0].position = glm::vec3(2.0, 5.0, 0.0);
     sl[0].attenuation.linear = 0.1f;
-    sl[0].cutoff = 10.0f;
+    sl[0].direction = glm::vec3(0.0, -1.0, 0.0);
+    sl[0].cutoff = 20.0f;
 
-    sl[1].diffuseIntensity = 0.9f;
+    sl[1].diffuseIntensity = 0.25f;
     sl[1].color = glm::vec3(1.0f, 1.0f, 1.0f);
-    sl[1].position = glm::vec3(5.0f, 3.0f, 10.0f);
-    sl[1].direction = glm::vec3(0.0f, -1.0f, 0.0f);
+    sl[1].ambientIntensity = 2.0;
+    sl[1].position = glm::vec3(-4.0f, 5.0f, 0.0f);
     sl[1].attenuation.linear = 0.1f;
-    sl[1].cutoff = 20.0f;
-//    setSpotLights(0, sl);
+    sl[1].attenuation.exp = 0.0f;
+    sl[1].direction = glm::vec3(0.0f, -1.0f, 0.0f);
+    sl[1].cutoff = 40.0f;
+    setSpotLights(2, sl);
 }
 
 /*
  * directional: relative to normals of surface
  * if using board, with normals facing up on top of surface and down under the surface,
  * set light direction to <0,1,0> and can see that the surface under is dark, only illuminated by ambient light.
+ * Note: disable other lighting models for clearer effect
+ * Sample configuration:
+    directionalLight.color = glm::vec3(1.0f, 1.0f, 1.0f);
+    directionalLight.ambientIntensity = 0.2f;
+    directionalLight.diffuseIntensity = 0.5f;
+    directionalLight.direction = glm::vec3(0.0, 1.0, 0.0);
  */
 void LightingModel::setDirectionalLight(const DirectionalLight &dLight) {
     glm::vec3 normalizedDirection = glm::normalize(dLight.direction);
@@ -166,7 +170,7 @@ void LightingModel::setDirectionalLight(const DirectionalLight &dLight) {
  * at each vertex relative to the light position and the vertex position.
  * Leave attenuation.constant to 1 and change linear and exponential. Need to set ambient intensity
  * which will be used to calculate color; color will change based on the distance of the vertex to the light position.
- * Note~ disable directional light before using this
+ * Note: disable other lighting models for clearer effect
  * sample configuration (two point-lights):
     pl[0].diffuseIntensity = 0.25f;
     pl[0].color = glm::vec3(1.0f, 0.0f, 0.0f);
@@ -196,6 +200,29 @@ void LightingModel::setPointLights(const int numLights, const PointLight *pLight
     }
 }
 
+/*
+ * Similar to point light, spot light has all the properties but with direction (similar to directional light).
+ * Unlike directional light, the direction should be negative (towards the source).
+ * To make spotlight sharper, reduce attenuation and increase ambient intensity.
+ * Note: disable other lighting models for clearer effect
+ * Sample configurations:
+    sl[0].diffuseIntensity = 0.25f;
+    sl[0].color = glm::vec3(1.0f, 0.0f, 0.0f);
+    sl[0].ambientIntensity = 2.0;
+    sl[0].position = glm::vec3(2.0, 5.0, 0.0);
+    sl[0].attenuation.linear = 0.1f;
+    sl[0].direction = glm::vec3(0.0, -1.0, 0.0);
+    sl[0].cutoff = 20.0f;
+
+    sl[1].diffuseIntensity = 0.25f;
+    sl[1].color = glm::vec3(0.0f, 1.0f, 0.0f);
+    sl[1].ambientIntensity = 2.0;
+    sl[1].position = glm::vec3(-4.0f, 5.0f, 0.0f);
+    sl[1].attenuation.linear = 0.1f;
+    sl[1].attenuation.exp = 0.0f;
+    sl[1].direction = glm::vec3(0.0f, -1.0f, 0.0f);
+    sl[1].cutoff = 40.0f;
+ */
 void LightingModel::setSpotLights(const int numLights, const SpotLight *pLights) {
     glUniform1i(numSpotLightsLocation, numLights);
 
