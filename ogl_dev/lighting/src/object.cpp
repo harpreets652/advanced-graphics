@@ -28,8 +28,6 @@ Object::Object(std::string fileName) {
     std::vector<glm::vec3> vertices;
     std::vector<glm::uvec3> faces;
     std::vector<glm::vec3> normals;
-
-    //todo: for lighting and textures
     std::vector<glm::vec2> textureCoordinates;
 
     for (int i = 0; i < scene->mNumMeshes; i++) {

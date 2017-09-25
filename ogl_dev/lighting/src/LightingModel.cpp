@@ -9,7 +9,6 @@ LightingModel::LightingModel() {
 }
 
 bool LightingModel::initialize(Shader &shaderManager) {
-    //Note~ need to set other model/view matrices
     dirLightLocation.color = shaderManager.getUniformLocation("gDirectionalLight.Base.Color");
     dirLightLocation.ambientIntensity = shaderManager.getUniformLocation("gDirectionalLight.Base.AmbientIntensity");
     dirLightLocation.diffuseIntensity = shaderManager.getUniformLocation("gDirectionalLight.Base.DiffuseIntensity");
@@ -109,23 +108,26 @@ void LightingModel::renderLighting() {
     const float m_scale = 0.0057f;
 
     DirectionalLight directionalLight;
-    directionalLight.color = glm::vec3(0.0f, 0.0f, 0.0f);
-    directionalLight.ambientIntensity = 0.5f;
-    directionalLight.diffuseIntensity = 0.1f;
-    directionalLight.direction = glm::vec3(1.0, 7.0, 0.0);
-    setDirectionalLight(directionalLight);
+    directionalLight.color = glm::vec3(1.0f, 1.0f, 1.0f);
+    directionalLight.ambientIntensity = 0.2f;
+    directionalLight.diffuseIntensity = 0.5f;
+    directionalLight.direction = glm::vec3(0.0, 1.0, 0.0);
+//    setDirectionalLight(directionalLight);
 
     PointLight pl[2];
     pl[0].diffuseIntensity = 0.25f;
-    pl[0].color = glm::vec3(1.0f, 0.5f, 0.0f);
-    pl[0].position = glm::vec3(3.0f, 1.0f, fieldDepth * (cosf(m_scale) + 1.0f) / 2.0f);
-    pl[0].attenuation.linear = 0.1f;
+    pl[0].color = glm::vec3(1.0f, 0.0f, 0.0f);
+    pl[0].ambientIntensity = 1.0;
+    pl[0].position = glm::vec3(-5.0f, 1.0f, 0);
+    pl[0].attenuation.linear = 0.5f;
 
-    pl[1].diffuseIntensity = 0.5f;
-    pl[1].color = glm::vec3(0.0f, 0.5f, 1.0f);
-    pl[1].position = glm::vec3(7.0f, 1.0f, fieldDepth * (cosf(m_scale) + 1.0f) / 2.0f);
-    pl[1].attenuation.linear = 0.1f;
-    setPointLights(0, pl);
+    pl[1].diffuseIntensity = 0.25f;
+    pl[1].color = glm::vec3(0.0f, 0.0f, 1.0f);
+    pl[1].ambientIntensity = 2.0;
+    pl[1].position = glm::vec3(5.0f, 1.0f, 0);
+    pl[1].attenuation.linear = 0.0f;
+    pl[1].attenuation.exp = 0.5f;
+    setPointLights(2, pl);
 
     SpotLight sl[2];
     sl[0].diffuseIntensity = 0.9f;
@@ -141,9 +143,14 @@ void LightingModel::renderLighting() {
     sl[1].direction = glm::vec3(0.0f, -1.0f, 0.0f);
     sl[1].attenuation.linear = 0.1f;
     sl[1].cutoff = 20.0f;
-    setSpotLights(0, sl);
+//    setSpotLights(0, sl);
 }
 
+/*
+ * directional: relative to normals of surface
+ * if using board, with normals facing up on top of surface and down under the surface,
+ * set light direction to <0,1,0> and can see that the surface under is dark, only illuminated by ambient light.
+ */
 void LightingModel::setDirectionalLight(const DirectionalLight &dLight) {
     glm::vec3 normalizedDirection = glm::normalize(dLight.direction);
 
@@ -154,6 +161,26 @@ void LightingModel::setDirectionalLight(const DirectionalLight &dLight) {
 }
 
 //todo: assuming two point lights
+/*
+ * Similar to directional light; set the light position and then calculate light direction
+ * at each vertex relative to the light position and the vertex position.
+ * Leave attenuation.constant to 1 and change linear and exponential. Need to set ambient intensity
+ * which will be used to calculate color; color will change based on the distance of the vertex to the light position.
+ * Note~ disable directional light before using this
+ * sample configuration (two point-lights):
+    pl[0].diffuseIntensity = 0.25f;
+    pl[0].color = glm::vec3(1.0f, 0.0f, 0.0f);
+    pl[0].ambientIntensity = 1.0;
+    pl[0].position = glm::vec3(-5.0f, 1.0f, 0);
+    pl[0].attenuation.linear = 0.5f;
+
+    pl[1].diffuseIntensity = 0.25f;
+    pl[1].color = glm::vec3(0.0f, 0.0f, 1.0f);
+    pl[1].ambientIntensity = 2.0;
+    pl[1].position = glm::vec3(5.0f, 1.0f, 0);
+    pl[1].attenuation.linear = 0.0f;
+    pl[1].attenuation.exp = 0.5f;
+ */
 void LightingModel::setPointLights(const int numLights, const PointLight *pLights) {
     glUniform1i(numPointLightsLocation, numLights);
 

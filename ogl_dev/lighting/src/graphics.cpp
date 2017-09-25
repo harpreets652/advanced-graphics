@@ -91,8 +91,8 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    //Note~ lighting model
     lightingModel = new LightingModel();
-
     if (!lightingModel->initialize((*m_shader))) {
         printf("lighting model to Initialize\n");
         return false;
@@ -125,11 +125,11 @@ void Graphics::Render() {
     // Render the object
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
 
-    //Add lighting
-    lightingModel->renderLighting();
-
     //render models
     m_board->Render();
+
+    //Add lighting
+    lightingModel->renderLighting();
 
     // Get any errors from OpenGL
     auto error = glGetError();
