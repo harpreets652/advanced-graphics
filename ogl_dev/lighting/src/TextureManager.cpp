@@ -9,18 +9,17 @@ TextureManager *TextureManager::instance = nullptr;
 TextureManager *TextureManager::getInstance() {
     if (!instance) {
         instance = new TextureManager;
-        ilInit(); //Note~ remove this if not needed
     }
 
     return instance;
 }
 
-bool TextureManager::loadTexture(std::string &textName, std::string imageFileName) {
+bool TextureManager::loadTexture(const std::string textName, std::string imageFileName) {
     Texture texture;
     bool status = texture.loadTexture(imageFileName);
 
     if (status) {
-        textures.insert(std::make_pair(textName, texture));
+        textures[textName] = texture;
     }
 
     return status;

@@ -34,7 +34,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.8/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
   "../CMakeModules/FindAssimp.cmake"
-  "../CMakeModules/FindDevIL.cmake"
   "../CMakeModules/FindGLEW.cmake"
   "../CMakeModules/FindGLM.cmake"
   "../CMakeModules/FindSDL2.cmake"

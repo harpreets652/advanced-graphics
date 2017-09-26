@@ -326,7 +326,6 @@ Lighting: CMakeFiles/Lighting.dir/src/window.cpp.o
 Lighting: CMakeFiles/Lighting.dir/build.make
 Lighting: /usr/local/lib/libassimp.dylib
 Lighting: /usr/local/lib/libSDL2_image.dylib
-Lighting: /usr/local/lib/libIL.dylib
 Lighting: /usr/local/lib/libSDL2main.a
 Lighting: /usr/local/lib/libSDL2.dylib
 Lighting: CMakeFiles/Lighting.dir/link.txt

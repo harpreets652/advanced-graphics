@@ -42,8 +42,8 @@ bool Graphics::Initialize(int width, int height) {
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
 
-    //load textures Note~ come back to this
-//    TextureManager::getInstance()->loadTexture((string &) "chessboard", "../textures/chessboard-super-small-texture.png");
+    //load textures
+    TextureManager::getInstance()->loadTexture("chessboard", "../textures/chessboard-super-small-texture.png");
 
     // Set up the shaders
     m_shader = new Shader();

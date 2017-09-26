@@ -7,9 +7,8 @@
 
 
 #include "graphics_headers.h"
-#include<IL/il.h>
-//#include <SDL2/SDL.h>
-//#include <SDL2/SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <string>
 
 class Texture {

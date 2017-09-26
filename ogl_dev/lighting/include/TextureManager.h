@@ -5,14 +5,14 @@
 #ifndef LIGHTING_TEXTUREMANAGER_H
 #define LIGHTING_TEXTUREMANAGER_H
 
-#include "Texture.h"
 #include <unordered_map>
+#include "Texture.h"
 
 class TextureManager {
 public:
     static TextureManager *getInstance();
 
-    bool loadTexture(std::string &textName, std::string fileName);
+    bool loadTexture(const std::string textName, std::string fileName);
 
     void enableTexture(std::string textName);
 
