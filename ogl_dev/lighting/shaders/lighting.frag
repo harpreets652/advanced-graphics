@@ -2,7 +2,7 @@
 
 in vec3 Normal0;
 in vec3 WorldPos0;
-smooth in vec3 f_color;
+in vec2 TextureCoord0;
 
 out vec4 frag_color;
 
@@ -43,6 +43,7 @@ uniform int gNumSpotLights;
 uniform DirectionalLight gDirectionalLight;
 uniform PointLight gPointLights[MAX_POINT_LIGHTS];
 uniform SpotLight gSpotLights[MAX_SPOT_LIGHTS];
+uniform sampler2D gSampler;
 
 vec4 CalcLightInternal(BaseLight Light, vec3 LightDirection, vec3 Normal) {
     vec4 AmbientColor = vec4(Light.Color * Light.AmbientIntensity, 1.0f);
@@ -96,5 +97,5 @@ void main(void) {
         TotalLight += CalcSpotLight(gSpotLights[i], Normal);
     }
 
-    frag_color = vec4(f_color.rgb, 1.0) * TotalLight;
+    frag_color = texture(gSampler, TextureCoord0.xy) * TotalLight;
 }

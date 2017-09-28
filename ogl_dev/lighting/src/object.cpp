@@ -36,8 +36,9 @@ Object::Object(std::string fileName) {
         getVertices(mesh, vertices);
         getFaces(mesh, faces);
         getNormals(mesh, normals);
+        getTextureCoordinates(mesh, textureCoordinates);
 
-        buildGeometry(vertices, faces, normals);
+        buildGeometry(vertices, faces, normals, textureCoordinates);
     }
 
     angle = 0.0f;
@@ -53,8 +54,9 @@ Object::Object(std::string fileName) {
 
 void Object::buildGeometry(std::vector<glm::vec3> vertices,
                            std::vector<glm::uvec3> faces,
-                           std::vector<glm::vec3> normals) {
-    Vertex temp(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0));
+                           std::vector<glm::vec3> normals,
+                           std::vector<glm::vec2> texCoordinates) {
+    Vertex temp(glm::vec3(0.0), glm::vec2(0.0), glm::vec3(0.0));
 
     for (int i = 0; i < vertices.size(); ++i) {
         temp.vertex = vertices[i];
@@ -63,9 +65,13 @@ void Object::buildGeometry(std::vector<glm::vec3> vertices,
             temp.normal = normals[i];
         }
 
-        temp.color = glm::vec3(float(rand() % 100) / 100.0f,
-                               float(rand() % 100) / 100.0f,
-                               float(rand() % 100) / 100.0f);
+        if (!texCoordinates.empty()) {
+            temp.textureCoordinates = texCoordinates[i];
+        }
+
+//        temp.color = glm::vec3(float(rand() % 100) / 100.0f,
+//                               float(rand() % 100) / 100.0f,
+//                               float(rand() % 100) / 100.0f);
 
         Vertices.push_back(temp);
     }
@@ -148,9 +154,12 @@ void Object::Render() {
     glEnableVertexAttribArray(1);
     glEnableVertexAttribArray(2);
 
+    TextureManager::getInstance()->setSamplerIndex(0);
+    TextureManager::getInstance()->enableTexture("chessboard", GL_TEXTURE0);
+
     glBindBuffer(GL_ARRAY_BUFFER, VB);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, textureCoordinates));
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, normal));
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
@@ -160,5 +169,6 @@ void Object::Render() {
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(2);
+    TextureManager::getInstance()->disableTexture("chessboard");
 }
 

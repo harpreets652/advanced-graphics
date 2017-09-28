@@ -42,9 +42,6 @@ bool Graphics::Initialize(int width, int height) {
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
 
-    //load textures
-    TextureManager::getInstance()->loadTexture("chessboard", "../textures/chessboard-super-small-texture.png");
-
     // Set up the shaders
     m_shader = new Shader();
     if (!m_shader->initialize()) {
@@ -53,13 +50,13 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Add the vertex shader
-    if (!m_shader->addShaderFromFile("../shaders/lighting.vs", GL_VERTEX_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/lighting.vert", GL_VERTEX_SHADER)) {
         printf("Vertex Shader failed to Initialize\n");
         return false;
     }
 
     // Add the fragment shader
-    if (!m_shader->addShaderFromFile("../shaders/lighting.fs", GL_FRAGMENT_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/lighting.frag", GL_FRAGMENT_SHADER)) {
         printf("Fragment Shader failed to Initialize\n");
         return false;
     }
@@ -88,6 +85,17 @@ bool Graphics::Initialize(int width, int height) {
     m_modelMatrix = m_shader->getUniformLocation("modelMatrix");
     if (m_modelMatrix == INVALID_UNIFORM_LOCATION) {
         printf("m_modelMatrix not found\n");
+        return false;
+    }
+
+    //load textures
+    if (!TextureManager::getInstance()->initHandlers((*m_shader))) {
+        std::cout << "Unable to get texture handlers from shader." << std::endl;
+        return false;
+    }
+
+    if (!TextureManager::getInstance()->loadTexture("chessboard", "../textures/chessboard-texture.png")) {
+        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
         return false;
     }
 

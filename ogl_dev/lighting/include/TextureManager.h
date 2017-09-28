@@ -7,21 +7,27 @@
 
 #include <unordered_map>
 #include "Texture.h"
+#include "shader.h"
 
 class TextureManager {
 public:
     static TextureManager *getInstance();
 
+    bool initHandlers(Shader shaderProgram);
+
     bool loadTexture(const std::string textName, std::string fileName);
 
-    void enableTexture(std::string textName);
+    void setSamplerIndex(int samplerIndex);
+
+    void enableTexture(std::string textName, GLenum textureUnit);
 
     void disableTexture(std::string textName);
 
 private:
-    TextureManager() {};
+    TextureManager();
 
     static TextureManager *instance;
+    GLint samplerHandler;
     std::unordered_map<std::string, Texture> textures;
 };
 

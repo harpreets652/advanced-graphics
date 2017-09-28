@@ -14,6 +14,20 @@ TextureManager *TextureManager::getInstance() {
     return instance;
 }
 
+TextureManager::TextureManager() {
+    samplerHandler = 0;
+}
+
+bool TextureManager::initHandlers(Shader shaderProgram) {
+    samplerHandler = shaderProgram.getUniformLocation("gSampler");
+
+    if (samplerHandler == INVALID_UNIFORM_LOCATION) {
+        return false;
+    }
+
+    return true;
+}
+
 bool TextureManager::loadTexture(const std::string textName, std::string imageFileName) {
     Texture texture;
     bool status = texture.loadTexture(imageFileName);
@@ -25,9 +39,15 @@ bool TextureManager::loadTexture(const std::string textName, std::string imageFi
     return status;
 }
 
-void TextureManager::enableTexture(std::string textName) {
+void TextureManager::setSamplerIndex(int samplerIndex) {
+    if (samplerHandler != 0) {
+        glUniform1i(samplerHandler, samplerIndex);
+    }
+}
+
+void TextureManager::enableTexture(std::string textName, GLenum textureUnit) {
     if (textures.find(textName) != textures.end()) {
-        textures[textName].enable();
+        textures[textName].enable(textureUnit);
     }
 }
 

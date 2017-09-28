@@ -15,9 +15,6 @@ Texture::~Texture() {
 }
 
 bool Texture::loadTexture(std::string &imageName) {
-    int maxSize = 0;
-    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxSize);
-
     SDL_Surface *textureImage = IMG_Load(imageName.c_str());
 
     if (textureImage == nullptr) {
@@ -43,8 +40,9 @@ bool Texture::loadTexture(std::string &imageName) {
     return true;
 }
 
-void Texture::enable() {
-    glActiveTexture(GL_TEXTURE0);
+//TextureUnit can be GL_TEXTURE0
+void Texture::enable(GLenum textureUnit) {
+    glActiveTexture(textureUnit);
     glBindTexture(GL_TEXTURE_2D, textureHandler);
 }
 
