@@ -30,8 +30,8 @@ private:
 
     void getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &texCoords);
 
-    void buildGeometry(std::vector<glm::vec3> vertices, std::vector<glm::uvec3> faces,
-                       std::vector<glm::vec3> normals, std::vector<glm::vec2> texCoordinates);
+    void buildGeometry(std::vector<glm::vec3> &vertices, std::vector<glm::uvec3> &faces,
+                       std::vector<glm::vec3> &normals, std::vector<glm::vec2> &texCoordinates);
 
     glm::mat4 model;
     std::vector<Vertex> Vertices;

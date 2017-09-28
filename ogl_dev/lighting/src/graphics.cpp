@@ -40,7 +40,7 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Create the object
-    m_board = new Object("../objects/chessboard.obj");
+    m_board = new Object("../objects/chessboard-texts.obj");
 
     // Set up the shaders
     m_shader = new Shader();

@@ -18,8 +18,8 @@ TextureManager::TextureManager() {
     samplerHandler = 0;
 }
 
-bool TextureManager::initHandlers(Shader shaderProgram) {
-    samplerHandler = shaderProgram.getUniformLocation("gSampler");
+bool TextureManager::initHandlers(Shader &shaderManager) {
+    samplerHandler = shaderManager.getUniformLocation("gSampler");
 
     if (samplerHandler == INVALID_UNIFORM_LOCATION) {
         return false;
@@ -39,7 +39,7 @@ bool TextureManager::loadTexture(const std::string textName, std::string imageFi
     return status;
 }
 
-void TextureManager::setSamplerIndex(int samplerIndex) {
+void TextureManager::setTextureUnit(int samplerIndex) {
     if (samplerHandler != 0) {
         glUniform1i(samplerHandler, samplerIndex);
     }

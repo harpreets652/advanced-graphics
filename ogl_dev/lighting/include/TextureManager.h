@@ -13,11 +13,11 @@ class TextureManager {
 public:
     static TextureManager *getInstance();
 
-    bool initHandlers(Shader shaderProgram);
+    bool initHandlers(Shader &shaderManager);
 
     bool loadTexture(const std::string textName, std::string fileName);
 
-    void setSamplerIndex(int samplerIndex);
+    void setTextureUnit(int samplerIndex);
 
     void enableTexture(std::string textName, GLenum textureUnit);
 

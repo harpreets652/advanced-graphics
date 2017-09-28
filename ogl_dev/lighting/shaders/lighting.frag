@@ -3,6 +3,7 @@
 in vec3 Normal0;
 in vec3 WorldPos0;
 in vec2 TextureCoord0;
+smooth in vec3 f_color;
 
 out vec4 frag_color;
 
@@ -97,5 +98,6 @@ void main(void) {
         TotalLight += CalcSpotLight(gSpotLights[i], Normal);
     }
 
-    frag_color = texture(gSampler, TextureCoord0.xy) * TotalLight;
+//    frag_color = texture(gSampler, TextureCoord0.xy) * TotalLight;
+    frag_color = vec4(f_color.rgb, 1.0) * TotalLight;
 }
