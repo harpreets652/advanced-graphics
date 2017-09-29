@@ -14,8 +14,8 @@ Camera::~Camera() {
 
 bool Camera::Initialize(int w, int h) {
     position = glm::vec3(0.0, 8.0, -18.0);
-    focus = glm::normalize(glm::vec3(0.0, 1.0, 0.0));
-    up = glm::normalize(glm::vec3(0.0, 1.0, 0.0));
+    focus = glm::vec3(1.0, 1.0, 0.0);
+    up = glm::vec3(0.0, 1.0, 0.0);
 
     updateViewMatrix();
 
@@ -66,14 +66,14 @@ void Camera::updatePosition(Direction direction) {
             break;
         }
         case LEFT: {
-            glm::vec3 leftVec = glm::cross(focus, up);
+            glm::vec3 leftVec = glm::cross(up, focus);
             glm::normalize(leftVec);
             leftVec *= positionStepSize;
             position += leftVec;
             break;
         }
         case RIGHT: {
-            glm::vec3 rightVec = glm::cross(up, focus);
+            glm::vec3 rightVec = glm::cross(focus, up);
             glm::normalize(rightVec);
             rightVec *= positionStepSize;
             position += rightVec;

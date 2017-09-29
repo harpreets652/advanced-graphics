@@ -15,6 +15,8 @@ public:
 
     ~Object();
 
+    void setTextureId(std::string textId);
+
     void Update(unsigned int dt);
 
     void Render();
@@ -38,6 +40,7 @@ private:
     std::vector<unsigned int> Indices;
     GLuint VB;
     GLuint IB;
+    std::string textureId;
 
     float angle;
 };

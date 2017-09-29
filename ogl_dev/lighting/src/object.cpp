@@ -140,6 +140,10 @@ void Object::getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &t
     }
 }
 
+void Object::setTextureId(std::string textId) {
+    textureId = textId;
+}
+
 void Object::Update(unsigned int dt) {
     angle += dt * M_PI / 10000;
 //    model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
@@ -162,7 +166,7 @@ void Object::Render() {
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
 
     TextureManager::getInstance()->setTextureUnit(0);
-    TextureManager::getInstance()->enableTexture("chessboard", GL_TEXTURE0);
+    TextureManager::getInstance()->enableTexture(textureId, GL_TEXTURE0);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
     glDrawElements(GL_TRIANGLES, Indices.size(), GL_UNSIGNED_INT, 0);
