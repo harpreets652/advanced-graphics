@@ -28,7 +28,7 @@ private:
 
     static TextureManager *instance;
     GLint samplerHandler;
-    std::map<std::string, Texture> textures;
+    std::map<std::string, Texture *> textures;
 };
 
 #endif //LIGHTING_TEXTUREMANAGER_H

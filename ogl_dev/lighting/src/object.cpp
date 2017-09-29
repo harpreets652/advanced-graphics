@@ -161,9 +161,8 @@ void Object::Render() {
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, normal));
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
 
-    //Note~ why isn't this working
-//    TextureManager::getInstance()->setTextureUnit(0);
-//    TextureManager::getInstance()->enableTexture("chessboard", GL_TEXTURE0);
+    TextureManager::getInstance()->setTextureUnit(0);
+    TextureManager::getInstance()->enableTexture("chessboard", GL_TEXTURE0);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
     glDrawElements(GL_TRIANGLES, Indices.size(), GL_UNSIGNED_INT, 0);
@@ -172,6 +171,8 @@ void Object::Render() {
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(2);
     glDisableVertexAttribArray(3);
+
+    //Note~ this is throwing GL_INVALID_ENUM
 //    TextureManager::getInstance()->disableTexture("chessboard");
 }
 

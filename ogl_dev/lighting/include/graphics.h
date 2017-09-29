@@ -9,8 +9,7 @@
 #include "Direction.h"
 #include "shader.h"
 #include "object.h"
-//#include "TextureManager.h" Note~ add this again
-#include "Texture.h"
+#include "TextureManager.h"
 #include "LightingModel.h"
 
 using namespace std;

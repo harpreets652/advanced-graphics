@@ -67,8 +67,8 @@ shader.h
 ../include/shader.h
 object.h
 ../include/object.h
-Texture.h
-../include/Texture.h
+TextureManager.h
+../include/TextureManager.h
 LightingModel.h
 ../include/LightingModel.h
 
