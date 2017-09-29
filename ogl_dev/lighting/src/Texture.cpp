@@ -27,15 +27,20 @@ bool Texture::loadTexture(std::string &imageName) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //or GL_NEAREST
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //or GL_NEAREST
 
+    std::cout << "bits per pixel " << textureImage->format->BitsPerPixel << std::endl;
     glTexImage2D(GL_TEXTURE_2D,
                  0,
-                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
-                 textureImage->w,
-                 textureImage->h,
+                 GL_RGBA,
+                 //textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
+                 (GLsizei)textureImage->w,
+                 (GLsizei)textureImage->h,
                  0,
-                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
+                 GL_RGBA,
+//                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
                  GL_UNSIGNED_BYTE,
                  textureImage->pixels);
+
+    SDL_FreeSurface(textureImage);
 
     return true;
 }

@@ -155,14 +155,15 @@ void Object::Render() {
     glEnableVertexAttribArray(2);
     glEnableVertexAttribArray(3);
 
-    TextureManager::getInstance()->setTextureUnit(0);
-//    TextureManager::getInstance()->enableTexture("chessboard", GL_TEXTURE0);
-
     glBindBuffer(GL_ARRAY_BUFFER, VB);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, textureCoordinates));
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, normal));
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
+
+    //Note~ why isn't this working
+//    TextureManager::getInstance()->setTextureUnit(0);
+//    TextureManager::getInstance()->enableTexture("chessboard", GL_TEXTURE0);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
     glDrawElements(GL_TRIANGLES, Indices.size(), GL_UNSIGNED_INT, 0);

@@ -29,7 +29,7 @@ string
 -
 
 ../include/TextureManager.h
-unordered_map
+map
 -
 Texture.h
 ../include/Texture.h
@@ -67,8 +67,8 @@ shader.h
 ../include/shader.h
 object.h
 ../include/object.h
-TextureManager.h
-../include/TextureManager.h
+Texture.h
+../include/Texture.h
 LightingModel.h
 ../include/LightingModel.h
 

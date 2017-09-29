@@ -8,6 +8,9 @@ Graphics::~Graphics() {
 
 }
 
+//Note~ remove this
+Texture tempText;
+GLint samplerHandle;
 bool Graphics::Initialize(int width, int height) {
     // Used for the linux OS
 #if !defined(__APPLE__) && !defined(MACOSX)
@@ -89,15 +92,22 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     //load textures
+    //Note~ remove this if not needed
+    samplerHandle = m_shader->getUniformLocation("gSampler");
+    std::string text = "../textures/chessboard-texture.png";
+    tempText.loadTexture(text);
+
+/*
     if (!TextureManager::getInstance()->initHandlers((*m_shader))) {
         std::cout << "Unable to get texture handlers from shader." << std::endl;
         return false;
     }
 
-    if (!TextureManager::getInstance()->loadTexture("chessboard", "../textures/chessboard-texture.png")) {
+    if (!TextureManager::getInstance()->addTexture("chessboard", "../textures/chessboard-texture.png")) {
         std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
         return false;
     }
+*/
 
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
@@ -136,11 +146,16 @@ void Graphics::Render() {
     // Render the object
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
 
+    //Note~ remove this when unnecessary
+    glUniform1i(samplerHandle, 0);
+    tempText.enable(GL_TEXTURE0);
     //render models
     m_board->Render();
 
     //Add lighting
     lightingModel->renderLighting();
+
+    tempText.disable();
 
     // Get any errors from OpenGL
     auto error = glGetError();

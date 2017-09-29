@@ -23,13 +23,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="graphics.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="graphics.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="96" column="46" lean-forward="true" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+            <state relative-caret-position="169">
+              <caret line="96" column="54" lean-forward="true" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
               <folding>
-                <element signature="e#206#630#0" expanded="true" />
+                <element signature="e#265#689#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="graphics.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/graphics.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+              <folding>
+                <element signature="e#39#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,18 +60,8 @@
       <file leaf-file-name="shader.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shader.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shader.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/shader.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="2040">
+              <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -68,19 +70,21 @@
       <file leaf-file-name="object.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/object.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="157" column="47" lean-forward="true" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
+            <state relative-caret-position="349">
+              <caret line="163" column="34" lean-forward="false" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="camera.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/camera.cpp">
+      <file leaf-file-name="graphics_headers.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/graphics_headers.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="269">
+              <caret line="36" column="72" lean-forward="true" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
+              <folding>
+                <marker date="1506640909000" expanded="true" signature="180:227" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,31 +104,29 @@
       <file leaf-file-name="LightingModel.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LightingModel.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1032">
-              <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+            <state relative-caret-position="-46">
+              <caret line="129" column="33" lean-forward="true" selection-start-line="129" selection-start-column="33" selection-end-line="129" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextureManager.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TextureManager.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TextureManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+            <state relative-caret-position="364">
+              <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graphics_headers.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/graphics_headers.h">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-              <folding>
-                <marker date="1506640909000" expanded="true" signature="180:227" ph="..." />
-              </folding>
+            <state relative-caret-position="750">
+              <caret line="50" column="111" lean-forward="false" selection-start-line="50" selection-start-column="111" selection-end-line="50" selection-end-column="111" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,9 +134,11 @@
       <file leaf-file-name="TextureManager.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/TextureManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="435">
+              <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <folding>
+                <element signature="e#117#131#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,8 +146,8 @@
       <file leaf-file-name="Texture.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/Texture.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="225">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding>
                 <element signature="e#104#133#0" expanded="true" />
               </folding>
@@ -154,8 +158,28 @@
       <file leaf-file-name="Texture.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Texture.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            <state relative-caret-position="189">
+              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gl3.h" pinned="false" current-in-tab="false">
+        <entry file="file:///System/Library/Frameworks/OpenGL.framework/Headers/gl3.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="1627" column="88" lean-forward="false" selection-start-line="1627" selection-start-column="88" selection-end-line="1627" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gltypes.h" pinned="false" current-in-tab="false">
+        <entry file="file:///System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -164,8 +188,8 @@
       <file leaf-file-name="lighting.frag" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shaders/lighting.frag">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="298">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -174,9 +198,11 @@
       <file leaf-file-name="LightingModel.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/LightingModel.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="105">
+              <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding>
+                <element signature="e#115#144#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -185,7 +211,7 @@
         <entry file="file://$PROJECT_DIR$/shaders/lighting.vert">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+              <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -195,13 +221,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>v_position</find>
-      <find>color</find>
-      <find>Normal</find>
-      <find>Normal0</find>
-      <find>WorldPos0</find>
-      <find>MAX_POINT_LIGHTS</find>
-      <find>Color</find>
       <find>/</find>
       <find>Attenuation</find>
       <find>gPointLights</find>
@@ -217,14 +236,21 @@
       <find>GetUniformLocation</find>
       <find>m_spotLightsLocation</find>
       <find>LightToPixel</find>
-      <find>devil</find>
-      <find>dev</find>
-      <find>chessboard</find>
       <find>texture2D</find>
       <find>Error initializing OpenGL</find>
       <find>textureCoordinates</find>
       <find>TextureCoord0</find>
       <find>gSampler</find>
+      <find>chessboard</find>
+      <find>glGetUniformLocation</find>
+      <find>bool Texture::loadTexture(std::string &amp;imageName)</find>
+      <find>clean</find>
+      <find>devil</find>
+      <find>-</find>
+      <find>Unable to get texture handlers from shader.</find>
+      <find>dev</find>
+      <find>glActiveTexture</find>
+      <find>glBindTexture</find>
     </findStrings>
     <replaceStrings>
       <replace>DEV_IL_LIBRARIES</replace>
@@ -264,14 +290,12 @@
         <option value="$PROJECT_DIR$/CMakeModules/FindSDLImage.cmake" />
         <option value="$PROJECT_DIR$/objects/chessboard.obj" />
         <option value="$PROJECT_DIR$/CMakeModules/FindSDL2_Image.cmake" />
-        <option value="$PROJECT_DIR$/CMakeModules/FindDevIL.cmake" />
         <option value="$PROJECT_DIR$/include/window.h" />
         <option value="$PROJECT_DIR$/include/Direction.h" />
         <option value="$PROJECT_DIR$/src/engine.cpp" />
         <option value="$PROJECT_DIR$/include/camera.h" />
         <option value="$PROJECT_DIR$/include/LightingTechnique.h" />
         <option value="$PROJECT_DIR$/src/LightingTechnique.cpp" />
-        <option value="$PROJECT_DIR$/include/graphics.h" />
         <option value="$PROJECT_DIR$/shaders/shader.vs" />
         <option value="$PROJECT_DIR$/src/shader.cpp" />
         <option value="$PROJECT_DIR$/shaders/lighting.vs" />
@@ -279,18 +303,20 @@
         <option value="$PROJECT_DIR$/include/LightingModel.h" />
         <option value="$PROJECT_DIR$/src/camera.cpp" />
         <option value="$PROJECT_DIR$/shaders/lighting.fs" />
-        <option value="$PROJECT_DIR$/src/LightingModel.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/include/Texture.h" />
-        <option value="$PROJECT_DIR$/src/Texture.cpp" />
         <option value="$PROJECT_DIR$/include/object.h" />
         <option value="$PROJECT_DIR$/shaders/lighting.vert" />
         <option value="$PROJECT_DIR$/include/graphics_headers.h" />
-        <option value="$PROJECT_DIR$/src/graphics.cpp" />
-        <option value="$PROJECT_DIR$/shaders/lighting.frag" />
         <option value="$PROJECT_DIR$/include/TextureManager.h" />
+        <option value="$PROJECT_DIR$/CMakeModules/FindDevIL.cmake" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/Texture.h" />
+        <option value="$PROJECT_DIR$/include/graphics.h" />
+        <option value="$PROJECT_DIR$/src/LightingModel.cpp" />
         <option value="$PROJECT_DIR$/src/TextureManager.cpp" />
+        <option value="$PROJECT_DIR$/shaders/lighting.frag" />
+        <option value="$PROJECT_DIR$/src/Texture.cpp" />
         <option value="$PROJECT_DIR$/src/object.cpp" />
+        <option value="$PROJECT_DIR$/src/graphics.cpp" />
       </list>
     </option>
   </component>
@@ -302,7 +328,7 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="325" />
+    <option name="x" value="287" />
     <option name="y" value="23" />
     <option name="width" value="1060" />
     <option name="height" value="823" />
@@ -333,6 +359,11 @@
               <item name="Lighting" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="lighting" type="462c0819:PsiDirectoryNode" />
               <item name="objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Lighting" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="lighting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Lighting" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
@@ -418,12 +449,13 @@
       <workItem from="1506399036556" duration="19000" />
       <workItem from="1506622014568" duration="126000" />
       <workItem from="1506622149613" duration="11632000" />
-      <workItem from="1506639801103" duration="2370000" />
+      <workItem from="1506639801103" duration="5505000" />
+      <workItem from="1506652116179" duration="4164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107959000" />
+    <option name="totallyTimeSpent" value="115258000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -436,14 +468,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="325" y="23" width="1060" height="823" extended-state="0" />
-    <editor active="true" />
+    <frame x="287" y="23" width="1060" height="823" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21611002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2200393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32624114" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57588655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48368794" sideWeight="0.50392926" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -455,7 +487,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -470,19 +501,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="57" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/Texture.cpp</url>
+          <line>30</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="65" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch..txt" />
-    <entry file="file://$PROJECT_DIR$/CMakeModules/FindSDL2.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="94" column="1" lean-forward="false" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeModules/FindAssimp.cmake">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -518,7 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeModules/FindDevIL.cmake" />
     <entry file="file:///usr/local/include/IL/il.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8625">
@@ -605,16 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/graphics.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="32" />
-          <folding>
-            <element signature="e#39#58#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaders/shader.frag">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
@@ -659,14 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/LightingModel.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/engine.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -675,32 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/textures/chessboard-small-texture.png" />
-    <entry file="file://$PROJECT_DIR$/include/Texture.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding>
-            <element signature="e#104#133#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/shader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/objects/bishop.obj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-54182">
@@ -712,14 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/OpenGL.framework/Headers/gl3.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="1895" column="20" lean-forward="false" selection-start-line="1895" selection-start-column="20" selection-end-line="1895" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -749,57 +727,94 @@
     <entry file="file://$PROJECT_DIR$/shaders/lighting.vert">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/shader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
+        <state relative-caret-position="2040">
+          <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Texture.cpp">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="50">
+          <caret line="84" column="31" lean-forward="false" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
+    <entry file="file://$PROJECT_DIR$/include/LightingModel.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="96" column="46" lean-forward="true" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+        <state relative-caret-position="105">
+          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
           <folding>
-            <element signature="e#206#630#0" expanded="true" />
+            <element signature="e#115#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeModules/FindDevIL.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Texture.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="e#104#133#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="111" lean-forward="false" selection-start-line="50" selection-start-column="111" selection-end-line="50" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/graphics.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="e#39#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/TextureManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/lighting.frag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="435">
+          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding>
+            <element signature="e#117#131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/graphics_headers.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        <state relative-caret-position="269">
+          <caret line="36" column="72" lean-forward="true" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
           <folding>
             <marker date="1506640909000" expanded="true" signature="180:227" ph="..." />
           </folding>
@@ -808,25 +823,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LightingModel.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1032">
-          <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+        <state relative-caret-position="-46">
+          <caret line="129" column="33" lean-forward="true" selection-start-line="129" selection-start-column="33" selection-end-line="129" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/object.cpp">
+    <entry file="file://$PROJECT_DIR$/shaders/lighting.frag">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="157" column="47" lean-forward="true" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
+        <state relative-caret-position="298">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/OpenGL.framework/Headers/gl3.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="1627" column="88" lean-forward="false" selection-start-line="1627" selection-start-column="88" selection-end-line="1627" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Texture.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TextureManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        <state relative-caret-position="364">
+          <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/object.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="163" column="34" lean-forward="false" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="96" column="54" lean-forward="true" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+          <folding>
+            <element signature="e#265#689#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

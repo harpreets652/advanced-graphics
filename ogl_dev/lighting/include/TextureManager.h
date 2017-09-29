@@ -5,7 +5,7 @@
 #ifndef LIGHTING_TEXTUREMANAGER_H
 #define LIGHTING_TEXTUREMANAGER_H
 
-#include <unordered_map>
+#include <map>
 #include "Texture.h"
 #include "shader.h"
 
@@ -15,9 +15,9 @@ public:
 
     bool initHandlers(Shader &shaderManager);
 
-    bool loadTexture(const std::string textName, std::string fileName);
+    bool addTexture(const std::string textName, std::string fileName);
 
-    void setTextureUnit(int samplerIndex);
+    void setTextureUnit(unsigned int samplerIndex);
 
     void enableTexture(std::string textName, GLenum textureUnit);
 
@@ -28,7 +28,7 @@ private:
 
     static TextureManager *instance;
     GLint samplerHandler;
-    std::unordered_map<std::string, Texture> textures;
+    std::map<std::string, Texture> textures;
 };
 
 #endif //LIGHTING_TEXTUREMANAGER_H

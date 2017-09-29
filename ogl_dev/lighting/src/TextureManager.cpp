@@ -28,7 +28,7 @@ bool TextureManager::initHandlers(Shader &shaderManager) {
     return true;
 }
 
-bool TextureManager::loadTexture(const std::string textName, std::string imageFileName) {
+bool TextureManager::addTexture(const std::string textName, std::string imageFileName) {
     Texture texture;
     bool status = texture.loadTexture(imageFileName);
 
@@ -39,9 +39,9 @@ bool TextureManager::loadTexture(const std::string textName, std::string imageFi
     return status;
 }
 
-void TextureManager::setTextureUnit(int samplerIndex) {
+void TextureManager::setTextureUnit(unsigned int samplerIndex) {
     if (samplerHandler != 0) {
-        glUniform1i(samplerHandler, samplerIndex);
+        glUniform1i(samplerHandler, 0);
     }
 }
 
