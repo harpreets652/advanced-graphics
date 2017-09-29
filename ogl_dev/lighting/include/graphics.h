@@ -41,6 +41,7 @@ private:
     GLint m_modelMatrix;
 
     Object *m_board;
+    Object *m_queen;
 };
 
 #endif /* GRAPHICS_H */

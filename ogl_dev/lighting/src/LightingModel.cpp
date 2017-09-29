@@ -122,7 +122,7 @@ void LightingModel::renderLighting() {
     pl[1].position = glm::vec3(5.0, 1.0f, 0);
     pl[1].attenuation.linear = 0.0;
     pl[1].attenuation.exp = 0.5;
-    setPointLights(0, pl);
+    setPointLights(2, pl);
 
     SpotLight sl[2];
     sl[0].diffuseIntensity = 0.25f;
@@ -141,7 +141,7 @@ void LightingModel::renderLighting() {
     sl[1].attenuation.exp = 0.0f;
     sl[1].direction = glm::vec3(0.0f, -1.0f, 0.0f);
     sl[1].cutoff = 40.0f;
-    setSpotLights(2, sl);
+//    setSpotLights(2, sl);
 }
 
 /*

@@ -29,10 +29,12 @@ string
 -
 
 ../include/TextureManager.h
-unordered_map
+map
 -
 Texture.h
 ../include/Texture.h
+shader.h
+../include/shader.h
 
 ../include/camera.h
 graphics_headers.h
@@ -101,6 +103,8 @@ assimp/scene.h
 -
 graphics_headers.h
 ../include/graphics_headers.h
+TextureManager.h
+../include/TextureManager.h
 
 ../include/shader.h
 vector

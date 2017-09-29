@@ -15,9 +15,6 @@ Texture::~Texture() {
 }
 
 bool Texture::loadTexture(std::string &imageName) {
-    int maxSize = 0;
-    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxSize);
-
     SDL_Surface *textureImage = IMG_Load(imageName.c_str());
 
     if (textureImage == nullptr) {
@@ -32,19 +29,24 @@ bool Texture::loadTexture(std::string &imageName) {
 
     glTexImage2D(GL_TEXTURE_2D,
                  0,
-                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
-                 textureImage->w,
-                 textureImage->h,
+                 GL_RGBA,
+                 //textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
+                 (GLsizei)textureImage->w,
+                 (GLsizei)textureImage->h,
                  0,
-                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
+                 GL_RGBA,
+//                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
                  GL_UNSIGNED_BYTE,
                  textureImage->pixels);
+
+    SDL_FreeSurface(textureImage);
 
     return true;
 }
 
-void Texture::enable() {
-    glActiveTexture(GL_TEXTURE0);
+//TextureUnit can be GL_TEXTURE0
+void Texture::enable(GLenum textureUnit) {
+    glActiveTexture(textureUnit);
     glBindTexture(GL_TEXTURE_2D, textureHandler);
 }
 

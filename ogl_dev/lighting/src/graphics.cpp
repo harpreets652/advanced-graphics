@@ -41,9 +41,7 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
-
-    //load textures
-    TextureManager::getInstance()->loadTexture("chessboard", "../textures/chessboard-super-small-texture.png");
+    m_queen = new Object("../objects/cube.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -53,13 +51,13 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Add the vertex shader
-    if (!m_shader->addShaderFromFile("../shaders/lighting.vs", GL_VERTEX_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/lighting.vert", GL_VERTEX_SHADER)) {
         printf("Vertex Shader failed to Initialize\n");
         return false;
     }
 
     // Add the fragment shader
-    if (!m_shader->addShaderFromFile("../shaders/lighting.fs", GL_FRAGMENT_SHADER)) {
+    if (!m_shader->addShaderFromFile("../shaders/lighting.frag", GL_FRAGMENT_SHADER)) {
         printf("Fragment Shader failed to Initialize\n");
         return false;
     }
@@ -91,6 +89,25 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    //load textures
+    if (!TextureManager::getInstance()->initHandlers((*m_shader))) {
+        std::cout << "Unable to get texture handlers from shader." << std::endl;
+        return false;
+    }
+
+    if (!TextureManager::getInstance()->addTexture("chessboard", "../textures/chessboard-texture_large.jpg")) {
+        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
+        return false;
+    }
+
+    if (!TextureManager::getInstance()->addTexture("marble", "../textures/MarbleWhite.png")) {
+        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
+        return false;
+    }
+
+    m_board->setTextureId("chessboard");
+    m_queen->setTextureId("marble");
+
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
         printf("lighting model to Initialize\n");
@@ -107,6 +124,7 @@ bool Graphics::Initialize(int width, int height) {
 void Graphics::Update(unsigned int dt) {
     // Update the object
     m_board->Update(dt);
+    m_queen->Update(dt);
 }
 
 void Graphics::Render() {
@@ -125,11 +143,14 @@ void Graphics::Render() {
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
 
-    // Render the object
+    // Render the board
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
-
-    //render models
     m_board->Render();
+
+    // render the queen
+    glm::mat4 queenModel = m_board->GetModel() * m_queen->GetModel();
+    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(queenModel));
+    m_queen->Render();
 
     //Add lighting
     lightingModel->renderLighting();

@@ -14,26 +14,48 @@ TextureManager *TextureManager::getInstance() {
     return instance;
 }
 
-bool TextureManager::loadTexture(const std::string textName, std::string imageFileName) {
-    Texture texture;
-    bool status = texture.loadTexture(imageFileName);
+TextureManager::TextureManager() {
+    samplerHandler = 0;
+}
+
+bool TextureManager::initHandlers(Shader &shaderManager) {
+    samplerHandler = shaderManager.getUniformLocation("gSampler");
+
+    if (samplerHandler == INVALID_UNIFORM_LOCATION) {
+        return false;
+    }
+
+    return true;
+}
+
+bool TextureManager::addTexture(const std::string textName, std::string imageFileName) {
+    auto *texture = new Texture;
+    bool status = texture->loadTexture(imageFileName);
 
     if (status) {
-        textures[textName] = texture;
+        textures.insert({textName, texture});
+        //Note~ WTF! This expects copy constructor
+//        textures[textName] = texture;
     }
 
     return status;
 }
 
-void TextureManager::enableTexture(std::string textName) {
+void TextureManager::setTextureUnit(unsigned int samplerIndex) {
+    if (samplerHandler != 0) {
+        glUniform1i(samplerHandler, samplerIndex);
+    }
+}
+
+void TextureManager::enableTexture(std::string textName, GLenum textureUnit) {
     if (textures.find(textName) != textures.end()) {
-        textures[textName].enable();
+        textures[textName]->enable(textureUnit);
     }
 }
 
 void TextureManager::disableTexture(std::string textName) {
     if (textures.find(textName) != textures.end()) {
-        textures[textName].disable();
+        textures[textName]->disable();
     }
 }
 

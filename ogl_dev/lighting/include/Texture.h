@@ -19,7 +19,7 @@ public:
 
     bool loadTexture(std::string &imageName);
 
-    void enable();
+    void enable(GLenum textureUnit);
 
     void disable();
 
