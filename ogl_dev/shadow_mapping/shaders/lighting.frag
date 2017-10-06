@@ -98,6 +98,10 @@ void main(void) {
         TotalLight += CalcSpotLight(gSpotLights[i], Normal);
     }
 
-    frag_color = texture(gSampler, TextureCoord0.xy) * TotalLight;
-//    frag_color = vec4(f_color.rgb, 1.0) * TotalLight;
+//    frag_color = texture(gSampler, TextureCoord0.xy) * TotalLight;
+//    frag_color = vec4(f_color.xyz, 1);
+
+    float depthVal = texture(gSampler, TextureCoord0.xy).x;
+    depthVal = 1.0 - (1.0 - depthVal) * 25.0;
+    frag_color = vec4(depthVal);
 }

@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting
+CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,30 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Lighting_SUCCESSFUL
+# Target rules for targets named shadowMapping_SUCCESSFUL
 
 # Build rule for target.
-Lighting_SUCCESSFUL: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Lighting_SUCCESSFUL
-.PHONY : Lighting_SUCCESSFUL
+shadowMapping_SUCCESSFUL: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 shadowMapping_SUCCESSFUL
+.PHONY : shadowMapping_SUCCESSFUL
 
 # fast build rule for target.
-Lighting_SUCCESSFUL/fast:
-	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/build
-.PHONY : Lighting_SUCCESSFUL/fast
+shadowMapping_SUCCESSFUL/fast:
+	$(MAKE) -f CMakeFiles/shadowMapping_SUCCESSFUL.dir/build.make CMakeFiles/shadowMapping_SUCCESSFUL.dir/build
+.PHONY : shadowMapping_SUCCESSFUL/fast
 
 #=============================================================================
-# Target rules for targets named Lighting
+# Target rules for targets named shadowMapping
 
 # Build rule for target.
-Lighting: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Lighting
-.PHONY : Lighting
+shadowMapping: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 shadowMapping
+.PHONY : shadowMapping
 
 # fast build rule for target.
-Lighting/fast:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/build
-.PHONY : Lighting/fast
+shadowMapping/fast:
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/build
+.PHONY : shadowMapping/fast
 
 src/LightingModel.o: src/LightingModel.cpp.o
 
@@ -142,7 +142,7 @@ src/LightingModel.o: src/LightingModel.cpp.o
 
 # target to build an object file
 src/LightingModel.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/LightingModel.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/LightingModel.cpp.o
 .PHONY : src/LightingModel.cpp.o
 
 src/LightingModel.i: src/LightingModel.cpp.i
@@ -151,7 +151,7 @@ src/LightingModel.i: src/LightingModel.cpp.i
 
 # target to preprocess a source file
 src/LightingModel.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/LightingModel.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/LightingModel.cpp.i
 .PHONY : src/LightingModel.cpp.i
 
 src/LightingModel.s: src/LightingModel.cpp.s
@@ -160,8 +160,35 @@ src/LightingModel.s: src/LightingModel.cpp.s
 
 # target to generate assembly for a file
 src/LightingModel.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/LightingModel.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/LightingModel.cpp.s
 .PHONY : src/LightingModel.cpp.s
+
+src/ShadowMap.o: src/ShadowMap.cpp.o
+
+.PHONY : src/ShadowMap.o
+
+# target to build an object file
+src/ShadowMap.cpp.o:
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.o
+.PHONY : src/ShadowMap.cpp.o
+
+src/ShadowMap.i: src/ShadowMap.cpp.i
+
+.PHONY : src/ShadowMap.i
+
+# target to preprocess a source file
+src/ShadowMap.cpp.i:
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.i
+.PHONY : src/ShadowMap.cpp.i
+
+src/ShadowMap.s: src/ShadowMap.cpp.s
+
+.PHONY : src/ShadowMap.s
+
+# target to generate assembly for a file
+src/ShadowMap.cpp.s:
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.s
+.PHONY : src/ShadowMap.cpp.s
 
 src/Texture.o: src/Texture.cpp.o
 
@@ -169,7 +196,7 @@ src/Texture.o: src/Texture.cpp.o
 
 # target to build an object file
 src/Texture.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/Texture.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/Texture.cpp.o
 .PHONY : src/Texture.cpp.o
 
 src/Texture.i: src/Texture.cpp.i
@@ -178,7 +205,7 @@ src/Texture.i: src/Texture.cpp.i
 
 # target to preprocess a source file
 src/Texture.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/Texture.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/Texture.cpp.i
 .PHONY : src/Texture.cpp.i
 
 src/Texture.s: src/Texture.cpp.s
@@ -187,7 +214,7 @@ src/Texture.s: src/Texture.cpp.s
 
 # target to generate assembly for a file
 src/Texture.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/Texture.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/Texture.cpp.s
 .PHONY : src/Texture.cpp.s
 
 src/TextureManager.o: src/TextureManager.cpp.o
@@ -196,7 +223,7 @@ src/TextureManager.o: src/TextureManager.cpp.o
 
 # target to build an object file
 src/TextureManager.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/TextureManager.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/TextureManager.cpp.o
 .PHONY : src/TextureManager.cpp.o
 
 src/TextureManager.i: src/TextureManager.cpp.i
@@ -205,7 +232,7 @@ src/TextureManager.i: src/TextureManager.cpp.i
 
 # target to preprocess a source file
 src/TextureManager.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/TextureManager.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/TextureManager.cpp.i
 .PHONY : src/TextureManager.cpp.i
 
 src/TextureManager.s: src/TextureManager.cpp.s
@@ -214,7 +241,7 @@ src/TextureManager.s: src/TextureManager.cpp.s
 
 # target to generate assembly for a file
 src/TextureManager.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/TextureManager.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/TextureManager.cpp.s
 .PHONY : src/TextureManager.cpp.s
 
 src/camera.o: src/camera.cpp.o
@@ -223,7 +250,7 @@ src/camera.o: src/camera.cpp.o
 
 # target to build an object file
 src/camera.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/camera.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/camera.cpp.o
 .PHONY : src/camera.cpp.o
 
 src/camera.i: src/camera.cpp.i
@@ -232,7 +259,7 @@ src/camera.i: src/camera.cpp.i
 
 # target to preprocess a source file
 src/camera.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/camera.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/camera.cpp.i
 .PHONY : src/camera.cpp.i
 
 src/camera.s: src/camera.cpp.s
@@ -241,7 +268,7 @@ src/camera.s: src/camera.cpp.s
 
 # target to generate assembly for a file
 src/camera.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/camera.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/camera.cpp.s
 .PHONY : src/camera.cpp.s
 
 src/engine.o: src/engine.cpp.o
@@ -250,7 +277,7 @@ src/engine.o: src/engine.cpp.o
 
 # target to build an object file
 src/engine.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/engine.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/engine.cpp.o
 .PHONY : src/engine.cpp.o
 
 src/engine.i: src/engine.cpp.i
@@ -259,7 +286,7 @@ src/engine.i: src/engine.cpp.i
 
 # target to preprocess a source file
 src/engine.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/engine.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/engine.cpp.i
 .PHONY : src/engine.cpp.i
 
 src/engine.s: src/engine.cpp.s
@@ -268,7 +295,7 @@ src/engine.s: src/engine.cpp.s
 
 # target to generate assembly for a file
 src/engine.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/engine.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/engine.cpp.s
 .PHONY : src/engine.cpp.s
 
 src/graphics.o: src/graphics.cpp.o
@@ -277,7 +304,7 @@ src/graphics.o: src/graphics.cpp.o
 
 # target to build an object file
 src/graphics.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/graphics.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/graphics.cpp.o
 .PHONY : src/graphics.cpp.o
 
 src/graphics.i: src/graphics.cpp.i
@@ -286,7 +313,7 @@ src/graphics.i: src/graphics.cpp.i
 
 # target to preprocess a source file
 src/graphics.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/graphics.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/graphics.cpp.i
 .PHONY : src/graphics.cpp.i
 
 src/graphics.s: src/graphics.cpp.s
@@ -295,7 +322,7 @@ src/graphics.s: src/graphics.cpp.s
 
 # target to generate assembly for a file
 src/graphics.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/graphics.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/graphics.cpp.s
 .PHONY : src/graphics.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -304,7 +331,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -313,7 +340,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -322,7 +349,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/object.o: src/object.cpp.o
@@ -331,7 +358,7 @@ src/object.o: src/object.cpp.o
 
 # target to build an object file
 src/object.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/object.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/object.cpp.o
 .PHONY : src/object.cpp.o
 
 src/object.i: src/object.cpp.i
@@ -340,7 +367,7 @@ src/object.i: src/object.cpp.i
 
 # target to preprocess a source file
 src/object.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/object.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/object.cpp.i
 .PHONY : src/object.cpp.i
 
 src/object.s: src/object.cpp.s
@@ -349,7 +376,7 @@ src/object.s: src/object.cpp.s
 
 # target to generate assembly for a file
 src/object.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/object.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/object.cpp.s
 .PHONY : src/object.cpp.s
 
 src/shader.o: src/shader.cpp.o
@@ -358,7 +385,7 @@ src/shader.o: src/shader.cpp.o
 
 # target to build an object file
 src/shader.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/shader.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/shader.cpp.o
 .PHONY : src/shader.cpp.o
 
 src/shader.i: src/shader.cpp.i
@@ -367,7 +394,7 @@ src/shader.i: src/shader.cpp.i
 
 # target to preprocess a source file
 src/shader.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/shader.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/shader.cpp.i
 .PHONY : src/shader.cpp.i
 
 src/shader.s: src/shader.cpp.s
@@ -376,7 +403,7 @@ src/shader.s: src/shader.cpp.s
 
 # target to generate assembly for a file
 src/shader.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/shader.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/shader.cpp.s
 .PHONY : src/shader.cpp.s
 
 src/window.o: src/window.cpp.o
@@ -385,7 +412,7 @@ src/window.o: src/window.cpp.o
 
 # target to build an object file
 src/window.cpp.o:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/window.cpp.o
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/window.cpp.o
 .PHONY : src/window.cpp.o
 
 src/window.i: src/window.cpp.i
@@ -394,7 +421,7 @@ src/window.i: src/window.cpp.i
 
 # target to preprocess a source file
 src/window.cpp.i:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/window.cpp.i
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/window.cpp.i
 .PHONY : src/window.cpp.i
 
 src/window.s: src/window.cpp.s
@@ -403,7 +430,7 @@ src/window.s: src/window.cpp.s
 
 # target to generate assembly for a file
 src/window.cpp.s:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/src/window.cpp.s
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/src/window.cpp.s
 .PHONY : src/window.cpp.s
 
 # Help Target
@@ -414,11 +441,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Lighting_SUCCESSFUL"
-	@echo "... Lighting"
+	@echo "... shadowMapping_SUCCESSFUL"
+	@echo "... shadowMapping"
 	@echo "... src/LightingModel.o"
 	@echo "... src/LightingModel.i"
 	@echo "... src/LightingModel.s"
+	@echo "... src/ShadowMap.o"
+	@echo "... src/ShadowMap.i"
+	@echo "... src/ShadowMap.s"
 	@echo "... src/Texture.o"
 	@echo "... src/Texture.i"
 	@echo "... src/Texture.s"

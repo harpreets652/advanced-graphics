@@ -41,7 +41,7 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
-    m_queen = new Object("../objects/cube.obj");
+    m_chessPiece = new Object("../objects/cube.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -89,11 +89,22 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    //shadow map todo: refactor after working...to revert to normal render, comment out init
+    shadowMap = new ShadowMap();
+    if (!shadowMap->Init(1300, 1300)) {
+        std::cout << "Unable to initialize shadow map" << std::endl;
+        return false;
+    }
+
     //load textures
     if (!TextureManager::getInstance()->initHandlers((*m_shader))) {
         std::cout << "Unable to get texture handlers from shader." << std::endl;
         return false;
     }
+
+
+    //Note~ comment out the texture stuff before working on the shadow map stuff
+/*
 
     if (!TextureManager::getInstance()->addTexture("chessboard", "../textures/chessboard-texture_large.jpg")) {
         std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
@@ -104,9 +115,10 @@ bool Graphics::Initialize(int width, int height) {
         std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
         return false;
     }
+*/
 
     m_board->setTextureId("chessboard");
-    m_queen->setTextureId("marble");
+    m_chessPiece->setTextureId("marble");
 
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
@@ -124,16 +136,45 @@ bool Graphics::Initialize(int width, int height) {
 void Graphics::Update(unsigned int dt) {
     // Update the object
     m_board->Update(dt);
-    m_queen->Update(dt);
+    m_chessPiece->Update(dt);
 }
 
 void Graphics::Render() {
+    shadowPass();
+    renderPass();
+}
+
+void Graphics::shadowPass() {
+    shadowMap->BindForWriting();
+    glClear(GL_DEPTH_BUFFER_BIT);
+
+    m_shader->enable();
+    glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
+
+    //define the new view matrix
+    glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
+                                 glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
+                                 glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
+
+    glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
+
+
+    glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
+    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
+    m_chessPiece->Render();
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void Graphics::renderPass() {
     //clear the screen
     glClearColor(0.0, 0.0, 0.2, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Start the correct program
     m_shader->enable();
+    TextureManager::getInstance()->setTextureUnit(0);
+    shadowMap->BindForReading(GL_TEXTURE0);
 
     // Send in the projection and view to the shader
     /*
@@ -147,13 +188,13 @@ void Graphics::Render() {
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
     m_board->Render();
 
-    // render the queen
-    glm::mat4 queenModel = m_board->GetModel() * m_queen->GetModel();
-    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(queenModel));
-    m_queen->Render();
+    // render the chess piece
+//    glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
+//    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
+//    m_chessPiece->Render();
 
     //Add lighting
-    lightingModel->renderLighting();
+//    lightingModel->renderLighting();
 
     // Get any errors from OpenGL
     auto error = glGetError();

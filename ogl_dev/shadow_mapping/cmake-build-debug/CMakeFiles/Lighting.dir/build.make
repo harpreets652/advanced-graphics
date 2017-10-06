@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting
+CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Lighting.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Lighting.dir/flags.make
 
 CMakeFiles/Lighting.dir/src/LightingModel.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/LightingModel.cpp.o: ../src/LightingModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lighting.dir/src/LightingModel.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/LightingModel.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lighting.dir/src/LightingModel.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/LightingModel.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/LightingModel.cpp
 
 CMakeFiles/Lighting.dir/src/LightingModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/LightingModel.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.cpp > CMakeFiles/Lighting.dir/src/LightingModel.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/LightingModel.cpp > CMakeFiles/Lighting.dir/src/LightingModel.cpp.i
 
 CMakeFiles/Lighting.dir/src/LightingModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/LightingModel.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.cpp -o CMakeFiles/Lighting.dir/src/LightingModel.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/LightingModel.cpp -o CMakeFiles/Lighting.dir/src/LightingModel.cpp.s
 
 CMakeFiles/Lighting.dir/src/LightingModel.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/Lighting.dir/src/LightingModel.cpp.o.provides.build: CMakeFiles/Light
 
 CMakeFiles/Lighting.dir/src/Texture.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/Texture.cpp.o: ../src/Texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lighting.dir/src/Texture.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/Texture.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lighting.dir/src/Texture.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/Texture.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/Texture.cpp
 
 CMakeFiles/Lighting.dir/src/Texture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/Texture.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp > CMakeFiles/Lighting.dir/src/Texture.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/Texture.cpp > CMakeFiles/Lighting.dir/src/Texture.cpp.i
 
 CMakeFiles/Lighting.dir/src/Texture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/Texture.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp -o CMakeFiles/Lighting.dir/src/Texture.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/Texture.cpp -o CMakeFiles/Lighting.dir/src/Texture.cpp.s
 
 CMakeFiles/Lighting.dir/src/Texture.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/Lighting.dir/src/Texture.cpp.o.provides.build: CMakeFiles/Lighting.di
 
 CMakeFiles/Lighting.dir/src/TextureManager.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/TextureManager.cpp.o: ../src/TextureManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Lighting.dir/src/TextureManager.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/TextureManager.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Lighting.dir/src/TextureManager.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/TextureManager.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/TextureManager.cpp
 
 CMakeFiles/Lighting.dir/src/TextureManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/TextureManager.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.cpp > CMakeFiles/Lighting.dir/src/TextureManager.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/TextureManager.cpp > CMakeFiles/Lighting.dir/src/TextureManager.cpp.i
 
 CMakeFiles/Lighting.dir/src/TextureManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/TextureManager.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.cpp -o CMakeFiles/Lighting.dir/src/TextureManager.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/TextureManager.cpp -o CMakeFiles/Lighting.dir/src/TextureManager.cpp.s
 
 CMakeFiles/Lighting.dir/src/TextureManager.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/Lighting.dir/src/TextureManager.cpp.o.provides.build: CMakeFiles/Ligh
 
 CMakeFiles/Lighting.dir/src/camera.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/camera.cpp.o: ../src/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Lighting.dir/src/camera.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/camera.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Lighting.dir/src/camera.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/camera.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/camera.cpp
 
 CMakeFiles/Lighting.dir/src/camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/camera.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp > CMakeFiles/Lighting.dir/src/camera.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/camera.cpp > CMakeFiles/Lighting.dir/src/camera.cpp.i
 
 CMakeFiles/Lighting.dir/src/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/camera.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp -o CMakeFiles/Lighting.dir/src/camera.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/camera.cpp -o CMakeFiles/Lighting.dir/src/camera.cpp.s
 
 CMakeFiles/Lighting.dir/src/camera.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/Lighting.dir/src/camera.cpp.o.provides.build: CMakeFiles/Lighting.dir
 
 CMakeFiles/Lighting.dir/src/engine.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/engine.cpp.o: ../src/engine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Lighting.dir/src/engine.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/engine.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/engine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Lighting.dir/src/engine.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/engine.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/engine.cpp
 
 CMakeFiles/Lighting.dir/src/engine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/engine.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/engine.cpp > CMakeFiles/Lighting.dir/src/engine.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/engine.cpp > CMakeFiles/Lighting.dir/src/engine.cpp.i
 
 CMakeFiles/Lighting.dir/src/engine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/engine.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/engine.cpp -o CMakeFiles/Lighting.dir/src/engine.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/engine.cpp -o CMakeFiles/Lighting.dir/src/engine.cpp.s
 
 CMakeFiles/Lighting.dir/src/engine.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/Lighting.dir/src/engine.cpp.o.provides.build: CMakeFiles/Lighting.dir
 
 CMakeFiles/Lighting.dir/src/graphics.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/graphics.cpp.o: ../src/graphics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Lighting.dir/src/graphics.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/graphics.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/graphics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Lighting.dir/src/graphics.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/graphics.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/graphics.cpp
 
 CMakeFiles/Lighting.dir/src/graphics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/graphics.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/graphics.cpp > CMakeFiles/Lighting.dir/src/graphics.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/graphics.cpp > CMakeFiles/Lighting.dir/src/graphics.cpp.i
 
 CMakeFiles/Lighting.dir/src/graphics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/graphics.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/graphics.cpp -o CMakeFiles/Lighting.dir/src/graphics.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/graphics.cpp -o CMakeFiles/Lighting.dir/src/graphics.cpp.s
 
 CMakeFiles/Lighting.dir/src/graphics.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/Lighting.dir/src/graphics.cpp.o.provides.build: CMakeFiles/Lighting.d
 
 CMakeFiles/Lighting.dir/src/main.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Lighting.dir/src/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/main.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Lighting.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/main.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/main.cpp
 
 CMakeFiles/Lighting.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/main.cpp > CMakeFiles/Lighting.dir/src/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/main.cpp > CMakeFiles/Lighting.dir/src/main.cpp.i
 
 CMakeFiles/Lighting.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/main.cpp -o CMakeFiles/Lighting.dir/src/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/main.cpp -o CMakeFiles/Lighting.dir/src/main.cpp.s
 
 CMakeFiles/Lighting.dir/src/main.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/Lighting.dir/src/main.cpp.o.provides.build: CMakeFiles/Lighting.dir/s
 
 CMakeFiles/Lighting.dir/src/object.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/object.cpp.o: ../src/object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Lighting.dir/src/object.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/object.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Lighting.dir/src/object.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/object.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/object.cpp
 
 CMakeFiles/Lighting.dir/src/object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/object.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/object.cpp > CMakeFiles/Lighting.dir/src/object.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/object.cpp > CMakeFiles/Lighting.dir/src/object.cpp.i
 
 CMakeFiles/Lighting.dir/src/object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/object.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/object.cpp -o CMakeFiles/Lighting.dir/src/object.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/object.cpp -o CMakeFiles/Lighting.dir/src/object.cpp.s
 
 CMakeFiles/Lighting.dir/src/object.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/Lighting.dir/src/object.cpp.o.provides.build: CMakeFiles/Lighting.dir
 
 CMakeFiles/Lighting.dir/src/shader.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/shader.cpp.o: ../src/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Lighting.dir/src/shader.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/shader.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Lighting.dir/src/shader.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/shader.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/shader.cpp
 
 CMakeFiles/Lighting.dir/src/shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/shader.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/shader.cpp > CMakeFiles/Lighting.dir/src/shader.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/shader.cpp > CMakeFiles/Lighting.dir/src/shader.cpp.i
 
 CMakeFiles/Lighting.dir/src/shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/shader.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/shader.cpp -o CMakeFiles/Lighting.dir/src/shader.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/shader.cpp -o CMakeFiles/Lighting.dir/src/shader.cpp.s
 
 CMakeFiles/Lighting.dir/src/shader.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/Lighting.dir/src/shader.cpp.o.provides.build: CMakeFiles/Lighting.dir
 
 CMakeFiles/Lighting.dir/src/window.cpp.o: CMakeFiles/Lighting.dir/flags.make
 CMakeFiles/Lighting.dir/src/window.cpp.o: ../src/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Lighting.dir/src/window.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/window.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Lighting.dir/src/window.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lighting.dir/src/window.cpp.o -c /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/window.cpp
 
 CMakeFiles/Lighting.dir/src/window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lighting.dir/src/window.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/window.cpp > CMakeFiles/Lighting.dir/src/window.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/window.cpp > CMakeFiles/Lighting.dir/src/window.cpp.i
 
 CMakeFiles/Lighting.dir/src/window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lighting.dir/src/window.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/window.cpp -o CMakeFiles/Lighting.dir/src/window.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/window.cpp -o CMakeFiles/Lighting.dir/src/window.cpp.s
 
 CMakeFiles/Lighting.dir/src/window.cpp.o.requires:
 
@@ -329,7 +329,7 @@ Lighting: /usr/local/lib/libSDL2_image.dylib
 Lighting: /usr/local/lib/libSDL2main.a
 Lighting: /usr/local/lib/libSDL2.dylib
 Lighting: CMakeFiles/Lighting.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Lighting"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Lighting"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lighting.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -355,6 +355,6 @@ CMakeFiles/Lighting.dir/clean:
 .PHONY : CMakeFiles/Lighting.dir/clean
 
 CMakeFiles/Lighting.dir/depend:
-	cd /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Lighting.dir/depend
 

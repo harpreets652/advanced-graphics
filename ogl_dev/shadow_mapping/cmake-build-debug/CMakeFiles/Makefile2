@@ -54,82 +54,82 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting
+CMAKE_SOURCE_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Lighting_SUCCESSFUL.dir
+# Target rules for target CMakeFiles/shadowMapping_SUCCESSFUL.dir
 
 # All Build rule for target.
-CMakeFiles/Lighting_SUCCESSFUL.dir/all: CMakeFiles/Lighting.dir/all
-	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/depend
-	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num= "Built target Lighting_SUCCESSFUL"
-.PHONY : CMakeFiles/Lighting_SUCCESSFUL.dir/all
+CMakeFiles/shadowMapping_SUCCESSFUL.dir/all: CMakeFiles/shadowMapping.dir/all
+	$(MAKE) -f CMakeFiles/shadowMapping_SUCCESSFUL.dir/build.make CMakeFiles/shadowMapping_SUCCESSFUL.dir/depend
+	$(MAKE) -f CMakeFiles/shadowMapping_SUCCESSFUL.dir/build.make CMakeFiles/shadowMapping_SUCCESSFUL.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num= "Built target shadowMapping_SUCCESSFUL"
+.PHONY : CMakeFiles/shadowMapping_SUCCESSFUL.dir/all
 
 # Include target in all.
-all: CMakeFiles/Lighting_SUCCESSFUL.dir/all
+all: CMakeFiles/shadowMapping_SUCCESSFUL.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Lighting_SUCCESSFUL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Lighting_SUCCESSFUL.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Lighting_SUCCESSFUL.dir/rule
+CMakeFiles/shadowMapping_SUCCESSFUL.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/shadowMapping_SUCCESSFUL.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/shadowMapping_SUCCESSFUL.dir/rule
 
 # Convenience name for target.
-Lighting_SUCCESSFUL: CMakeFiles/Lighting_SUCCESSFUL.dir/rule
+shadowMapping_SUCCESSFUL: CMakeFiles/shadowMapping_SUCCESSFUL.dir/rule
 
-.PHONY : Lighting_SUCCESSFUL
-
-# clean rule for target.
-CMakeFiles/Lighting_SUCCESSFUL.dir/clean:
-	$(MAKE) -f CMakeFiles/Lighting_SUCCESSFUL.dir/build.make CMakeFiles/Lighting_SUCCESSFUL.dir/clean
-.PHONY : CMakeFiles/Lighting_SUCCESSFUL.dir/clean
+.PHONY : shadowMapping_SUCCESSFUL
 
 # clean rule for target.
-clean: CMakeFiles/Lighting_SUCCESSFUL.dir/clean
+CMakeFiles/shadowMapping_SUCCESSFUL.dir/clean:
+	$(MAKE) -f CMakeFiles/shadowMapping_SUCCESSFUL.dir/build.make CMakeFiles/shadowMapping_SUCCESSFUL.dir/clean
+.PHONY : CMakeFiles/shadowMapping_SUCCESSFUL.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/shadowMapping_SUCCESSFUL.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Lighting.dir
+# Target rules for target CMakeFiles/shadowMapping.dir
 
 # All Build rule for target.
-CMakeFiles/Lighting.dir/all:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/depend
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target Lighting"
-.PHONY : CMakeFiles/Lighting.dir/all
+CMakeFiles/shadowMapping.dir/all:
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/depend
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target shadowMapping"
+.PHONY : CMakeFiles/shadowMapping.dir/all
 
 # Include target in all.
-all: CMakeFiles/Lighting.dir/all
+all: CMakeFiles/shadowMapping.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Lighting.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Lighting.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Lighting.dir/rule
+CMakeFiles/shadowMapping.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/shadowMapping.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/shadowMapping.dir/rule
 
 # Convenience name for target.
-Lighting: CMakeFiles/Lighting.dir/rule
+shadowMapping: CMakeFiles/shadowMapping.dir/rule
 
-.PHONY : Lighting
-
-# clean rule for target.
-CMakeFiles/Lighting.dir/clean:
-	$(MAKE) -f CMakeFiles/Lighting.dir/build.make CMakeFiles/Lighting.dir/clean
-.PHONY : CMakeFiles/Lighting.dir/clean
+.PHONY : shadowMapping
 
 # clean rule for target.
-clean: CMakeFiles/Lighting.dir/clean
+CMakeFiles/shadowMapping.dir/clean:
+	$(MAKE) -f CMakeFiles/shadowMapping.dir/build.make CMakeFiles/shadowMapping.dir/clean
+.PHONY : CMakeFiles/shadowMapping.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/shadowMapping.dir/clean
 
 .PHONY : clean
 

@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="Lighting"/>
+		<Option title="shadowMapping"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="clang"/>
 		<Option virtualFolders="CMake Files\;CMake Files\CMakeModules\;"/>
@@ -37,18 +37,18 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Lighting_SUCCESSFUL">
+			<Target title="shadowMapping_SUCCESSFUL">
 				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lighting_SUCCESSFUL"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 shadowMapping_SUCCESSFUL"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Lighting">
-				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Lighting" prefix_auto="0" extension_auto="0"/>
+			<Target title="shadowMapping">
+				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/shadowMapping" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -66,14 +66,14 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lighting"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 shadowMapping"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Lighting/fast">
-				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Lighting" prefix_auto="0" extension_auto="0"/>
+			<Target title="shadowMapping/fast">
+				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/shadowMapping" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -91,7 +91,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lighting/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 shadowMapping/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -99,34 +99,37 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/LightingModel.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/ShadowMap.cpp">
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/Texture.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/TextureManager.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/camera.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/engine.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/graphics.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/main.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/object.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/shader.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/window.cpp">
-			<Option target="Lighting"/>
+			<Option target="shadowMapping"/>
 		</Unit>
 		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting
+# Install script for directory: /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

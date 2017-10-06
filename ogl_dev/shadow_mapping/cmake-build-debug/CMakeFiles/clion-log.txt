@@ -1,6 +1,6 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping
 <FindSDL2.cmake>
 </FindSDL2.cmake>
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug
+-- Build files have been written to: /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug

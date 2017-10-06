@@ -11,6 +11,7 @@
 #include "object.h"
 #include "TextureManager.h"
 #include "LightingModel.h"
+#include "ShadowMap.h"
 
 using namespace std;
 
@@ -30,10 +31,15 @@ public:
     void Render();
 
 private:
+    void shadowPass();
+
+    void renderPass();
+
     std::string ErrorString(GLenum error);
 
     Camera *m_camera;
     Shader *m_shader;
+    ShadowMap *shadowMap;
     LightingModel *lightingModel;
 
     GLint m_projectionMatrix;
@@ -41,7 +47,7 @@ private:
     GLint m_modelMatrix;
 
     Object *m_board;
-    Object *m_queen;
+    Object *m_chessPiece;
 };
 
 #endif /* GRAPHICS_H */

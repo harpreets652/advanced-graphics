@@ -56,6 +56,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/Lighting_SUCCESSFUL.dir/DependInfo.cmake"
-  "CMakeFiles/Lighting.dir/DependInfo.cmake"
+  "CMakeFiles/shadowMapping_SUCCESSFUL.dir/DependInfo.cmake"
+  "CMakeFiles/shadowMapping.dir/DependInfo.cmake"
   )

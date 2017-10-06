@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/LightingModel.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/LightingModel.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/Texture.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/Texture.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/TextureManager.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/TextureManager.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/camera.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/engine.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/engine.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/graphics.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/main.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/main.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/object.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/object.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/shader.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/shader.cpp.o"
-  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/src/window.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/window.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/LightingModel.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/LightingModel.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/Texture.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/Texture.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/TextureManager.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/TextureManager.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/camera.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/engine.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/engine.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/graphics.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/main.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/main.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/object.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/object.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/shader.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/shader.cpp.o"
+  "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/window.cpp" "/Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/cmake-build-debug/CMakeFiles/Lighting.dir/src/window.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

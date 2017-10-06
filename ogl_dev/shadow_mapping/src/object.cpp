@@ -165,8 +165,9 @@ void Object::Render() {
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, normal));
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
 
-    TextureManager::getInstance()->setTextureUnit(0);
-    TextureManager::getInstance()->enableTexture(textureId, GL_TEXTURE0);
+    //todo: re-enable after refactoring shadow map stuff
+//    TextureManager::getInstance()->setTextureUnit(0);
+//    TextureManager::getInstance()->enableTexture(textureId, GL_TEXTURE0);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
     glDrawElements(GL_TRIANGLES, Indices.size(), GL_UNSIGNED_INT, 0);

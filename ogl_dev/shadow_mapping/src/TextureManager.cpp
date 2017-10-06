@@ -34,8 +34,6 @@ bool TextureManager::addTexture(const std::string textName, std::string imageFil
 
     if (status) {
         textures.insert({textName, texture});
-        //Note~ WTF! This expects copy constructor
-//        textures[textName] = texture;
     }
 
     return status;

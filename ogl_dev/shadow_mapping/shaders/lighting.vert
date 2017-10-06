@@ -15,8 +15,8 @@ uniform mat4 viewMatrix;
 uniform mat4 modelMatrix;
 
 void main() {
-    mat4 gWVP = projectionMatrix * viewMatrix * modelMatrix;
-    gl_Position = gWVP * vec4(v_position, 1.0);
+    mat4 mvp = projectionMatrix * viewMatrix * modelMatrix;
+    gl_Position = mvp * vec4(v_position, 1.0);
 
     Normal0 = (modelMatrix * vec4(v_normal, 0.0)).xyz;
     WorldPos0 = (modelMatrix * vec4(v_position, 1.0)).xyz;
