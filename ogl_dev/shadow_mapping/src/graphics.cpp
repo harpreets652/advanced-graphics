@@ -145,16 +145,18 @@ void Graphics::Render() {
 }
 
 void Graphics::shadowPass() {
+
     shadowMap->BindForWriting();
     glClear(GL_DEPTH_BUFFER_BIT);
 
     m_shader->enable();
-    glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
+    glm::mat4 projMat = glm::ortho<float>(-10,10,-10,10,-10,20);
+    glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(projMat));
 
     //define the new view matrix
     glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
-                                 glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
-                                 glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
+                                      glm::vec3(0.0f, 0.0f, 0.0f), //Focus point
+                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
 
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
 
@@ -164,6 +166,7 @@ void Graphics::shadowPass() {
     m_chessPiece->Render();
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 }
 
 void Graphics::renderPass() {
@@ -173,7 +176,9 @@ void Graphics::renderPass() {
 
     // Start the correct program
     m_shader->enable();
+
     TextureManager::getInstance()->setTextureUnit(0);
+    //todo: shadow map code
     shadowMap->BindForReading(GL_TEXTURE0);
 
     // Send in the projection and view to the shader
@@ -182,16 +187,30 @@ void Graphics::renderPass() {
      * to get the model matrix of the source; View and project same for both and belong to the camera.
      */
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
+
+    //Note~ debug code for shadow mapping
+//    glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
+//                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
+//                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
+
+//    glm::mat4 lightView = glm::lookAt(glm::vec3(0.01f, 15.0f, 0.0f), //Eye Position
+//                                      glm::vec3(0.0f, 0.0f, 0.0f), //Focus point
+//                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
+//
+
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
+//    glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
 
     // Render the board
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
     m_board->Render();
 
     // render the chess piece
-//    glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
-//    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
-//    m_chessPiece->Render();
+/*
+    glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
+    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
+    m_chessPiece->Render();
+*/
 
     //Add lighting
 //    lightingModel->renderLighting();
