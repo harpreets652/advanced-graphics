@@ -40,8 +40,8 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Create the object
-    m_board = new Object("../objects/chessboard.obj");
-    m_chessPiece = new Object("../objects/cube.obj");
+    m_board = new Object("../objects/plane.obj");
+    m_chessPiece = new Object("../objects/bishop.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -91,7 +91,7 @@ bool Graphics::Initialize(int width, int height) {
 
     //shadow map todo: refactor after working...to revert to normal render, comment out init
     shadowMap = new ShadowMap();
-    if (!shadowMap->Init(1300, 1300)) {
+    if (!shadowMap->Init(width, height)) {
         std::cout << "Unable to initialize shadow map" << std::endl;
         return false;
     }
@@ -145,17 +145,16 @@ void Graphics::Render() {
 }
 
 void Graphics::shadowPass() {
-
     shadowMap->BindForWriting();
     glClear(GL_DEPTH_BUFFER_BIT);
 
     m_shader->enable();
-    glm::mat4 projMat = glm::ortho<float>(-10,10,-10,10,-10,20);
-    glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(projMat));
+    glm::mat4 projMat = glm::mat4(1.0);
+    glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
 
     //define the new view matrix
     glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
-                                      glm::vec3(0.0f, 0.0f, 0.0f), //Focus point
+                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
                                       glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
 
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
@@ -165,8 +164,8 @@ void Graphics::shadowPass() {
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void Graphics::renderPass() {
@@ -193,10 +192,6 @@ void Graphics::renderPass() {
 //                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
 //                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
 
-//    glm::mat4 lightView = glm::lookAt(glm::vec3(0.01f, 15.0f, 0.0f), //Eye Position
-//                                      glm::vec3(0.0f, 0.0f, 0.0f), //Focus point
-//                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
-//
 
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
 //    glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
@@ -206,11 +201,11 @@ void Graphics::renderPass() {
     m_board->Render();
 
     // render the chess piece
-/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
-*/
+
+
 
     //Add lighting
 //    lightingModel->renderLighting();

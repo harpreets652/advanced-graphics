@@ -122,26 +122,27 @@ void LightingModel::renderLighting() {
     pl[1].position = glm::vec3(5.0, 1.0f, 0);
     pl[1].attenuation.linear = 0.0;
     pl[1].attenuation.exp = 0.5;
-    setPointLights(2, pl);
+//    setPointLights(2, pl);
 
     SpotLight sl[2];
     sl[0].diffuseIntensity = 0.25f;
     sl[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
     sl[0].ambientIntensity = 2.0;
-    sl[0].position = glm::vec3(2.0, 5.0, 0.0);
+    sl[0].position = glm::vec3(-6.0f, 5.0f, 0.0f);
     sl[0].attenuation.linear = 0.1f;
-    sl[0].direction = glm::vec3(0.0, -1.0, 0.0);
-    sl[0].cutoff = 20.0f;
+    sl[0].attenuation.exp = 0.0f;
+    sl[0].direction = glm::vec3(2.0f, -1.0f, 0.0f);
+    sl[0].cutoff = 40.0f;
 
     sl[1].diffuseIntensity = 0.25f;
     sl[1].color = glm::vec3(1.0f, 1.0f, 1.0f);
     sl[1].ambientIntensity = 2.0;
-    sl[1].position = glm::vec3(-4.0f, 5.0f, 0.0f);
+    sl[1].position = glm::vec3(2.0, 5.0, 0.0);
     sl[1].attenuation.linear = 0.1f;
-    sl[1].attenuation.exp = 0.0f;
-    sl[1].direction = glm::vec3(0.0f, -1.0f, 0.0f);
-    sl[1].cutoff = 40.0f;
-//    setSpotLights(2, sl);
+    sl[1].direction = glm::vec3(0.0, -1.0, 0.0);
+    sl[1].cutoff = 20.0f;
+
+    setSpotLights(1, sl);
 }
 
 /*

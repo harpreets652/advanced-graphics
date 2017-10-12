@@ -70,7 +70,6 @@ bool ShadowMap::Init(unsigned int WindowWidth, unsigned int WindowHeight) {
     return true;
 }
 
-
 void ShadowMap::BindForWriting() {
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_fbo);
 }

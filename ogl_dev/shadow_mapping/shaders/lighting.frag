@@ -102,6 +102,6 @@ void main(void) {
 //    frag_color = vec4(f_color.xyz, 1);
 
     float depthVal = texture(gSampler, TextureCoord0.xy).x;
-    depthVal = 1.0 - (1.0 - depthVal) * 25.0;
+    depthVal = 1.0 - (1.0 - depthVal) * 500.0;
     frag_color = vec4(depthVal);
 }
