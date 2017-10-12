@@ -4,9 +4,10 @@
 #include "LightingModel.h"
 
 LightingModel::LightingModel() {
+    shadowMap = nullptr;
 }
 
-bool LightingModel::initialize(Shader &shaderManager) {
+bool LightingModel::initialize(Shader &shaderManager, int shadowTexWidth, int shadowTexHeight) {
     dirLightLocation.color = shaderManager.getUniformLocation("gDirectionalLight.Base.Color");
     dirLightLocation.ambientIntensity = shaderManager.getUniformLocation("gDirectionalLight.Base.AmbientIntensity");
     dirLightLocation.diffuseIntensity = shaderManager.getUniformLocation("gDirectionalLight.Base.DiffuseIntensity");
@@ -92,13 +93,32 @@ bool LightingModel::initialize(Shader &shaderManager) {
         }
     }
 
+//    if (shadowTexWidth > 0) {
+//        shadowMap = new ShadowMap;
+//        if (!shadowMap->init(shadowTexWidth, shadowTexHeight)) {
+//            std::cout << "Unable to initialize shadow map" << std::endl;
+//            return false;
+//        }
+//    }
+//
+//    shadowSamplerHandler = shaderManager.getUniformLocation("gShadowSampler");
+//    lightViewMatrixHandler = shaderManager.getUniformLocation("lightViewMatrix");
+
     return !(dirLightLocation.ambientIntensity == INVALID_UNIFORM_LOCATION ||
              dirLightLocation.color == INVALID_UNIFORM_LOCATION ||
              dirLightLocation.diffuseIntensity == INVALID_UNIFORM_LOCATION ||
              dirLightLocation.direction == INVALID_UNIFORM_LOCATION ||
              numPointLightsLocation == INVALID_UNIFORM_LOCATION ||
-             numSpotLightsLocation == INVALID_UNIFORM_LOCATION
+             numSpotLightsLocation == INVALID_UNIFORM_LOCATION ||
+             shadowSamplerHandler == INVALID_UNIFORM_LOCATION ||
+             lightViewMatrixHandler == INVALID_UNIFORM_LOCATION
     );
+}
+
+void LightingModel::bindShadowFBOForWriting() {
+    if (shadowMap != nullptr) {
+        shadowMap->bindForWriting();
+    }
 }
 
 void LightingModel::renderLighting() {
