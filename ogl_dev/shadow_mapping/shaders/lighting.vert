@@ -13,6 +13,7 @@ out vec2 TextureCoord0;
 uniform mat4 projectionMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 modelMatrix;
+//uniform mat4 lightViewMatrix;
 
 void main() {
     mat4 mvp = projectionMatrix * viewMatrix * modelMatrix;

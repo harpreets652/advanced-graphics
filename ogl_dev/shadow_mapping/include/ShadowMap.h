@@ -15,15 +15,15 @@ public:
 
     ~ShadowMap();
 
-    bool Init(unsigned int WindowWidth, unsigned int WindowHeight);
+    bool init(int WindowWidth, int WindowHeight);
 
-    void BindForWriting();
+    void bindForWriting();
 
-    void BindForReading(GLenum TextureUnit);
+    void bindForReading(GLenum TextureUnit);
 
 private:
-    GLuint m_fbo;
-    GLuint m_shadowMap;
+    GLuint fboHandler;
+    GLuint shadowMapHandler;
 };
 
 

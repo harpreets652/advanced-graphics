@@ -45,6 +45,7 @@ uniform DirectionalLight gDirectionalLight;
 uniform PointLight gPointLights[MAX_POINT_LIGHTS];
 uniform SpotLight gSpotLights[MAX_SPOT_LIGHTS];
 uniform sampler2D gSampler;
+//uniform sampler2D gShadowSampler;
 
 vec4 CalcLightInternal(BaseLight Light, vec3 LightDirection, vec3 Normal) {
     vec4 AmbientColor = vec4(Light.Color * Light.AmbientIntensity, 1.0f);

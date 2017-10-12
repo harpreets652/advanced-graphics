@@ -91,7 +91,7 @@ bool Graphics::Initialize(int width, int height) {
 
     //shadow map todo: refactor after working...to revert to normal render, comment out init
     shadowMap = new ShadowMap();
-    if (!shadowMap->Init(width, height)) {
+    if (!shadowMap->init(width, height)) {
         std::cout << "Unable to initialize shadow map" << std::endl;
         return false;
     }
@@ -121,7 +121,7 @@ bool Graphics::Initialize(int width, int height) {
     m_chessPiece->setTextureId("marble");
 
     lightingModel = new LightingModel();
-    if (!lightingModel->initialize((*m_shader))) {
+    if (!lightingModel->initialize((*m_shader), width, height)) {
         printf("lighting model to Initialize\n");
         return false;
     }
@@ -145,11 +145,10 @@ void Graphics::Render() {
 }
 
 void Graphics::shadowPass() {
-    shadowMap->BindForWriting();
+    shadowMap->bindForWriting();
     glClear(GL_DEPTH_BUFFER_BIT);
 
     m_shader->enable();
-    glm::mat4 projMat = glm::mat4(1.0);
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
 
     //define the new view matrix
@@ -160,8 +159,8 @@ void Graphics::shadowPass() {
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
 
 
-    glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
-    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
+    glm::mat4 chessPieceModel = m_board->GetModel() * m_chessPiece->GetModel();
+    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessPieceModel));
     m_chessPiece->Render();
 
 
@@ -178,19 +177,14 @@ void Graphics::renderPass() {
 
     TextureManager::getInstance()->setTextureUnit(0);
     //todo: shadow map code
-    shadowMap->BindForReading(GL_TEXTURE0);
+    shadowMap->bindForReading(GL_TEXTURE0);
 
-    // Send in the projection and view to the shader
-    /*
-     * Note: to project an object on another, multiply the model matrices of the target(say, board) by the source (say chess piece)
-     * to get the model matrix of the source; View and project same for both and belong to the camera.
-     */
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
 
     //Note~ debug code for shadow mapping
-//    glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
-//                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
-//                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
+    glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
+                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
+                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
 
 
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
@@ -204,7 +198,6 @@ void Graphics::renderPass() {
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
-
 
 
     //Add lighting

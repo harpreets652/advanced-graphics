@@ -6,9 +6,10 @@
 #define LIGHTING_LIGHTINGMODEL_H
 
 #include "graphics_headers.h"
-#include "shader.h"
 #include <limits.h>
 #include <string.h>
+#include "shader.h"
+#include "ShadowMap.h"
 
 /*
  * using some code from http://ogldev.atspace.co.uk
@@ -68,7 +69,9 @@ public:
     LightingModel();
 
     //find shader handlers and store them
-    bool initialize(Shader &shaderManager);
+    bool initialize(Shader &shaderManager, int shadowTexWidth, int shadowTexHeight);
+
+    void bindShadowFBOForWriting();
 
     //set all lighting variables in shaders
     void renderLighting();
@@ -82,6 +85,9 @@ private:
 
     GLint numPointLightsLocation;
     GLint numSpotLightsLocation;
+    GLint shadowSamplerHandler;
+    GLint lightViewMatrixHandler;
+    ShadowMap *shadowMap;
 
     struct {
         GLint color;

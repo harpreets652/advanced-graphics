@@ -58,25 +58,19 @@ glm::mat4 Camera::GetView() {
 void Camera::updatePosition(Direction direction) {
     switch (direction) {
         case UP: {
-            position -= focus * positionStepSize;
+            position.y += positionStepSize;
             break;
         }
         case DOWN: {
-            position += focus * positionStepSize;
+            position.y -= positionStepSize;
             break;
         }
         case LEFT: {
-            glm::vec3 leftVec = glm::cross(up, focus);
-            glm::normalize(leftVec);
-            leftVec *= positionStepSize;
-            position += leftVec;
+            position.x -= positionStepSize;
             break;
         }
         case RIGHT: {
-            glm::vec3 rightVec = glm::cross(focus, up);
-            glm::normalize(rightVec);
-            rightVec *= positionStepSize;
-            position += rightVec;
+            position.x += positionStepSize;
             break;
         }
     }
