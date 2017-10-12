@@ -13,7 +13,7 @@ Camera::~Camera() {
 }
 
 bool Camera::Initialize(int w, int h) {
-    position = glm::vec3(0.01, 10.0, 18.0);
+    position = glm::vec3(0.0, 10.0, 18.0);
     focus = glm::vec3(0.1, 0.1, 0.0);
     up = glm::vec3(0.0, 1.0, 0.0);
 
