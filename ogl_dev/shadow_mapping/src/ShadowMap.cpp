@@ -93,7 +93,6 @@ bool ShadowMap::initialize(Shader &renderShader, int windowWidth, int windowHeig
         return false;
     }
 
-    //todo: do I need a frag shader?
     if (!shadowShader->finalize()) {
         std::cout << "Program to finalize" << std::endl;
         return false;

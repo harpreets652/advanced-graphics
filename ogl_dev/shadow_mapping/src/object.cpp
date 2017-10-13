@@ -132,7 +132,7 @@ void Object::getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &t
     if (mesh->HasTextureCoords(0)) {
         for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
             aiVector3D temp_vertex = mesh->mTextureCoords[0][i];
-            texCoord.x = 1 - temp_vertex.x;
+            texCoord.x = temp_vertex.x;
             texCoord.y = temp_vertex.y;
 
             texCoords.push_back(texCoord);

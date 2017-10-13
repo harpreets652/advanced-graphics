@@ -57,21 +57,21 @@ float CalcShadowFactor(vec4 pLightSpacePos) {
     float z = 0.5 * projCoords.z + 0.5;
     float shadowDepth = texture(gShadowSampler, shadowUVCoords).x;
     if (shadowDepth < z + 0.00001)
-        return 500.0;
+        return 0.0625;
     else
         return 1.0;
 }
 
 vec4 CalcLightInternal(BaseLight pLight, vec3 pLightDirection, vec3 pNormal, float pShadowFactor) {
     vec4 ambientColor = vec4(pLight.Color * pLight.AmbientIntensity, 1.0f);
-    float DiffuseFactor = dot(pNormal, -pLightDirection);
+    float diffuseFactor = dot(pNormal, -pLightDirection);
 
     vec4 diffuseColor  = vec4(0, 0, 0, 0);
-    if (DiffuseFactor > 0) {
-        diffuseColor = vec4(pLight.Color * pLight.DiffuseIntensity * DiffuseFactor, 1.0f);
+    if (diffuseFactor > 0) {
+        diffuseColor = vec4(pLight.Color * pLight.DiffuseIntensity * diffuseFactor, 1.0f);
     }
 
-    return (ambientColor + (pShadowFactor * diffuseColor));
+    return ambientColor + (pShadowFactor * diffuseColor);
 }
 
 vec4 CalcDirectionalLight(vec3 pNormal) {
@@ -79,13 +79,13 @@ vec4 CalcDirectionalLight(vec3 pNormal) {
 }
 
 vec4 CalcPointLight(PointLight l, vec3 pNormal, vec4 pLightSpacePos) {
-    vec3 LightDirection = WorldPos0 - l.Position;
-    float Distance = length(LightDirection);
-    LightDirection = normalize(LightDirection);
+    vec3 lightDirection = WorldPos0 - l.Position;
+    float distance = length(lightDirection);
+    lightDirection = normalize(lightDirection);
     float shadowFactor = CalcShadowFactor(pLightSpacePos);
 
-    vec4 Color = CalcLightInternal(l.Base, LightDirection, pNormal, shadowFactor);
-    float attenuation =  l.Atten.Constant + l.Atten.Linear * Distance + l.Atten.Exp * Distance * Distance;
+    vec4 Color = CalcLightInternal(l.Base, lightDirection, pNormal, shadowFactor);
+    float attenuation = l.Atten.Constant + l.Atten.Linear * distance + l.Atten.Exp * distance * distance;
 
     return Color / attenuation;
 }
@@ -117,4 +117,10 @@ void main(void) {
 
     frag_color = texture(gSampler, TextureCoord0.xy) * totalLight;
 //    frag_color = vec4(f_color.xyz, 1);
+
+/*
+    float depthVal = texture(gShadowSampler, TextureCoord0.xy).x;
+    depthVal = 1.0 - (1.0 - depthVal) * 500.0;
+    frag_color = vec4(depthVal);
+*/
 }

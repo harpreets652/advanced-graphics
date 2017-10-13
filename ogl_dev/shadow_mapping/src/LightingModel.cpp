@@ -4,8 +4,14 @@
 #include "LightingModel.h"
 
 LightingModel::LightingModel() {
-    lightPosition = glm::vec3(-6.0f, 5.0f, 0.0f);
-    lightDirection = glm::vec3(2.0f, -1.0f, 0.0f);
+//    lightPosition = glm::vec3(-19.0f, 12.0f, 0.0f);
+//    lightDirection = glm::vec3(5.0f, -1.0f, 0.0f);
+
+    lightPosition = glm::vec3(-10.0, 10.0, 0.0f);
+    lightDirection = glm::vec3(1.0f, -1.0f, 0.0f);
+//    lightPosition = glm::vec3(0.0, 10.0, 12.0f);
+//    lightDirection = glm::vec3(0.0f, -1.0f, -1.0f);
+
 }
 
 bool LightingModel::initialize(Shader &shaderManager) {
@@ -138,18 +144,18 @@ void LightingModel::renderLighting() {
 //    setPointLights(2, pl);
 
     SpotLight sl[2];
-    sl[0].diffuseIntensity = 0.25f;
+    sl[0].diffuseIntensity = 0.9f;
+    sl[0].ambientIntensity = 0.1;
     sl[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
-    sl[0].ambientIntensity = 2.0;
     sl[0].position = lightPosition;
     sl[0].direction = lightDirection;
-    sl[0].attenuation.linear = 0.1f;
+    sl[0].attenuation.linear = 0.01f;
     sl[0].attenuation.exp = 0.0f;
-    sl[0].cutoff = 40.0f;
+    sl[0].cutoff = 20.0f;
 
+    sl[1].ambientIntensity = 2.0;
     sl[1].diffuseIntensity = 0.25f;
     sl[1].color = glm::vec3(1.0f, 1.0f, 1.0f);
-    sl[1].ambientIntensity = 2.0;
     sl[1].position = glm::vec3(2.0, 5.0, 0.0);
     sl[1].attenuation.linear = 0.1f;
     sl[1].direction = glm::vec3(0.0, -1.0, 0.0);
