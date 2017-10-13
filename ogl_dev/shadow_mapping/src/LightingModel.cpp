@@ -4,10 +4,11 @@
 #include "LightingModel.h"
 
 LightingModel::LightingModel() {
-    shadowMap = nullptr;
+    lightPosition = glm::vec3(-6.0f, 5.0f, 0.0f);
+    lightDirection = glm::vec3(2.0f, -1.0f, 0.0f);
 }
 
-bool LightingModel::initialize(Shader &shaderManager, int shadowTexWidth, int shadowTexHeight) {
+bool LightingModel::initialize(Shader &shaderManager) {
     dirLightLocation.color = shaderManager.getUniformLocation("gDirectionalLight.Base.Color");
     dirLightLocation.ambientIntensity = shaderManager.getUniformLocation("gDirectionalLight.Base.AmbientIntensity");
     dirLightLocation.diffuseIntensity = shaderManager.getUniformLocation("gDirectionalLight.Base.DiffuseIntensity");
@@ -93,16 +94,7 @@ bool LightingModel::initialize(Shader &shaderManager, int shadowTexWidth, int sh
         }
     }
 
-//    if (shadowTexWidth > 0) {
-//        shadowMap = new ShadowMap;
-//        if (!shadowMap->init(shadowTexWidth, shadowTexHeight)) {
-//            std::cout << "Unable to initialize shadow map" << std::endl;
-//            return false;
-//        }
-//    }
-//
-//    shadowSamplerHandler = shaderManager.getUniformLocation("gShadowSampler");
-//    lightViewMatrixHandler = shaderManager.getUniformLocation("lightViewMatrix");
+    lightViewMatrixHandler = shaderManager.getUniformLocation("lightViewMatrix");
 
     return !(dirLightLocation.ambientIntensity == INVALID_UNIFORM_LOCATION ||
              dirLightLocation.color == INVALID_UNIFORM_LOCATION ||
@@ -110,18 +102,19 @@ bool LightingModel::initialize(Shader &shaderManager, int shadowTexWidth, int sh
              dirLightLocation.direction == INVALID_UNIFORM_LOCATION ||
              numPointLightsLocation == INVALID_UNIFORM_LOCATION ||
              numSpotLightsLocation == INVALID_UNIFORM_LOCATION ||
-             shadowSamplerHandler == INVALID_UNIFORM_LOCATION ||
              lightViewMatrixHandler == INVALID_UNIFORM_LOCATION
     );
 }
 
-void LightingModel::bindShadowFBOForWriting() {
-    if (shadowMap != nullptr) {
-        shadowMap->bindForWriting();
-    }
+glm::mat4 LightingModel::getLightViewMatrix() {
+    return glm::lookAt(lightPosition, //Eye Position
+                       lightDirection, //Focus point
+                       glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
 }
 
 void LightingModel::renderLighting() {
+    glUniformMatrix4fv(lightViewMatrixHandler, 1, GL_FALSE, glm::value_ptr(getLightViewMatrix()));
+
     DirectionalLight directionalLight;
     directionalLight.color = glm::vec3(1.0f, 1.0f, 1.0f);
     directionalLight.ambientIntensity = 0.2f;
@@ -148,10 +141,10 @@ void LightingModel::renderLighting() {
     sl[0].diffuseIntensity = 0.25f;
     sl[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
     sl[0].ambientIntensity = 2.0;
-    sl[0].position = glm::vec3(-6.0f, 5.0f, 0.0f);
+    sl[0].position = lightPosition;
+    sl[0].direction = lightDirection;
     sl[0].attenuation.linear = 0.1f;
     sl[0].attenuation.exp = 0.0f;
-    sl[0].direction = glm::vec3(2.0f, -1.0f, 0.0f);
     sl[0].cutoff = 40.0f;
 
     sl[1].diffuseIntensity = 0.25f;

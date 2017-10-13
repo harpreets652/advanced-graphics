@@ -69,9 +69,9 @@ public:
     LightingModel();
 
     //find shader handlers and store them
-    bool initialize(Shader &shaderManager, int shadowTexWidth, int shadowTexHeight);
+    bool initialize(Shader &shaderManager);
 
-    void bindShadowFBOForWriting();
+    glm::mat4 getLightViewMatrix();
 
     //set all lighting variables in shaders
     void renderLighting();
@@ -85,9 +85,10 @@ private:
 
     GLint numPointLightsLocation;
     GLint numSpotLightsLocation;
-    GLint shadowSamplerHandler;
+
+    glm::vec3 lightPosition;
+    glm::vec3 lightDirection;
     GLint lightViewMatrixHandler;
-    ShadowMap *shadowMap;
 
     struct {
         GLint color;

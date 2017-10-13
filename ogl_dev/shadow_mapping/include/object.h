@@ -21,6 +21,8 @@ public:
 
     void Render();
 
+    void ShadowRender();
+
     glm::mat4 GetModel();
 
 private:

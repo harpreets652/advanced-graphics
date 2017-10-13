@@ -39,8 +39,8 @@ private:
 
     Camera *m_camera;
     Shader *m_shader;
-    ShadowMap *shadowMap;
     LightingModel *lightingModel;
+    ShadowMap *shadowMap;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;

@@ -7,6 +7,7 @@
 
 #include "graphics_headers.h"
 #include <SDL2/SDL.h>
+#include "shader.h"
 
 
 class ShadowMap {
@@ -15,15 +16,26 @@ public:
 
     ~ShadowMap();
 
-    bool init(int WindowWidth, int WindowHeight);
+    bool initialize(Shader &renderShader, int windowWidth, int windowHeight);
 
     void bindForWriting();
+
+    void enableProgram();
+
+    void setMVP(glm::mat4 pMVP);
+
+    void setTextureUnit(unsigned int texUnit);
 
     void bindForReading(GLenum TextureUnit);
 
 private:
+    bool init(int windowWidth, int windowHeight);
+
     GLuint fboHandler;
     GLuint shadowMapHandler;
+    GLint mvpHandler;
+    GLint shadowSamplerHandler;
+    Shader *shadowShader;
 };
 
 

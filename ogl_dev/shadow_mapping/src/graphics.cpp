@@ -89,9 +89,9 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    //shadow map todo: refactor after working...to revert to normal render, comment out init
+    //shadow map
     shadowMap = new ShadowMap();
-    if (!shadowMap->init(width, height)) {
+    if (!shadowMap->initialize((*m_shader), width, height)) {
         std::cout << "Unable to initialize shadow map" << std::endl;
         return false;
     }
@@ -102,10 +102,6 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-
-    //Note~ comment out the texture stuff before working on the shadow map stuff
-/*
-
     if (!TextureManager::getInstance()->addTexture("chessboard", "../textures/chessboard-texture_large.jpg")) {
         std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
         return false;
@@ -115,13 +111,12 @@ bool Graphics::Initialize(int width, int height) {
         std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
         return false;
     }
-*/
 
     m_board->setTextureId("chessboard");
     m_chessPiece->setTextureId("marble");
 
     lightingModel = new LightingModel();
-    if (!lightingModel->initialize((*m_shader), width, height)) {
+    if (!lightingModel->initialize((*m_shader))) {
         printf("lighting model to Initialize\n");
         return false;
     }
@@ -148,21 +143,14 @@ void Graphics::shadowPass() {
     shadowMap->bindForWriting();
     glClear(GL_DEPTH_BUFFER_BIT);
 
-    m_shader->enable();
-    glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
-
-    //define the new view matrix
-    glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
-                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
-                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
-
-    glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
-
+    // shadow shader program
+    shadowMap->enableProgram();
 
     glm::mat4 chessPieceModel = m_board->GetModel() * m_chessPiece->GetModel();
-    glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessPieceModel));
-    m_chessPiece->Render();
+    glm::mat4 shadowMVP = m_camera->GetProjection() * lightingModel->getLightViewMatrix() * chessPieceModel;
 
+    shadowMap->setMVP(shadowMVP);
+    m_chessPiece->ShadowRender();
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
@@ -172,23 +160,14 @@ void Graphics::renderPass() {
     glClearColor(0.0, 0.0, 0.2, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Start the correct program
+    // Render shader program
     m_shader->enable();
 
-    TextureManager::getInstance()->setTextureUnit(0);
-    //todo: shadow map code
-    shadowMap->bindForReading(GL_TEXTURE0);
+    shadowMap->setTextureUnit(1);
+    shadowMap->bindForReading(GL_TEXTURE1);
 
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
-
-    //Note~ debug code for shadow mapping
-    glm::mat4 lightView = glm::lookAt(glm::vec3(-6.0f, 5.0f, 0.0f), //Eye Position
-                                      glm::vec3(2.0f, -1.0f, 0.0f), //Focus point
-                                      glm::vec3(0.0, 1.0, 0.0));//Positive Y is up
-
-
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
-//    glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(lightView));
 
     // Render the board
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
@@ -199,9 +178,8 @@ void Graphics::renderPass() {
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
-
-    //Add lighting
-//    lightingModel->renderLighting();
+    //Add lighting Note~ is this the right order?
+    lightingModel->renderLighting();
 
     // Get any errors from OpenGL
     auto error = glGetError();

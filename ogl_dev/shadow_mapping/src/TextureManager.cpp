@@ -21,11 +21,7 @@ TextureManager::TextureManager() {
 bool TextureManager::initHandlers(Shader &shaderManager) {
     samplerHandler = shaderManager.getUniformLocation("gSampler");
 
-    if (samplerHandler == INVALID_UNIFORM_LOCATION) {
-        return false;
-    }
-
-    return true;
+    return samplerHandler != INVALID_UNIFORM_LOCATION;
 }
 
 bool TextureManager::addTexture(const std::string textName, std::string imageFileName) {

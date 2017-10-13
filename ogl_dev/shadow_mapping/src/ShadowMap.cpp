@@ -17,6 +17,9 @@
 ShadowMap::ShadowMap() {
     fboHandler = 0;
     shadowMapHandler = 0;
+    mvpHandler = 0;
+    shadowSamplerHandler = 0;
+    shadowShader = nullptr;
 }
 
 ShadowMap::~ShadowMap() {
@@ -29,7 +32,7 @@ ShadowMap::~ShadowMap() {
     }
 }
 
-bool ShadowMap::init(int WindowWidth, int WindowHeight) {
+bool ShadowMap::init(int windowWidth, int windowHeight) {
     // Create the FBO
     glGenFramebuffers(1, &fboHandler);
 
@@ -39,8 +42,8 @@ bool ShadowMap::init(int WindowWidth, int WindowHeight) {
     glTexImage2D(GL_TEXTURE_2D,
                  0,
                  GL_DEPTH_COMPONENT,
-                 WindowWidth,
-                 WindowHeight,
+                 windowWidth,
+                 windowHeight,
                  0,
                  GL_DEPTH_COMPONENT,
                  GL_FLOAT,
@@ -67,10 +70,65 @@ bool ShadowMap::init(int WindowWidth, int WindowHeight) {
     return true;
 }
 
+bool ShadowMap::initialize(Shader &renderShader, int windowWidth, int windowHeight) {
+    if (!init(windowWidth, windowHeight)) {
+        return false;
+    }
+
+    shadowShader = new Shader();
+    if (!shadowShader->initialize()) {
+        std::cout << "Shadow shader program failed to initialize" << std::endl;
+        return false;
+    }
+
+    // Add the vertex shader
+    if (!shadowShader->addShaderFromFile("../shaders/shadow.vert", GL_VERTEX_SHADER)) {
+        std::cout << "Vertex shader failed to initialize" << std::endl;
+        return false;
+    }
+
+    // Add the fragment shader
+    if (!shadowShader->addShaderFromFile("../shaders/shadow.frag", GL_FRAGMENT_SHADER)) {
+        std::cout << "Fragment Shader failed to Initialize" << std::endl;
+        return false;
+    }
+
+    //todo: do I need a frag shader?
+    if (!shadowShader->finalize()) {
+        std::cout << "Program to finalize" << std::endl;
+        return false;
+    }
+
+    mvpHandler = shadowShader->getUniformLocation("mvpMatrix");
+    if (mvpHandler == INVALID_UNIFORM_LOCATION) {
+        std::cout << "mvpMatrix not found" << std::endl;
+        return false;
+    }
+
+    shadowSamplerHandler = renderShader.getUniformLocation("gShadowSampler");
+    if (shadowSamplerHandler == INVALID_UNIFORM_LOCATION) {
+        std::cout << "gShadowSampler not found" << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+void ShadowMap::enableProgram() {
+    shadowShader->enable();
+}
+
+void ShadowMap::setMVP(glm::mat4 pMVP) {
+    glUniformMatrix4fv(mvpHandler, 1, GL_FALSE, glm::value_ptr(pMVP));
+}
+
+void ShadowMap::setTextureUnit(unsigned int texUnit) {
+    glUniform1i(shadowSamplerHandler, texUnit);
+}
+
 void ShadowMap::bindForWriting() {
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fboHandler);
 }
-
 
 void ShadowMap::bindForReading(GLenum textureUnit) {
     glActiveTexture(textureUnit);
