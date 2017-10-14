@@ -41,7 +41,7 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/plane.obj");
-    m_chessPiece = new Object("../objects/bishop.obj");
+    m_chessPiece = new Object("../objects/cube.obj");
 
     // Set up the shaders
     m_shader = new Shader();
