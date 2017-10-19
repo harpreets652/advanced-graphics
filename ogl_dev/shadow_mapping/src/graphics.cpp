@@ -163,6 +163,7 @@ void Graphics::renderPass() {
     // Render shader program
     m_shader->enable();
 
+    //set shadow map texture unit and buffer to 1
     shadowMap->setTextureUnit(1);
     shadowMap->bindForReading(GL_TEXTURE1);
 
