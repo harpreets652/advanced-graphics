@@ -12,13 +12,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list id="1e45fec9-647c-418e-aee2-8d9aa55ae7b3" name="not checking in" comment="cleaning up">
+    <list default="true" id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list default="true" id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +367,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="" />
-      <changelist id="1e45fec9-647c-418e-aee2-8d9aa55ae7b3" name="not checking in" comment="" />
+      <changelist id="" name="not checking in" comment="" />
       <created>1505592788402</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -418,7 +416,7 @@
       <workItem from="1508124445726" duration="409000" />
       <workItem from="1508194714689" duration="599000" />
       <workItem from="1508195783348" duration="11000" />
-      <workItem from="1508383698416" duration="780000" />
+      <workItem from="1508383698416" duration="792000" />
     </task>
     <task id="LOCAL-00001" summary="Shadow mapping tutorial one done">
       <created>1507850560389</created>
@@ -476,11 +474,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508384364363</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cleaning up">
+      <created>1508384483161</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508384483161</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168474000" />
+    <option name="totallyTimeSpent" value="168486000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
