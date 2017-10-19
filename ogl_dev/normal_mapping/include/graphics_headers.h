@@ -30,12 +30,13 @@ struct Vertex {
     glm::vec3 color;
     glm::vec3 normal;
     glm::vec2 textureCoordinates;
+    glm::vec3 tangent;
 
-    Vertex(glm::vec3 v, glm::vec3 c, glm::vec3 n, glm::vec2 t) : vertex(v),
-                                                                 color(c),
-                                                                 normal(n),
-                                                                 textureCoordinates(t)
-    {}
+    Vertex(glm::vec3 v, glm::vec3 c, glm::vec3 n, glm::vec2 tex, glm::vec3 tan) : vertex(v),
+                                                                                  color(c),
+                                                                                  normal(n),
+                                                                                  textureCoordinates(tex),
+                                                                                  tangent(tan) {}
 };
 
 #endif /* GRAPHICS_HEADERS_H */

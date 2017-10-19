@@ -15,13 +15,15 @@ TextureManager *TextureManager::getInstance() {
 }
 
 TextureManager::TextureManager() {
-    samplerHandler = 0;
+    colorSamplerHandler = 0;
 }
 
 bool TextureManager::initHandlers(Shader &shaderManager) {
-    samplerHandler = shaderManager.getUniformLocation("gSampler");
+    colorSamplerHandler = shaderManager.getUniformLocation("gSampler");
+    normalSamplerHandler = shaderManager.getUniformLocation("gNormalMapSampler");
 
-    return samplerHandler != INVALID_UNIFORM_LOCATION;
+    return colorSamplerHandler != INVALID_UNIFORM_LOCATION &&
+           normalSamplerHandler != INVALID_UNIFORM_LOCATION;
 }
 
 bool TextureManager::addTexture(const std::string textName, std::string imageFileName) {
@@ -35,9 +37,15 @@ bool TextureManager::addTexture(const std::string textName, std::string imageFil
     return status;
 }
 
-void TextureManager::setTextureUnit(unsigned int samplerIndex) {
-    if (samplerHandler != 0) {
-        glUniform1i(samplerHandler, samplerIndex);
+void TextureManager::setColorTextureUnit(unsigned int samplerIndex) {
+    if (colorSamplerHandler != 0) {
+        glUniform1i(colorSamplerHandler, samplerIndex);
+    }
+}
+
+void TextureManager::setNormalMapTextureUnit(unsigned int samplerIndex) {
+    if (normalSamplerHandler != 0) {
+        glUniform1i(normalSamplerHandler, samplerIndex);
     }
 }
 

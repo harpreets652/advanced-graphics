@@ -11,7 +11,9 @@ Object::Object(std::string fileName) {
     const aiScene *scene = importer.ReadFile(fileName.c_str(), aiProcess_Triangulate | //make triangles
                                                                aiProcess_JoinIdenticalVertices |
                                                                aiProcess_GenUVCoords |  //generate Texture coordinates
-                                                               aiProcess_GenSmoothNormals); //normals
+                                                               aiProcess_GenSmoothNormals | //normals,
+                                                               aiProcess_CalcTangentSpace //normal mapping
+    );
 
     if (scene == nullptr) {
         std::cerr << "Unable to load object file " << fileName << ". Error: \n"
@@ -28,6 +30,7 @@ Object::Object(std::string fileName) {
     std::vector<glm::vec3> vertices;
     std::vector<glm::uvec3> faces;
     std::vector<glm::vec3> normals;
+    std::vector<glm::vec3> tangents;
     std::vector<glm::vec2> textureCoordinates;
 
     for (int i = 0; i < scene->mNumMeshes; i++) {
@@ -37,8 +40,9 @@ Object::Object(std::string fileName) {
         getFaces(mesh, faces);
         getNormals(mesh, normals);
         getTextureCoordinates(mesh, textureCoordinates);
+        getTangents(mesh, tangents);
 
-        buildGeometry(vertices, faces, normals, textureCoordinates);
+        buildGeometry(vertices, faces, normals, textureCoordinates, tangents);
     }
 
     angle = 0.0f;
@@ -55,8 +59,9 @@ Object::Object(std::string fileName) {
 void Object::buildGeometry(std::vector<glm::vec3> &vertices,
                            std::vector<glm::uvec3> &faces,
                            std::vector<glm::vec3> &normals,
-                           std::vector<glm::vec2> &texCoordinates) {
-    Vertex temp(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), glm::vec2(0.0));
+                           std::vector<glm::vec2> &texCoordinates,
+                           std::vector<glm::vec3> &tangents) {
+    Vertex temp(glm::vec3(0.0), glm::vec3(0.0), glm::vec3(0.0), glm::vec2(0.0), glm::vec3(0.0));
 
     for (int i = 0; i < vertices.size(); ++i) {
         temp.vertex = vertices[i];
@@ -69,6 +74,10 @@ void Object::buildGeometry(std::vector<glm::vec3> &vertices,
             temp.textureCoordinates = texCoordinates[i];
         }
 
+        if (!tangents.empty()) {
+            temp.tangent = tangents[i];
+        }
+
         temp.color = glm::vec3(float(rand() % 100) / 100.0f,
                                float(rand() % 100) / 100.0f,
                                float(rand() % 100) / 100.0f);
@@ -76,7 +85,6 @@ void Object::buildGeometry(std::vector<glm::vec3> &vertices,
         Vertices.push_back(temp);
     }
 
-    //each face contains indices; first index needs to be 0 so subtracting by one
     for (auto face : faces) {
         Indices.push_back(face.x);
         Indices.push_back(face.y);
@@ -116,12 +124,27 @@ void Object::getNormals(const aiMesh *mesh, std::vector<glm::vec3> &normals) {
 
     if (mesh->HasNormals()) {
         for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
-            aiVector3D temp_vertex = mesh->mNormals[i];
-            normal.x = temp_vertex.x;
-            normal.y = temp_vertex.y;
-            normal.z = temp_vertex.z;
+            aiVector3D temp_normal = mesh->mNormals[i];
+            normal.x = temp_normal.x;
+            normal.y = temp_normal.y;
+            normal.z = temp_normal.z;
 
             normals.push_back(normal);
+        }
+    }
+}
+
+void Object::getTangents(const aiMesh *mesh, std::vector<glm::vec3> &tangents) {
+    glm::vec3 tangent;
+
+    if (mesh->HasTangentsAndBitangents()) {
+        for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
+            aiVector3D temp_tangent = mesh->mTangents[i];
+            tangent.x = temp_tangent.x;
+            tangent.y = temp_tangent.y;
+            tangent.z = temp_tangent.z;
+
+            tangents.push_back(tangent);
         }
     }
 }
@@ -140,8 +163,12 @@ void Object::getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &t
     }
 }
 
-void Object::setTextureId(std::string textId) {
-    textureId = textId;
+void Object::setColorTextureId(std::string textId) {
+    colorTextureId = textId;
+}
+
+void Object::setNormalMapTextureId(std::string textId) {
+    normalMapTextureId = textId;
 }
 
 void Object::Update(unsigned int dt) {
@@ -158,15 +185,20 @@ void Object::Render() {
     glEnableVertexAttribArray(1);
     glEnableVertexAttribArray(2);
     glEnableVertexAttribArray(3);
+    glEnableVertexAttribArray(4);
 
     glBindBuffer(GL_ARRAY_BUFFER, VB);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, textureCoordinates));
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, normal));
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, color));
+    glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *) offsetof(Vertex, tangent));
 
-    TextureManager::getInstance()->setTextureUnit(0);
-    TextureManager::getInstance()->enableTexture(textureId, GL_TEXTURE0);
+    TextureManager::getInstance()->setColorTextureUnit(0);
+    TextureManager::getInstance()->enableTexture(colorTextureId, GL_TEXTURE0);
+
+    TextureManager::getInstance()->setNormalMapTextureUnit(2);
+    TextureManager::getInstance()->enableTexture(normalMapTextureId, GL_TEXTURE2);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
     glDrawElements(GL_TRIANGLES, Indices.size(), GL_UNSIGNED_INT, 0);
@@ -175,6 +207,7 @@ void Object::Render() {
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(2);
     glDisableVertexAttribArray(3);
+    glDisableVertexAttribArray(4);
 }
 
 void Object::ShadowRender() {

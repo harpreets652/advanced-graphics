@@ -15,7 +15,9 @@ public:
 
     ~Object();
 
-    void setTextureId(std::string textId);
+    void setColorTextureId(std::string textId);
+
+    void setNormalMapTextureId(std::string textId);
 
     void Update(unsigned int dt);
 
@@ -32,17 +34,21 @@ private:
 
     void getNormals(const aiMesh *mesh, std::vector<glm::vec3> &normals);
 
+    void getTangents(const aiMesh *mesh, std::vector<glm::vec3> &tangents);
+
     void getTextureCoordinates(const aiMesh *mesh, std::vector<glm::vec2> &texCoords);
 
     void buildGeometry(std::vector<glm::vec3> &vertices, std::vector<glm::uvec3> &faces,
-                       std::vector<glm::vec3> &normals, std::vector<glm::vec2> &texCoordinates);
+                       std::vector<glm::vec3> &normals, std::vector<glm::vec2> &texCoordinates,
+                       std::vector<glm::vec3> &tangents);
 
     glm::mat4 model;
     std::vector<Vertex> Vertices;
     std::vector<unsigned int> Indices;
     GLuint VB;
     GLuint IB;
-    std::string textureId;
+    std::string colorTextureId;
+    std::string normalMapTextureId;
 
     float angle;
 };

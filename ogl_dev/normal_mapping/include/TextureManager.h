@@ -17,7 +17,9 @@ public:
 
     bool addTexture(const std::string textName, std::string fileName);
 
-    void setTextureUnit(unsigned int samplerIndex);
+    void setColorTextureUnit(unsigned int samplerIndex);
+
+    void setNormalMapTextureUnit(unsigned int samplerIndex);
 
     void enableTexture(std::string textName, GLenum textureUnit);
 
@@ -27,7 +29,8 @@ private:
     TextureManager();
 
     static TextureManager *instance;
-    GLint samplerHandler;
+    GLint colorSamplerHandler;
+    GLint normalSamplerHandler;
     std::map<std::string, Texture *> textures;
 };
 

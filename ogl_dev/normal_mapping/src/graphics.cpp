@@ -41,7 +41,7 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
-    m_chessPiece = new Object("../objects/bishop.obj");
+    m_chessPiece = new Object("../objects/dragon.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -102,7 +102,8 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    if (!TextureManager::getInstance()->addTexture("chessboard", "../textures/chessboard-texture_large.jpg")) {
+    //color textures
+    if (!TextureManager::getInstance()->addTexture("floor", "../textures/anotherFloor.jpg")) {
         std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
         return false;
     }
@@ -112,8 +113,15 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    m_board->setTextureId("chessboard");
-    m_chessPiece->setTextureId("marble");
+    //normal maps
+    if (!TextureManager::getInstance()->addTexture("floorNormal", "../textures/anotherFloorNormal.jpg")) {
+        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
+        return false;
+    }
+
+    m_board->setColorTextureId("floor");
+    m_board->setNormalMapTextureId("floorNormal");
+    m_chessPiece->setColorTextureId("marble");
 
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {

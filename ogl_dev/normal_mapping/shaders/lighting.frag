@@ -3,6 +3,7 @@
 in vec3 Normal0;
 in vec3 WorldPos0;
 in vec2 TextureCoord0;
+in vec3 Tangent0;
 smooth in vec3 f_color;
 in vec4 LightSpacePos;
 
@@ -47,7 +48,22 @@ uniform PointLight gPointLights[MAX_POINT_LIGHTS];
 uniform SpotLight gSpotLights[MAX_SPOT_LIGHTS];
 uniform sampler2D gSampler;
 uniform sampler2D gShadowSampler;
+uniform sampler2D gNormalMapSampler;
 
+
+vec3 CalcBumpedNormal() {
+    vec3 normalizedNormal = normalize(Normal0);
+    vec3 normalizedTangent = normalize(Tangent0);
+    normalizedTangent = normalize(normalizedTangent - dot(normalizedTangent, normalizedNormal) * normalizedNormal);
+    vec3 bitangent = cross(normalizedTangent, normalizedNormal);
+    vec3 bumpMapNormal = texture(gNormalMapSampler, TextureCoord0).xyz;
+    bumpMapNormal = 2.0 * bumpMapNormal - vec3(1.0, 1.0, 1.0);
+    mat3 tangentBitangentNormal = mat3(normalizedTangent, bitangent, normalizedNormal);
+    vec3 newNormal = tangentBitangentNormal * bumpMapNormal;
+    newNormal = normalize(newNormal);
+
+    return newNormal;
+}
 
 float CalcShadowFactor(vec4 pLightSpacePos) {
     vec3 projCoords = pLightSpacePos.xyz / pLightSpacePos.w;
@@ -104,7 +120,7 @@ vec4 CalcSpotLight(SpotLight l, vec3 pNormal, vec4 pLightSpacePos) {
 }
 
 void main(void) {
-    vec3 normal = normalize(Normal0);
+    vec3 normal = CalcBumpedNormal(); //normalize(Normal0); //
     vec4 totalLight = CalcDirectionalLight(normal);
 
     for (int i = 0; i < gNumPointLights; i++) {
@@ -117,10 +133,4 @@ void main(void) {
 
     frag_color = texture(gSampler, TextureCoord0.xy) * totalLight;
 //    frag_color = vec4(f_color.xyz, 1);
-
-/*
-    float depthVal = texture(gShadowSampler, TextureCoord0.xy).x;
-    depthVal = 1.0 - (1.0 - depthVal) * 500.0;
-    frag_color = vec4(depthVal);
-*/
 }
