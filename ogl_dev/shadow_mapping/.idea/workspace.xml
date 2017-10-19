@@ -12,30 +12,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list id="1e45fec9-647c-418e-aee2-8d9aa55ae7b3" name="not checking in" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/LightingModel.cpp.o" afterPath="$PROJECT_DIR$/../lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/LightingModel.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o" afterPath="$PROJECT_DIR$/../lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o" afterPath="$PROJECT_DIR$/../lighting/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lighting/cmake-build-debug/Lighting" afterPath="$PROJECT_DIR$/../lighting/cmake-build-debug/Lighting" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/LightingModel.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/LightingModel.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/TextureManager.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/TextureManager.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/camera.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/camera.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/engine.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/engine.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/graphics.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/graphics.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/main.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/object.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/object.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/shadowMapping" afterPath="$PROJECT_DIR$/cmake-build-debug/shadowMapping" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lighting/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../lighting/.idea/workspace.xml" />
+    <list id="1e45fec9-647c-418e-aee2-8d9aa55ae7b3" name="not checking in" comment="cleaning up">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/CXX.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/shadowMapping.dir/depend.make" />
     </list>
     <list default="true" id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +30,8 @@
       <file leaf-file-name="graphics.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="206" column="20" lean-forward="true" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
+            <state relative-caret-position="59">
+              <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -335,11 +318,6 @@
               <item name="shadowMapping" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="shadow_mapping" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="shadowMapping" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="shadow_mapping" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -440,7 +418,7 @@
       <workItem from="1508124445726" duration="409000" />
       <workItem from="1508194714689" duration="599000" />
       <workItem from="1508195783348" duration="11000" />
-      <workItem from="1508383698416" duration="658000" />
+      <workItem from="1508383698416" duration="780000" />
     </task>
     <task id="LOCAL-00001" summary="Shadow mapping tutorial one done">
       <created>1507850560389</created>
@@ -491,11 +469,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508384287453</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="cleaning up">
+      <created>1508384364363</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1508384364363</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168352000" />
+    <option name="totallyTimeSpent" value="168474000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,7 +532,8 @@
     <MESSAGE value="Shadow mapping: a step forward" />
     <MESSAGE value="Shadow mapping" />
     <MESSAGE value="updating objects; finalizing shadow mapping" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating objects; finalizing shadow mapping" />
+    <MESSAGE value="cleaning up" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -878,8 +864,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="206" column="20" lean-forward="true" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
+        <state relative-caret-position="59">
+          <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
           <folding />
         </state>
       </provider>
