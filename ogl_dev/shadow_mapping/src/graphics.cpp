@@ -40,8 +40,8 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     // Create the object
-    m_board = new Object("../objects/plane.obj");
-    m_chessPiece = new Object("../objects/cube.obj");
+    m_board = new Object("../objects/chessboard.obj");
+    m_chessPiece = new Object("../objects/bishop.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -178,7 +178,7 @@ void Graphics::renderPass() {
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
-    //Add lighting Note~ is this the right order?
+    //Add lighting
     lightingModel->renderLighting();
 
     // Get any errors from OpenGL
