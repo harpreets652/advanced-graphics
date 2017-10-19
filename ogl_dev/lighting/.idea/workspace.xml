@@ -12,7 +12,23 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="" />
+    <list default="true" id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/shadowMapping" afterPath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/shadowMapping" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/src/camera.cpp" afterPath="$PROJECT_DIR$/../shadow_mapping/src/camera.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/src/graphics.cpp" afterPath="$PROJECT_DIR$/../shadow_mapping/src/graphics.cpp" />
+    </list>
+    <list id="3353d7f2-7f97-4f2e-b9d3-916ed07e20c7" name="Not checking in" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lighting.dir/src/LightingModel.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lighting.dir/src/LightingModel.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lighting.dir/src/camera.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lighting.dir/src/graphics.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Lighting" afterPath="$PROJECT_DIR$/cmake-build-debug/Lighting" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.o" afterPath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/ShadowMap.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/camera.cpp.o" afterPath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/camera.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/graphics.cpp.o" afterPath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/graphics.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/object.cpp.o" afterPath="$PROJECT_DIR$/../shadow_mapping/cmake-build-debug/CMakeFiles/shadowMapping.dir/src/object.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../shadow_mapping/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../shadow_mapping/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,44 +39,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="graphics.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="graphics.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="630">
+              <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
               <folding>
                 <element signature="e#206#630#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bishop.obj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/objects/bishop.obj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphics.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/graphics.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="20" lean-forward="false" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chessboard.obj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/objects/chessboard.obj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -75,45 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graphics_headers.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/graphics_headers.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="72" lean-forward="false" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
-              <folding>
-                <marker date="1506713074000" expanded="true" signature="180:227" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="object.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/object.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-              <folding>
-                <element signature="e#35#52#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="camera.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/camera.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="164">
+              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LightingModel.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LightingModel.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LightingModel.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="124" column="20" lean-forward="false" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+            <state relative-caret-position="94">
+              <caret line="126" column="20" lean-forward="true" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -125,18 +87,6 @@
             <state relative-caret-position="135">
               <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextureManager.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/TextureManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-              <folding>
-                <element signature="e#117#131#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -229,6 +179,9 @@
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -265,12 +218,12 @@
         <option value="$PROJECT_DIR$/src/Texture.cpp" />
         <option value="$PROJECT_DIR$/include/TextureManager.h" />
         <option value="$PROJECT_DIR$/src/TextureManager.cpp" />
-        <option value="$PROJECT_DIR$/src/LightingModel.cpp" />
         <option value="$PROJECT_DIR$/include/object.h" />
         <option value="$PROJECT_DIR$/src/object.cpp" />
         <option value="$PROJECT_DIR$/include/graphics.h" />
-        <option value="$PROJECT_DIR$/src/camera.cpp" />
         <option value="$PROJECT_DIR$/src/graphics.cpp" />
+        <option value="$PROJECT_DIR$/src/LightingModel.cpp" />
+        <option value="$PROJECT_DIR$/src/camera.cpp" />
       </list>
     </option>
   </component>
@@ -282,11 +235,12 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="122" />
+    <option name="x" value="444" />
     <option name="y" value="23" />
-    <option name="width" value="1095" />
+    <option name="width" value="978" />
     <option name="height" value="823" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -337,6 +291,9 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/objects" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -375,6 +332,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="30936c88-c24c-4b0a-8589-da0bf9d3b363" name="Default" comment="" />
+      <changelist id="3353d7f2-7f97-4f2e-b9d3-916ed07e20c7" name="Not checking in" comment="" />
       <created>1505592788402</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -409,11 +367,28 @@
       <workItem from="1506703679134" duration="2911000" />
       <workItem from="1506713133427" duration="36000" />
       <workItem from="1506884220051" duration="13000" />
+      <workItem from="1507765500337" duration="854000" />
+      <workItem from="1507841676539" duration="1778000" />
     </task>
+    <task id="LOCAL-00001" summary="fixing z camera position to positive">
+      <created>1507842151330</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1507842151330</updated>
+    </task>
+    <task id="LOCAL-00002" summary="adding plane object">
+      <created>1507842251616</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1507842251616</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121936000" />
+    <option name="totallyTimeSpent" value="124568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -426,21 +401,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="23" width="1095" height="823" extended-state="0" />
+    <frame x="444" y="23" width="978" height="823" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22792023" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23504274" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57588655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48368794" sideWeight="0.50392926" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907802" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48368794" sideWeight="0.4960707" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57588655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -457,6 +432,13 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="fixing z camera position to positive" />
+    <MESSAGE value="adding plane object" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding plane object" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -477,13 +459,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeModules/FindSDL2_Image.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/include/IL/il.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8625">
@@ -633,14 +608,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/lighting.vert">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/shader.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -733,14 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LightingModel.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="124" column="20" lean-forward="false" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaders/lighting.frag">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
@@ -788,14 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/camera.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/objects/queen.obj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-193834">
@@ -819,13 +770,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/lighting.vert">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/objects/plane.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphics.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="630">
+          <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
           <folding>
             <element signature="e#206#630#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/camera.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LightingModel.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="126" column="20" lean-forward="true" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

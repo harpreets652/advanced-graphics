@@ -11,18 +11,22 @@
 ../include/LightingModel.h
 graphics_headers.h
 ../include/graphics_headers.h
-shader.h
-../include/shader.h
 limits.h
 -
 string.h
 -
+shader.h
+../include/shader.h
+ShadowMap.h
+../include/ShadowMap.h
 
 ../include/ShadowMap.h
 graphics_headers.h
 ../include/graphics_headers.h
 SDL2/SDL.h
 -
+shader.h
+../include/shader.h
 
 ../include/Texture.h
 graphics_headers.h
@@ -137,8 +141,6 @@ LightingModel.h
 /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/ShadowMap.cpp
 ShadowMap.h
 /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/ShadowMap.h
-stdio.h
--
 
 /Users/harpreetsingh/github/advanced-graphics/ogl_dev/shadow_mapping/src/Texture.cpp
 Texture.h
