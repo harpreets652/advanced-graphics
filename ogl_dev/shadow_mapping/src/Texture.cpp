@@ -29,13 +29,11 @@ bool Texture::loadTexture(std::string &imageName) {
 
     glTexImage2D(GL_TEXTURE_2D,
                  0,
-                 GL_RGBA,
-                 //textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
-                 (GLsizei)textureImage->w,
-                 (GLsizei)textureImage->h,
+                 textureImage->format->BytesPerPixel == 4 ? GL_RGBA : GL_RGB,
+                 (GLsizei) textureImage->w,
+                 (GLsizei) textureImage->h,
                  0,
-                 GL_RGBA,
-//                 textureImage->format->BitsPerPixel == 4 ? GL_RGBA : GL_RGB,
+                 textureImage->format->BytesPerPixel == 4 ? GL_RGBA : GL_RGB,
                  GL_UNSIGNED_BYTE,
                  textureImage->pixels);
 
