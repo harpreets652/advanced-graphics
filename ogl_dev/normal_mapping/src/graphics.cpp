@@ -102,26 +102,34 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    //color textures
-    if (!TextureManager::getInstance()->addTexture("floor", "../textures/anotherFloor.jpg")) {
-        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
+    std::string boardTexture = "../textures/stoneFloor.jpg";
+    if (!TextureManager::getInstance()->addTexture("floor", boardTexture)) {
+        std::cout << "Unable to load texture " << boardTexture << std::endl;
         return false;
     }
 
-    if (!TextureManager::getInstance()->addTexture("marble", "../textures/MarbleWhite.png")) {
-        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
+    std::string boardNormalMap = "../textures/stoneFloorNormal.jpg";
+    if (!TextureManager::getInstance()->addTexture("floorNormal", boardNormalMap)) {
+        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
         return false;
     }
 
-    //normal maps
-    if (!TextureManager::getInstance()->addTexture("floorNormal", "../textures/anotherFloorNormal.jpg")) {
-        std::cout << "Unable to load texture " << "../textures/chessboard-texture.png" << std::endl;
+    std::string goldDragonScales = "../textures/dragonSkinRed.jpg";
+    if (!TextureManager::getInstance()->addTexture("scale", goldDragonScales)) {
+        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
+        return false;
+    }
+
+    std::string goldDragonScalesNormalMap = "../textures/dragonSkinRedNormal.jpg";
+    if (!TextureManager::getInstance()->addTexture("scaleNormal", goldDragonScalesNormalMap)) {
+        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
         return false;
     }
 
     m_board->setColorTextureId("floor");
     m_board->setNormalMapTextureId("floorNormal");
-    m_chessPiece->setColorTextureId("marble");
+    m_chessPiece->setColorTextureId("scale");
+    m_chessPiece->setNormalMapTextureId("scaleNormal");
 
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
