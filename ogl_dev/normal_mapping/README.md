@@ -1,1 +1,1 @@
-# extending lighting project to include shadow mapping
+# Normal mapping
