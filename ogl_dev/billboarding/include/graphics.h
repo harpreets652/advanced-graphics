@@ -31,8 +31,6 @@ public:
     void Render();
 
 private:
-    void shadowPass();
-
     void renderPass();
 
     std::string ErrorString(GLenum error);
@@ -40,7 +38,6 @@ private:
     Camera *m_camera;
     Shader *m_shader;
     LightingModel *lightingModel;
-    ShadowMap *shadowMap;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;

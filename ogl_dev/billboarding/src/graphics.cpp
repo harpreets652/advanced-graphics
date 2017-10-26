@@ -41,7 +41,7 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
-    m_chessPiece = new Object("../objects/dragon.obj");
+    m_chessPiece = new Object("../objects/cube.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -89,13 +89,6 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    //shadow map
-    shadowMap = new ShadowMap();
-    if (!shadowMap->initialize((*m_shader), width, height)) {
-        std::cout << "Unable to initialize shadow map" << std::endl;
-        return false;
-    }
-
     //load textures
     if (!TextureManager::getInstance()->initHandlers((*m_shader))) {
         std::cout << "Unable to get texture handlers from shader." << std::endl;
@@ -114,22 +107,8 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    std::string goldDragonScales = "../textures/dragonSkinRed.jpg";
-    if (!TextureManager::getInstance()->addTexture("scale", goldDragonScales)) {
-        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
-        return false;
-    }
-
-    std::string goldDragonScalesNormalMap = "../textures/dragonSkinRedNormal.jpg";
-    if (!TextureManager::getInstance()->addTexture("scaleNormal", goldDragonScalesNormalMap)) {
-        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
-        return false;
-    }
-
     m_board->setColorTextureId("floor");
     m_board->setNormalMapTextureId("floorNormal");
-    m_chessPiece->setColorTextureId("scale");
-    m_chessPiece->setNormalMapTextureId("scaleNormal");
 
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
@@ -151,24 +130,7 @@ void Graphics::Update(unsigned int dt) {
 }
 
 void Graphics::Render() {
-    shadowPass();
     renderPass();
-}
-
-void Graphics::shadowPass() {
-    shadowMap->bindForWriting();
-    glClear(GL_DEPTH_BUFFER_BIT);
-
-    // shadow shader program
-    shadowMap->enableProgram();
-
-    glm::mat4 chessPieceModel = m_board->GetModel() * m_chessPiece->GetModel();
-    glm::mat4 shadowMVP = m_camera->GetProjection() * lightingModel->getLightViewMatrix() * chessPieceModel;
-
-    shadowMap->setMVP(shadowMVP);
-    m_chessPiece->ShadowRender();
-
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void Graphics::renderPass() {
@@ -179,10 +141,6 @@ void Graphics::renderPass() {
     // Render shader program
     m_shader->enable();
 
-    //set shadow map texture unit and buffer to 1
-    shadowMap->setTextureUnit(1);
-    shadowMap->bindForReading(GL_TEXTURE1);
-
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
 
@@ -191,9 +149,11 @@ void Graphics::renderPass() {
     m_board->Render();
 
     // render the chess piece
+/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
+*/
 
     //Add lighting
     lightingModel->renderLighting();

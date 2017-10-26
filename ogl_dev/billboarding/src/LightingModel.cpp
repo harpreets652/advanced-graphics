@@ -138,8 +138,8 @@ void LightingModel::renderLighting() {
 //    setPointLights(2, pl);
 
     SpotLight sl[2];
-    sl[0].diffuseIntensity = 2.0f;
-    sl[0].ambientIntensity = 0.5;
+    sl[0].diffuseIntensity = 3.0f;
+    sl[0].ambientIntensity = 2.0;
     sl[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
     sl[0].position = lightPosition;
     sl[0].direction = lightDirection;
