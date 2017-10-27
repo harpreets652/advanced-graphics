@@ -55,6 +55,10 @@ glm::mat4 Camera::GetView() {
     return view;
 }
 
+glm::vec3 Camera::getPosition() {
+    return position;
+}
+
 void Camera::updatePosition(Direction direction) {
     switch (direction) {
         case UP: {

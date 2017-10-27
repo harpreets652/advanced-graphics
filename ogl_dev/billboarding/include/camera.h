@@ -19,6 +19,8 @@ public:
 
     glm::mat4 GetView();
 
+    glm::vec3 getPosition();
+
     //Note~ camera movement incomplete
     void updatePosition(Direction direction);
 

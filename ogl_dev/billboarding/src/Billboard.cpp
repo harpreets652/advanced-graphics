@@ -4,8 +4,8 @@
 
 #include "Billboard.h"
 
-static const int NUM_OF_ROWS = 2;
-static const int NUM_OF_COLS = 2;
+static const int NUM_OF_ROWS = 14;
+static const int NUM_OF_COLS = 14;
 
 
 Billboard::Billboard() {
@@ -17,11 +17,9 @@ Billboard::~Billboard() {
 }
 
 bool Billboard::initialize(std::string pTextureName) {
-    //load billboard shader
-    bool status = billboardTexture->loadTexture(pTextureName);
-
-    if (!status) {
-        return status;
+    //load billboard texture
+    if (!billboardTexture->loadTexture(pTextureName)) {
+        return false;
     }
 
     //initialize shader
@@ -59,9 +57,15 @@ bool Billboard::initialize(std::string pTextureName) {
     //define positions of billboards
     glm::vec3 billboardPositions[NUM_OF_ROWS * NUM_OF_COLS];
 
+    int offset = -7;
     for (int i = 0; i < NUM_OF_ROWS; i++) {
         for (int j = 0; j < NUM_OF_COLS; j++) {
-            glm::vec3 position((float) i, 0.0f, (float) j);
+            glm::vec3 position;
+            if (j % 2 == 0) {
+                position = glm::vec3((float) (i + offset), 0.0f, (float) (j + offset));
+            } else {
+                position = glm::vec3((float) (i + offset) + 0.5, 0.0f, (float) (j + offset) + 0.5);
+            }
             billboardPositions[j * NUM_OF_COLS + i] = position;
         }
     }
@@ -79,8 +83,8 @@ void Billboard::render(glm::mat4 pProjectionViewMat, glm::vec3 pCameraPosition) 
     glUniformMatrix4fv(projectViewMatrixHandler, 1, GL_FALSE, glm::value_ptr(pProjectionViewMat));
     glUniform3f(cameraPositionHandler, pCameraPosition.x, pCameraPosition.y, pCameraPosition.z);
 
-    glUniform1i(billboardSamplerHandler, 0);
-    billboardTexture->enable(GL_TEXTURE0);
+    glUniform1i(billboardSamplerHandler, 1);
+    billboardTexture->enable(GL_TEXTURE1);
 
     glEnableVertexAttribArray(0);
 

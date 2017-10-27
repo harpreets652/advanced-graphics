@@ -95,13 +95,13 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    std::string boardTexture = "../textures/stoneFloor.jpg";
+    std::string boardTexture = "../textures/forest_ground.jpeg";
     if (!TextureManager::getInstance()->addTexture("floor", boardTexture)) {
         std::cout << "Unable to load texture " << boardTexture << std::endl;
         return false;
     }
 
-    std::string boardNormalMap = "../textures/stoneFloorNormal.jpg";
+    std::string boardNormalMap = "../textures/forest_normal.jpg";
     if (!TextureManager::getInstance()->addTexture("floorNormal", boardNormalMap)) {
         std::cout << "Unable to load texture " << boardNormalMap << std::endl;
         return false;
@@ -110,9 +110,15 @@ bool Graphics::Initialize(int width, int height) {
     m_board->setColorTextureId("floor");
     m_board->setNormalMapTextureId("floorNormal");
 
+    billboardRenderer = new Billboard();
+    if (!billboardRenderer->initialize("../textures/tree_billboard.jpg")) {
+        std::cout << "Billboard renderer failed to initialize" << std::endl;
+        return false;
+    }
+
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
-        printf("lighting model to Initialize\n");
+        std::cout << "lighting model failed to initialize" << std::endl;
         return false;
     }
 
@@ -137,6 +143,10 @@ void Graphics::renderPass() {
     //clear the screen
     glClearColor(0.0, 0.0, 0.2, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    //render billboard
+    glm::mat4 projectionView = m_camera->GetProjection() * m_camera->GetView();
+    billboardRenderer->render(projectionView, m_camera->getPosition());
 
     // Render shader program
     m_shader->enable();

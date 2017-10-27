@@ -12,6 +12,7 @@
 #include "TextureManager.h"
 #include "LightingModel.h"
 #include "ShadowMap.h"
+#include "Billboard.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ private:
     Camera *m_camera;
     Shader *m_shader;
     LightingModel *lightingModel;
+    Billboard *billboardRenderer;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;
