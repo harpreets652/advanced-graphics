@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="billboarding"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CMakeModules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="billboarding_SUCCESSFUL">
+				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 billboarding_SUCCESSFUL"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="billboarding">
+				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/billboarding" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add directory="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/include"/>
+					<Add directory="/usr/local/include/SDL2"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 billboarding"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="billboarding/fast">
+				<Option output="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/billboarding" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add directory="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/include"/>
+					<Add directory="/usr/local/include/SDL2"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 billboarding/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/Billboard.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/LightingModel.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/ShadowMap.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/Texture.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/TextureManager.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/camera.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/engine.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/graphics.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/main.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/object.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/shader.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/src/window.cpp">
+			<Option target="billboarding"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/CMakeModules/FindSDL2.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/CMakeModules/FindGLEW.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/CMakeModules/FindGLM.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/CMakeModules/FindAssimp.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/CMakeModules/FindSDL2_Image.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
