@@ -1,4 +1,0 @@
-/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/CMakeFiles/billboarding_SUCCESSFUL.dir
-/Users/harpreetsingh/github/advanced-graphics/ogl_dev/billboarding/cmake-build-debug/CMakeFiles/billboarding.dir
