@@ -23,6 +23,8 @@ public:
 
     void Render();
 
+    void SimpleRender();
+
     void ShadowRender();
 
     glm::mat4 GetModel();

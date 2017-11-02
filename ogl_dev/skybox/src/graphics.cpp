@@ -116,6 +116,8 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    skyBox = new SkyBox();
+
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
         std::cout << "lighting model failed to initialize" << std::endl;
@@ -137,6 +139,11 @@ void Graphics::Update(unsigned int dt) {
 
 void Graphics::Render() {
     renderPass();
+    skyBoxPass();
+}
+
+void Graphics::skyBoxPass() {
+
 }
 
 void Graphics::renderPass() {

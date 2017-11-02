@@ -13,6 +13,7 @@
 #include "LightingModel.h"
 #include "ShadowMap.h"
 #include "Billboard.h"
+#include "SkyBox.h"
 
 using namespace std;
 
@@ -34,12 +35,15 @@ public:
 private:
     void renderPass();
 
+    void skyBoxPass();
+
     std::string ErrorString(GLenum error);
 
     Camera *m_camera;
     Shader *m_shader;
     LightingModel *lightingModel;
     Billboard *billboardRenderer;
+    SkyBox *skyBox;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;

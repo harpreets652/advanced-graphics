@@ -224,3 +224,15 @@ void Object::ShadowRender() {
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
 }
+
+void Object::SimpleRender() {
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VB);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
+    glDrawElements(GL_TRIANGLES, Indices.size(), GL_UNSIGNED_INT, 0);
+
+    glDisableVertexAttribArray(0);
+}
