@@ -29,6 +29,8 @@ public:
 
     glm::mat4 GetModel();
 
+    void SetModel(glm::mat4 newModel);
+
 private:
     void getVertices(const aiMesh *mesh, std::vector<glm::vec3> &vertices);
 

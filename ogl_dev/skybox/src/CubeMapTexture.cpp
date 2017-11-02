@@ -14,7 +14,6 @@ static const GLenum glCubeMapTextureTypes[6] = {GL_TEXTURE_CUBE_MAP_POSITIVE_X,
 CubeMapTexture::CubeMapTexture() {
     textureHandler = 0;
     cubeTextures.clear();
-    cubeTextures.reserve(6);
 }
 
 CubeMapTexture::~CubeMapTexture() {
@@ -23,19 +22,20 @@ CubeMapTexture::~CubeMapTexture() {
     }
 }
 
-bool CubeMapTexture::loadTextures(std::string &pBaseDirectory,
-                                  std::string &pPosXTexture,
-                                  std::string &pNegXTexture,
-                                  std::string &pPosYTexture,
-                                  std::string &pNegYTexture,
-                                  std::string &pPosZTexture,
-                                  std::string &pNegZTexture) {
-    cubeTextures[0] = pBaseDirectory + pPosXTexture;
-    cubeTextures[1] = pBaseDirectory + pNegXTexture;
-    cubeTextures[2] = pBaseDirectory + pPosYTexture;
-    cubeTextures[3] = pBaseDirectory + pNegYTexture;
-    cubeTextures[4] = pBaseDirectory + pPosZTexture;
-    cubeTextures[5] = pBaseDirectory + pNegZTexture;
+bool CubeMapTexture::loadTextures(const std::string &pBaseDirectory,
+                                  const std::string &pPosXTexture,
+                                  const std::string &pNegXTexture,
+                                  const std::string &pPosYTexture,
+                                  const std::string &pNegYTexture,
+                                  const std::string &pPosZTexture,
+                                  const std::string &pNegZTexture) {
+    
+    cubeTextures.push_back(pBaseDirectory + pPosXTexture);
+    cubeTextures.push_back(pBaseDirectory + pNegXTexture);
+    cubeTextures.push_back(pBaseDirectory + pPosYTexture);
+    cubeTextures.push_back(pBaseDirectory + pNegYTexture);
+    cubeTextures.push_back(pBaseDirectory + pPosZTexture);
+    cubeTextures.push_back(pBaseDirectory + pNegZTexture);
 
     glGenTextures(1, &textureHandler);
     glBindTexture(GL_TEXTURE_CUBE_MAP, textureHandler);

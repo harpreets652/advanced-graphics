@@ -180,6 +180,10 @@ glm::mat4 Object::GetModel() {
     return model;
 }
 
+void Object::SetModel(glm::mat4 newModel) {
+    model = newModel;
+}
+
 void Object::Render() {
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);

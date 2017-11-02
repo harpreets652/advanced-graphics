@@ -18,13 +18,13 @@ public:
 
     ~CubeMapTexture();
 
-    bool loadTextures(std::string &pBaseDirectory,
-                      std::string &pPosXTexture,
-                      std::string &pNegXTexture,
-                      std::string &pPosYTexture,
-                      std::string &pNegYTexture,
-                      std::string &pPosZTexture,
-                      std::string &pNegZTexture);
+    bool loadTextures(const std::string &pBaseDirectory,
+                      const std::string &pPosXTexture,
+                      const std::string &pNegXTexture,
+                      const std::string &pPosYTexture,
+                      const std::string &pNegYTexture,
+                      const std::string &pPosZTexture,
+                      const std::string &pNegZTexture);
 
     void enable(GLenum textureUnit);
 

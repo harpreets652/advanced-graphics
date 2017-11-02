@@ -17,19 +17,19 @@ public:
 
     ~SkyBox() {}
 
-    bool init(std::string &pBaseDirectory,
-              std::string &pPosXTexture,
-              std::string &pNegXTexture,
-              std::string &pPosYTexture,
-              std::string &pNegYTexture,
-              std::string &pPosZTexture,
-              std::string &pNegZTexture);
+    bool init(const std::string &pBaseDirectory,
+              const std::string &pPosXTexture,
+              const std::string &pNegXTexture,
+              const std::string &pPosYTexture,
+              const std::string &pNegYTexture,
+              const std::string &pPosZTexture,
+              const std::string &pNegZTexture);
 
     void render(glm::mat4 pViewProjectionMatrix);
 
 private:
     Shader *skyBoxShader;
-    Object *skyBoxMesh;//Note~ new renderSkyBox method
+    Object *skyBoxMesh;
     CubeMapTexture *skyBoxTexture;
 
     GLint mvpHandler;

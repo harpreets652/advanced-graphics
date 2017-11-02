@@ -4,13 +4,13 @@
 
 #include "SkyBox.h"
 
-bool SkyBox::init(std::string &pBaseDirectory,
-                  std::string &pPosXTexture,
-                  std::string &pNegXTexture,
-                  std::string &pPosYTexture,
-                  std::string &pNegYTexture,
-                  std::string &pPosZTexture,
-                  std::string &pNegZTexture) {
+bool SkyBox::init(const std::string &pBaseDirectory,
+                  const std::string &pPosXTexture,
+                  const std::string &pNegXTexture,
+                  const std::string &pPosYTexture,
+                  const std::string &pNegYTexture,
+                  const std::string &pPosZTexture,
+                  const std::string &pNegZTexture) {
 
     //initialize shader
     skyBoxShader = new Shader();
@@ -55,7 +55,8 @@ bool SkyBox::init(std::string &pBaseDirectory,
 
     //initialize cube
     skyBoxMesh = new Object("../objects/sphere.obj");
-    glm::scale(skyBoxMesh->GetModel(), glm::vec3(21, 21, 21));
+//    skyBoxMesh->GetModel() = glm::scale(glm::vec3(21, 21, 21));
+    skyBoxMesh->SetModel(glm::scale(skyBoxMesh->GetModel(), glm::vec3(21, 21, 21)));
 
     return true;
 }
@@ -74,7 +75,6 @@ void SkyBox::render(glm::mat4 pProjectionViewMatrix) {
 
     glUniformMatrix4fv(mvpHandler, 1, GL_FALSE, glm::value_ptr(mvp));
     glUniform1i(skyBoxSamplerHandler, 3);
-
     skyBoxTexture->enable(GL_TEXTURE3);
 
     skyBoxMesh->SimpleRender();

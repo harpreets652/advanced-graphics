@@ -117,6 +117,18 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     skyBox = new SkyBox();
+    bool skyBoxInit = skyBox->init("../textures/skyboxes/DarkStormy/",
+                                   "DarkStormyLeft.png",
+                                   "DarkStormyRight.png",
+                                   "DarkStormyUp.png",
+                                   "DarkStormyDown.png",
+                                   "DarkStormyBack.png",
+                                   "DarkStormyFront.png");
+
+    if (!skyBoxInit) {
+        std::cout << "Unable to initialize sky box" << std::endl;
+        return false;
+    }
 
     lightingModel = new LightingModel();
     if (!lightingModel->initialize((*m_shader))) {
@@ -143,7 +155,8 @@ void Graphics::Render() {
 }
 
 void Graphics::skyBoxPass() {
-
+    glm::mat4 projectionView = m_camera->GetProjection() * m_camera->GetView();
+    skyBox->render(projectionView);
 }
 
 void Graphics::renderPass() {
