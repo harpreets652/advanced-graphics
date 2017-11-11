@@ -25,6 +25,8 @@ public:
 
     GLint getUniformLocation(const char *pUniformName);
 
+    GLuint getShaderProgram();
+
 private:
     bool readFile(std::string &fileName, std::string &output);
 

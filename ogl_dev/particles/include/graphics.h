@@ -14,6 +14,7 @@
 #include "ShadowMap.h"
 #include "Billboard.h"
 #include "SkyBox.h"
+#include "ParticleSystem.h"
 
 using namespace std;
 
@@ -30,10 +31,10 @@ public:
 
     void Update(unsigned int dt);
 
-    void Render();
+    void Render(unsigned int dt);
 
 private:
-    void renderPass();
+    void renderPass(unsigned int dt);
 
     void skyBoxPass();
 
@@ -44,6 +45,7 @@ private:
     LightingModel *lightingModel;
     Billboard *billboardRenderer;
     SkyBox *skyBox;
+    ParticleSystem *particleSystem;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;

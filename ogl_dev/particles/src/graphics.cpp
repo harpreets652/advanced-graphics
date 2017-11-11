@@ -136,6 +136,13 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    particleSystem = new ParticleSystem();
+
+    if (!particleSystem->initialize("../textures/water_texture.jpg", glm::vec3(0.0f, 0.0f, 4.0f))) {
+        std::cout << "Unable to initialize particle system" << std::endl;
+        return false;
+    }
+
     //enable depth testing
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
@@ -149,24 +156,24 @@ void Graphics::Update(unsigned int dt) {
     m_chessPiece->Update(dt);
 }
 
-void Graphics::Render() {
-    renderPass();
+void Graphics::Render(unsigned int dt) {
+    renderPass(dt);
     skyBoxPass();
 }
 
 void Graphics::skyBoxPass() {
     glm::mat4 projectionView = m_camera->GetProjection() * m_camera->GetView();
-    skyBox->render(projectionView);
+//    skyBox->render(projectionView);
 }
 
-void Graphics::renderPass() {
+void Graphics::renderPass(unsigned int dt) {
     //clear the screen
-    glClearColor(0.0, 0.0, 0.2, 1.0);
+    glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     //render billboard
     glm::mat4 projectionView = m_camera->GetProjection() * m_camera->GetView();
-    billboardRenderer->render(projectionView, m_camera->getPosition());
+//    billboardRenderer->render(projectionView, m_camera->getPosition());
 
     // Render shader program
     m_shader->enable();
@@ -176,7 +183,7 @@ void Graphics::renderPass() {
 
     // Render the board
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
-    m_board->Render();
+//    m_board->Render();
 
     // render the chess piece
 /*
@@ -187,6 +194,8 @@ void Graphics::renderPass() {
 
     //Add lighting
     lightingModel->renderLighting();
+
+    particleSystem->render(dt, m_camera);
 
     // Get any errors from OpenGL
     auto error = glGetError();
