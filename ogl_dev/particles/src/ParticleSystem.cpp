@@ -154,7 +154,7 @@ bool ParticleSystem::getParticleUpdateHandlers() {
 void ParticleSystem::setInitialParticleProperties() {
     particleUpdateShader->enable();
     glUniform1i(m_randomTextureSamplerHandler, 4);
-    glUniform1f(m_launcherLifetimeHandler, 100.0f);
+    glUniform1f(m_launcherLifetimeHandler, 10.0f);
     glUniform1f(m_shellLifetimeHandler, 10000.0f);
     glUniform1f(m_secondaryShellLifetimeHandler, 2500.0f);
 }

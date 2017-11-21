@@ -138,7 +138,7 @@ bool Graphics::Initialize(int width, int height) {
 
     particleSystem = new ParticleSystem();
 
-    if (!particleSystem->initialize("../textures/water_texture.jpg", glm::vec3(0.0f, 0.0f, 4.0f))) {
+    if (!particleSystem->initialize("../textures/water_texture.jpg", glm::vec3(0.0f, 0.0f, 1.0f))) {
         std::cout << "Unable to initialize particle system" << std::endl;
         return false;
     }
