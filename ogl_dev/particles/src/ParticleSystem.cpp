@@ -153,10 +153,11 @@ bool ParticleSystem::getParticleUpdateHandlers() {
 
 void ParticleSystem::setInitialParticleProperties() {
     particleUpdateShader->enable();
+    // this is in milliseconds
     glUniform1i(m_randomTextureSamplerHandler, 4);
-    glUniform1f(m_launcherLifetimeHandler, 10.0f);
-    glUniform1f(m_shellLifetimeHandler, 10000.0f);
-    glUniform1f(m_secondaryShellLifetimeHandler, 2500.0f);
+    glUniform1f(m_launcherLifetimeHandler, 100.0f);
+    glUniform1f(m_shellLifetimeHandler, 1000.0f);
+    glUniform1f(m_secondaryShellLifetimeHandler, 5000.0f);
 }
 
 void ParticleSystem::setInitialParticleBillboardProperties() {
