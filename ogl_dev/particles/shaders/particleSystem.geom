@@ -27,7 +27,6 @@ uniform float gSecondaryShellLifetime;
 
 vec3 GetRandomDir(float TexCoord) {
      vec3 Dir = texture(gRandomTexture, TexCoord).xyz;
-//     Dir -= vec3(0.5, 0.5, 0.5);
      return Dir;
 }
 
@@ -56,6 +55,7 @@ void main() {
         float DeltaTimeSecs = gDeltaTimeMillis / 1000.0f;
         vec3 DeltaP = DeltaTimeSecs * Velocity0[0];
         vec3 DeltaV = vec3(DeltaTimeSecs) * (0.0, -9.81, 0.0);
+
         vec3 newPos = Position0[0] + DeltaP;
         vec3 newVel = Velocity0[0] + DeltaV;
 
@@ -86,13 +86,6 @@ void main() {
                 Age1 = Age;
                 EmitVertex();
                 EndPrimitive();
-            } else {
-                 Type1 = PARTICLE_TYPE_SECONDARY_SHELL;
-                 Position1 = vec3(0.0, 1.0, 0.0);
-                 Velocity1 = Velocity0[0];
-                 Age1 = 0;
-                 EmitVertex();
-                 EndPrimitive();
             }
         }
     }
