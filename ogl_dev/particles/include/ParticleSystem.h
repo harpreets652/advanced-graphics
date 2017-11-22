@@ -64,6 +64,7 @@ private:
     GLint m_launcherLifetimeHandler;
     GLint m_shellLifetimeHandler;
     GLint m_secondaryShellLifetimeHandler;
+    GLuint numPrimitivesGenerated;
 };
 
 

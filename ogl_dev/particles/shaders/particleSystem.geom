@@ -35,14 +35,17 @@ void main() {
 
     if (Type0[0] == PARTICLE_TYPE_LAUNCHER) {
         if (Age >= gLauncherLifetime) {
-            Type1 = PARTICLE_TYPE_SHELL;
-            Position1 = Position0[0];
-            vec3 Dir = GetRandomDir(gTime/1000.0);
-            Velocity1 = normalize(Dir) / 2.0;
-            Age1 = 0.0;
-            EmitVertex();
-            EndPrimitive();
             Age = 0.0;
+
+            for (int i = 0; i < 10; i ++) {
+                Type1 = PARTICLE_TYPE_SHELL;
+                Position1 = Position0[0];
+                vec3 Dir = GetRandomDir((gTime + i)/1000.0);
+                Velocity1 = normalize(Dir);
+                Age1 = 0.0;
+                EmitVertex();
+                EndPrimitive();
+            }
         }
 
         Type1 = PARTICLE_TYPE_LAUNCHER;
@@ -59,34 +62,23 @@ void main() {
         vec3 newPos = Position0[0] + DeltaP;
         vec3 newVel = Velocity0[0] + DeltaV;
 
-        if (Type0[0] == PARTICLE_TYPE_SHELL)  {
-	        if (Age < gShellLifetime) {
-	            Type1 = PARTICLE_TYPE_SHELL;
-	            Position1 = newPos;
-	            Velocity1 = newVel;
-	            Age1 = Age;
-	            EmitVertex();
-	            EndPrimitive();
-	        } else {
-                for (int i = 0 ; i < 10 ; i++) {
-                     Type1 = PARTICLE_TYPE_SECONDARY_SHELL;
-                     Position1 = Position0[0];
-                     vec3 Dir = GetRandomDir((gTime + i)/1000.0);
-                     Velocity1 = normalize(Dir) / 2.0;
-                     Age1 = 0.0f;
-                     EmitVertex();
-                     EndPrimitive();
-                }
-            }
-        } else {
-            if (Age < gSecondaryShellLifetime) {
-                Type1 = PARTICLE_TYPE_SECONDARY_SHELL;
-                Position1 = newPos;
-                Velocity1 = newVel;
-                Age1 = Age;
-                EmitVertex();
-                EndPrimitive();
-            }
+        if (Age < gShellLifetime) {
+            Type1 = PARTICLE_TYPE_SHELL;
+            Position1 = newPos;
+            Velocity1 = newVel;
+            Age1 = Age;
+            EmitVertex();
+            EndPrimitive();
         }
+        //Note~ reset positions
+//        else {
+//             Type1 = PARTICLE_TYPE_SECONDARY_SHELL;
+//             Position1 = Position0[0];
+//             vec3 Dir = GetRandomDir((gTime + i)/1000.0);
+//             Velocity1 = normalize(Dir) / 2.0;
+//             Age1 = 0.0f;
+//             EmitVertex();
+//             EndPrimitive();
+//        }
     }
 }

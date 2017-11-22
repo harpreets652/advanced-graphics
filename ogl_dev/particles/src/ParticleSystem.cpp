@@ -114,6 +114,8 @@ bool ParticleSystem::initialize(std::string pTextureName) {
         return false;
     }
 
+    glGenQueries(1, &numPrimitivesGenerated);
+
     auto errorCode = glGetError();
     if (errorCode != GL_NO_ERROR) {
         std::cout << "GL ERRORS DETECTED: " << errorCode << std::endl;
