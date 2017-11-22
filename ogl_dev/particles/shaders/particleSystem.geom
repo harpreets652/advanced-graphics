@@ -87,6 +87,13 @@ void main() {
                 Age1 = Age;
                 EmitVertex();
                 EndPrimitive();
+            } else {
+                Type1 = PARTICLE_TYPE_SECONDARY_SHELL;
+                Position1 = vec3(0.0, 0.0, 1.0);
+                Velocity1 = Velocity0[0];
+                Age1 = mod(GetRandomDir((gTime)/1000.0).x, 10000.0);
+                EmitVertex();
+                EndPrimitive();
             }
         }
     }

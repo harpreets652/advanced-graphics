@@ -6,11 +6,21 @@
 #define PARTICLES_PARTICLESYSTEM_H
 
 #include <algorithm>
+#include <vector>
 #include "graphics_headers.h"
 #include "shader.h"
 #include "Texture.h"
 #include "camera.h"
 #include "RandomTexture.h"
+
+
+
+struct Particle {
+    float type;
+    glm::vec3 position;
+    glm::vec3 velocity;
+    float lifetimeMillis;
+};
 
 class ParticleSystem {
 public:
@@ -18,7 +28,7 @@ public:
 
     ~ParticleSystem();
 
-    bool initialize(std::string pTextureName, glm::vec3 pParticlePos);
+    bool initialize(std::string pTextureName);
 
     void render(unsigned int dt, Camera *pCamera);
 
@@ -50,6 +60,7 @@ private:
     Shader *particleBillboardShader;
     Texture *particleTexture;
     RandomTexture *randomTexture;
+    std::vector<Particle> particles;
 
     GLint cameraPositionHandler;
     GLint projectViewMatrixHandler;

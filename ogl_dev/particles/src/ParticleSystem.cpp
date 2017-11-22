@@ -4,19 +4,9 @@
 
 #include "ParticleSystem.h"
 
-#define MAX_PARTICLES 1000
-#define PARTICLE_LIFETIME 10.0f
+#define MAX_PARTICLES 5
 
 #define PARTICLE_TYPE_LAUNCHER 0.0f
-#define PARTICLE_TYPE_SHELL 1.0f
-#define PARTICLE_TYPE_SECONDARY_SHELL 2.0f
-
-struct Particle {
-    float type;
-    glm::vec3 position;
-    glm::vec3 velocity;
-    float lifetimeMillis;
-};
 
 ParticleSystem::ParticleSystem() {
     currentVB = 0;
@@ -36,13 +26,19 @@ ParticleSystem::~ParticleSystem() {
     }
 }
 
-bool ParticleSystem::initialize(std::string pTextureName, glm::vec3 pParticlePos) {
-    Particle particles[MAX_PARTICLES];
+bool ParticleSystem::initialize(std::string pTextureName) {
 
-    particles[0].type = PARTICLE_TYPE_LAUNCHER;
-    particles[0].position = pParticlePos;
-    particles[0].velocity = glm::vec3(0.0f, 50.0f, 0.0f);
-    particles[0].lifetimeMillis = 0.0f;
+    for (int i = 0; i < MAX_PARTICLES; i++) {
+        Particle particle;
+        particle.type = PARTICLE_TYPE_LAUNCHER;
+        particle.position.x = float(rand() % 3);
+        particle.position.z = float(rand() % 3);
+        particle.position.y = 5.0f;
+        particle.velocity = glm::vec3(0.0f, -1.0f, 0.0f);
+        particle.lifetimeMillis = 0.0f;
+
+        particles.push_back(particle);
+    }
 
     glGenTransformFeedbacks(2, transformFeedbackBuffer);
     glGenBuffers(2, particleBuffer);
@@ -50,7 +46,7 @@ bool ParticleSystem::initialize(std::string pTextureName, glm::vec3 pParticlePos
     for (unsigned int i = 0; i < 2; i++) {
         glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, transformFeedbackBuffer[i]);
         glBindBuffer(GL_ARRAY_BUFFER, particleBuffer[i]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(particles), particles, GL_DYNAMIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Particle) * particles.size(), &particles[0], GL_DYNAMIC_DRAW);
         glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, particleBuffer[i]);
     }
 
@@ -71,7 +67,7 @@ bool ParticleSystem::initialize(std::string pTextureName, glm::vec3 pParticlePos
     particleUpdateShader = new Shader();
     if (!initializeShader(particleUpdateShader,
                           "../shaders/particleSystem.vert",
-                          "../shaders/particleSystem.geom",
+                          "",
                           "../shaders/particleSystem.frag")) {
         return false;
     }
@@ -156,7 +152,7 @@ void ParticleSystem::setInitialParticleProperties() {
     // this is in milliseconds
     glUniform1i(m_randomTextureSamplerHandler, 4);
     glUniform1f(m_launcherLifetimeHandler, 100.0f);
-    glUniform1f(m_shellLifetimeHandler, 1000.0f);
+    glUniform1f(m_shellLifetimeHandler, 5000.0f);
     glUniform1f(m_secondaryShellLifetimeHandler, 5000.0f);
 }
 
@@ -180,9 +176,11 @@ bool ParticleSystem::initializeShader(Shader *pShader,
         return false;
     }
 
-    if (!pShader->addShaderFromFile(pGeom, GL_GEOMETRY_SHADER)) {
-        std::cout << "Fragment Shader failed to Initialize" << std::endl;
-        return false;
+    if (!pGeom.empty()) {
+        if (!pShader->addShaderFromFile(pGeom, GL_GEOMETRY_SHADER)) {
+            std::cout << "Fragment Shader failed to Initialize" << std::endl;
+            return false;
+        }
     }
 
     if (!pShader->addShaderFromFile(pFrag, GL_FRAGMENT_SHADER)) {
@@ -222,15 +220,15 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     glEnableVertexAttribArray(2);
     glEnableVertexAttribArray(3);
 
-    glVertexAttribPointer(0, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), 0);                          // type
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 4);         // position
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 16);        // velocity
-    glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 28);          // lifetime
+    glVertexAttribPointer(0, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), 0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, position));
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, velocity));
+    glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, lifetimeMillis));
 
     glBeginTransformFeedback(GL_POINTS);
 
     if (isFirstRender) {
-        glDrawArrays(GL_POINTS, 0, 1);
+        glDrawArrays(GL_POINTS, 0, static_cast<GLsizei>(particles.size()));
         isFirstRender = false;
     } else {
         glDrawTransformFeedback(GL_POINTS, transformFeedbackBuffer[currentVB]);
@@ -258,7 +256,7 @@ void ParticleSystem::renderParticles(glm::mat4 pProjViewMat, glm::vec3 pCameraPo
 
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 4);  // position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, position));  // position
 
     glDrawTransformFeedback(GL_POINTS, transformFeedbackBuffer[currentTransFeedBuff]);
 
