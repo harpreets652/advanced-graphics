@@ -41,7 +41,7 @@ void main() {
                 Type1 = PARTICLE_TYPE_SHELL;
                 Position1 = Position0[0];
                 vec3 Dir = GetRandomDir((gTime + i)/1000.0);
-                Velocity1 = normalize(Dir);
+                Velocity1 = normalize(Dir) * 2.0;
                 Age1 = 0.0;
                 EmitVertex();
                 EndPrimitive();
@@ -56,10 +56,11 @@ void main() {
         EndPrimitive();
     } else {
         float DeltaTimeSecs = gDeltaTimeMillis / 1000.0f;
-        vec3 DeltaP = DeltaTimeSecs * Velocity0[0];
-        vec3 DeltaV = vec3(DeltaTimeSecs) * (0.0, -9.81, 0.0);
 
-        vec3 newPos = Position0[0] + DeltaP;
+        vec3 DeltaP = DeltaTimeSecs * Velocity0[0];
+        vec3 newPos = Position0[0] + DeltaP - (0.5 * vec3(0.0, -9.81, 0.0) * (DeltaTimeSecs * DeltaTimeSecs));
+
+        vec3 DeltaV = vec3(DeltaTimeSecs) * vec3(0.0, -9.81, 0.0) * .05;
         vec3 newVel = Velocity0[0] + DeltaV;
 
         if (Age < gShellLifetime) {

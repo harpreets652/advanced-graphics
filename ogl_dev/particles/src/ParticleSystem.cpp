@@ -42,7 +42,7 @@ bool ParticleSystem::initialize(std::string pTextureName) {
 
     particles[0].type = PARTICLE_TYPE_LAUNCHER;
     particles[0].position = glm::vec3(0.0f, -5.0f, 0.0f);
-    particles[0].velocity = glm::vec3(0.0f, 10.0f, 0.0f);
+    particles[0].velocity = glm::vec3(0.0f, 50.0f, 0.0f);
     particles[0].lifetimeMillis = 0.0f;
 
     glGenTransformFeedbacks(2, transformFeedbackBuffer);
@@ -247,7 +247,7 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     glEndTransformFeedback();
 
     glGetQueryObjectiv(numPrimitivesGenerated, GL_QUERY_RESULT, &queryResult);
-    std::cout << "number of primitives: " << queryResult << std::endl;
+//    std::cout << "number of primitives: " << queryResult << std::endl;
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
