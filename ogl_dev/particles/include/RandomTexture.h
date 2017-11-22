@@ -5,6 +5,8 @@
 #ifndef PARTICLES_RANDOMTEXTURE_H
 #define PARTICLES_RANDOMTEXTURE_H
 
+#include <random>
+#define GLM_FORCE_RADIANS
 #include "graphics_headers.h"
 
 class RandomTexture {

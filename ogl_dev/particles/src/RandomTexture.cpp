@@ -16,10 +16,23 @@ RandomTexture::~RandomTexture() {
 
 bool RandomTexture::initialize(int size) {
     auto *pRandomData = new glm::vec3[size];
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> distribution(0.0,1.0);
+
+    double coneAngleRad = 30.0 * (3.14/180.0);
     for (unsigned int i = 0; i < size; i++) {
-        pRandomData[i].x = float(rand() % 100);
-        pRandomData[i].y = float(rand() % 100);
-        pRandomData[i].z = float(rand() % 100);
+        //https://stackoverflow.com/questions/38997302/create-random-unit-vector-inside-a-defined-conical-region/39003745#39003745
+        double randVal = distribution(gen);
+        double phi = randVal * 2 * 3.1415;
+        double z = randVal * (1 - glm::cos(coneAngleRad)) + glm::cos(coneAngleRad);
+        double x = std::sqrt(1 - std::pow(z, 2)) * glm::cos(phi);
+        double y = std::sqrt(1 - std::pow(z, 2)) * glm::sin(phi);
+
+        pRandomData[i].x = (float)x;
+        pRandomData[i].y = (float)z;
+        pRandomData[i].z = (float)y;
     }
 
     glGenTextures(1, &randomTextureHandler);

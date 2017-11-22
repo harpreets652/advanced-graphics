@@ -36,12 +36,12 @@ ParticleSystem::~ParticleSystem() {
     }
 }
 
-bool ParticleSystem::initialize(std::string pTextureName, glm::vec3 pParticlePos) {
+bool ParticleSystem::initialize(std::string pTextureName) {
     Particle particles[MAX_PARTICLES];
 
     particles[0].type = PARTICLE_TYPE_LAUNCHER;
-    particles[0].position = pParticlePos;
-    particles[0].velocity = glm::vec3(0.0f, 50.0f, 0.0f);
+    particles[0].position = glm::vec3(0.0f, 1.0f, 0.0f);
+    particles[0].velocity = glm::vec3(0.0f, 10.0f, 0.0f);
     particles[0].lifetimeMillis = 0.0f;
 
     glGenTransformFeedbacks(2, transformFeedbackBuffer);

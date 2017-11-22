@@ -18,7 +18,7 @@ public:
 
     ~ParticleSystem();
 
-    bool initialize(std::string pTextureName, glm::vec3 pParticlePos);
+    bool initialize(std::string pTextureName);
 
     void render(unsigned int dt, Camera *pCamera);
 
