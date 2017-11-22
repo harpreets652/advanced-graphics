@@ -24,6 +24,7 @@ ParticleSystem::ParticleSystem() {
     isFirstRender = true;
     m_time = 0;
     particleTexture = NULL;
+    queryResult = 0;
 }
 
 ParticleSystem::~ParticleSystem() {
@@ -143,23 +144,22 @@ bool ParticleSystem::getParticleUpdateHandlers() {
     m_randomTextureSamplerHandler = particleUpdateShader->getUniformLocation("gRandomTexture");
     m_launcherLifetimeHandler = particleUpdateShader->getUniformLocation("gLauncherLifetime");
     m_shellLifetimeHandler = particleUpdateShader->getUniformLocation("gShellLifetime");
-    m_secondaryShellLifetimeHandler = particleUpdateShader->getUniformLocation("gSecondaryShellLifetime");
+    numToGenerateHandler = particleUpdateShader->getUniformLocation("numToGenerate");
 
     return !(m_deltaTimeMillisHandler == INVALID_UNIFORM_LOCATION ||
              m_timeHandler == INVALID_UNIFORM_LOCATION ||
              m_randomTextureSamplerHandler == INVALID_UNIFORM_LOCATION ||
              m_launcherLifetimeHandler == INVALID_UNIFORM_LOCATION ||
-             m_shellLifetimeHandler == INVALID_UNIFORM_LOCATION ||
-             m_secondaryShellLifetimeHandler == INVALID_UNIFORM_LOCATION);
+             m_shellLifetimeHandler == INVALID_UNIFORM_LOCATION);
 }
 
 void ParticleSystem::setInitialParticleProperties() {
     particleUpdateShader->enable();
     // this is in milliseconds
     glUniform1i(m_randomTextureSamplerHandler, 4);
+    glUniform1i(numToGenerateHandler, 10);
     glUniform1f(m_launcherLifetimeHandler, 100.0f);
-    glUniform1f(m_shellLifetimeHandler, 1000.0f);
-    glUniform1f(m_secondaryShellLifetimeHandler, 8000.0f);
+    glUniform1f(m_shellLifetimeHandler, 5000.0f);
 }
 
 void ParticleSystem::setInitialParticleBillboardProperties() {
@@ -212,6 +212,10 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     glUniform1f(m_timeHandler, (float) m_time);
     glUniform1f(m_deltaTimeMillisHandler, (float) dt);
 
+    if (queryResult > 1000) {
+        glUniform1i(numToGenerateHandler, 0);
+    }
+
     randomTexture->enable(GL_TEXTURE4);
 
     glEnable(GL_RASTERIZER_DISCARD);
@@ -230,6 +234,7 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 28);          // lifetime
 
     glBeginTransformFeedback(GL_POINTS);
+    glBeginQueryIndexed(GL_PRIMITIVES_GENERATED, 0, numPrimitivesGenerated);
 
     if (isFirstRender) {
         glDrawArrays(GL_POINTS, 0, 1);
@@ -238,7 +243,11 @@ void ParticleSystem::updateParticles(unsigned int dt) {
         glDrawTransformFeedback(GL_POINTS, transformFeedbackBuffer[currentVB]);
     }
 
+    glEndQueryIndexed(GL_PRIMITIVES_GENERATED, 0);
     glEndTransformFeedback();
+
+    glGetQueryObjectiv(numPrimitivesGenerated, GL_QUERY_RESULT, &queryResult);
+    std::cout << "number of primitives: " << queryResult << std::endl;
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);

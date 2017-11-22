@@ -63,8 +63,9 @@ private:
     GLint m_timeHandler;
     GLint m_launcherLifetimeHandler;
     GLint m_shellLifetimeHandler;
-    GLint m_secondaryShellLifetimeHandler;
+    GLint numToGenerateHandler;
     GLuint numPrimitivesGenerated;
+    GLint queryResult;
 };
 
 
