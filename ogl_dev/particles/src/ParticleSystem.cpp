@@ -41,7 +41,7 @@ bool ParticleSystem::initialize(std::string pTextureName) {
     Particle particles[MAX_PARTICLES];
 
     particles[0].type = PARTICLE_TYPE_LAUNCHER;
-    particles[0].position = glm::vec3(0.0f, -5.0f, 0.0f);
+    particles[0].position = glm::vec3(0.0f, 0.0f, 1.0f);
     particles[0].velocity = glm::vec3(0.0f, 50.0f, 0.0f);
     particles[0].lifetimeMillis = 0.0f;
 
@@ -159,7 +159,7 @@ void ParticleSystem::setInitialParticleProperties() {
     glUniform1i(m_randomTextureSamplerHandler, 4);
     glUniform1i(numToGenerateHandler, 10);
     glUniform1f(m_launcherLifetimeHandler, 100.0f);
-    glUniform1f(m_shellLifetimeHandler, 5000.0f);
+    glUniform1f(m_shellLifetimeHandler, 10000.0f);
 }
 
 void ParticleSystem::setInitialParticleBillboardProperties() {
@@ -211,6 +211,7 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     particleUpdateShader->enable();
     glUniform1f(m_timeHandler, (float) m_time);
     glUniform1f(m_deltaTimeMillisHandler, (float) dt);
+    glUniform1i(numToGenerateHandler, 10);
 
     if (queryResult > 1000) {
         glUniform1i(numToGenerateHandler, 0);

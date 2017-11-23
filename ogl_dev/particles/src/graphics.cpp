@@ -138,7 +138,7 @@ bool Graphics::Initialize(int width, int height) {
 
     particleSystem = new ParticleSystem();
 
-    if (!particleSystem->initialize("../textures/water_texture.jpg")) {
+    if (!particleSystem->initialize("../textures/raindrop.png")) {
         std::cout << "Unable to initialize particle system" << std::endl;
         return false;
     }

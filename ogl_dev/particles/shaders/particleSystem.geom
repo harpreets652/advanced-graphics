@@ -23,7 +23,6 @@ uniform int numToGenerate;
 
 #define PARTICLE_TYPE_LAUNCHER 0.0f
 #define PARTICLE_TYPE_SHELL 1.0f
-#define PARTICLE_TYPE_SECONDARY_SHELL 2.0f
 
 vec3 GetRandomDir(float TexCoord) {
      vec3 Dir = texture(gRandomTexture, TexCoord).xyz;
@@ -34,7 +33,7 @@ void main() {
     float Age = Age0[0] + gDeltaTimeMillis;
 
     if (Type0[0] == PARTICLE_TYPE_LAUNCHER) {
-        if (Age >= gLauncherLifetime) {
+        if (Age > gLauncherLifetime) {
             Age = 0.0;
 
             for (int i = 0; i < numToGenerate; i ++) {
@@ -71,14 +70,5 @@ void main() {
             EmitVertex();
             EndPrimitive();
         }
-//        else {
-//             Type1 = PARTICLE_TYPE_SECONDARY_SHELL;
-//             Position1 = vec3(0.0f, -5.0f, 0.0f);
-//             vec3 Dir = GetRandomDir(gTime/1000.0);
-//             Velocity1 = normalize(Dir) / 2.0;
-//             Age1 = 0.0f;
-//             EmitVertex();
-//             EndPrimitive();
-//        }
     }
 }
