@@ -95,13 +95,13 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
-    std::string boardTexture = "../textures/forest_ground.jpeg";
+    std::string boardTexture = "../textures/green_grass.jpg";
     if (!TextureManager::getInstance()->addTexture("floor", boardTexture)) {
         std::cout << "Unable to load texture " << boardTexture << std::endl;
         return false;
     }
 
-    std::string boardNormalMap = "../textures/forest_normal.jpg";
+    std::string boardNormalMap = "../textures/grass_ground_normal.jpg";
     if (!TextureManager::getInstance()->addTexture("floorNormal", boardNormalMap)) {
         std::cout << "Unable to load texture " << boardNormalMap << std::endl;
         return false;
@@ -117,13 +117,13 @@ bool Graphics::Initialize(int width, int height) {
     }
 
     skyBox = new SkyBox();
-    bool skyBoxInit = skyBox->init("../textures/skyboxes/DarkStormy/",
-                                   "DarkStormyLeft.png",
-                                   "DarkStormyRight.png",
-                                   "DarkStormyUp.png",
-                                   "DarkStormyDown.png",
-                                   "DarkStormyBack.png",
-                                   "DarkStormyFront.png");
+    bool skyBoxInit = skyBox->init("../textures/skyboxes/Sunset/",
+                                   "SunsetLeft.jpg",
+                                   "SunsetRight.jpg",
+                                   "SunsetUp.jpg",
+                                   "SunsetDown.jpg",
+                                   "SunsetBack.jpg",
+                                   "SunsetFront.jpg");
 
     if (!skyBoxInit) {
         std::cout << "Unable to initialize sky box" << std::endl;
@@ -163,7 +163,7 @@ void Graphics::Render(unsigned int dt) {
 
 void Graphics::skyBoxPass() {
     glm::mat4 projectionView = m_camera->GetProjection() * m_camera->GetView();
-//    skyBox->render(projectionView);
+    skyBox->render(projectionView);
 }
 
 void Graphics::renderPass(unsigned int dt) {
@@ -183,7 +183,7 @@ void Graphics::renderPass(unsigned int dt) {
 
     // Render the board
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
-//    m_board->Render();
+    m_board->Render();
 
     // render the chess piece
 /*

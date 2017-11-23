@@ -117,10 +117,10 @@ void LightingModel::renderLighting() {
 
     DirectionalLight directionalLight;
     directionalLight.color = glm::vec3(1.0f, 1.0f, 1.0f);
-    directionalLight.ambientIntensity = 0.9f;
+    directionalLight.ambientIntensity = 0.5f;
     directionalLight.diffuseIntensity = 0.5f;
     directionalLight.direction = glm::vec3(0.0, 1.0, 0.0);
-//    setDirectionalLight(directionalLight);
+    setDirectionalLight(directionalLight);
 
     PointLight pl[2];
     pl[0].diffuseIntensity = 0.25f;
@@ -155,7 +155,7 @@ void LightingModel::renderLighting() {
     sl[1].direction = glm::vec3(0.0, -1.0, 0.0);
     sl[1].cutoff = 20.0f;
 
-    setSpotLights(1, sl);
+//    setSpotLights(1, sl);
 }
 
 /*
