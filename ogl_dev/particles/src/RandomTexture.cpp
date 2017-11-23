@@ -21,7 +21,7 @@ bool RandomTexture::initialize(int size) {
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> distribution(0.0,1.0);
 
-    double coneAngleRad = 10.0 * (3.14/180.0);
+    double coneAngleRad = 30.0 * (3.14/180.0);
     for (unsigned int i = 0; i < size; i++) {
         //https://stackoverflow.com/questions/38997302/create-random-unit-vector-inside-a-defined-conical-region/39003745#39003745
         double randVal = distribution(gen);

@@ -157,7 +157,6 @@ void ParticleSystem::setInitialParticleProperties() {
     particleUpdateShader->enable();
     // this is in milliseconds
     glUniform1i(m_randomTextureSamplerHandler, 4);
-    glUniform1i(numToGenerateHandler, 10);
     glUniform1f(m_launcherLifetimeHandler, 100.0f);
     glUniform1f(m_shellLifetimeHandler, 10000.0f);
 }
@@ -213,7 +212,7 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     glUniform1f(m_deltaTimeMillisHandler, (float) dt);
     glUniform1i(numToGenerateHandler, 10);
 
-    if (queryResult > 1000) {
+    if (queryResult > MAX_PARTICLES) {
         glUniform1i(numToGenerateHandler, 0);
     }
 
@@ -230,9 +229,9 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     glEnableVertexAttribArray(3);
 
     glVertexAttribPointer(0, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), 0);                          // type
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 4);         // position
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 16);        // velocity
-    glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 28);          // lifetime
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, position));
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, velocity));
+    glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, lifetimeMillis));
 
     glBeginTransformFeedback(GL_POINTS);
     glBeginQueryIndexed(GL_PRIMITIVES_GENERATED, 0, numPrimitivesGenerated);
@@ -270,15 +269,11 @@ void ParticleSystem::renderParticles(glm::mat4 pProjViewMat, glm::vec3 pCameraPo
 
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (const GLvoid *) 4);  // position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, position));  // position
+//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), (void *) offsetof(Particle, velocity));        // velocity
+
 
     glDrawTransformFeedback(GL_POINTS, transformFeedbackBuffer[currentTransFeedBuff]);
 
     glDisableVertexAttribArray(0);
 }
-
-
-
-
-
-
