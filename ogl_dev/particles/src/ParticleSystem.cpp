@@ -4,7 +4,7 @@
 
 #include "ParticleSystem.h"
 
-#define MAX_PARTICLES 1000
+#define MAX_PARTICLES 2000
 #define PARTICLE_LIFETIME 10.0f
 
 #define PARTICLE_TYPE_LAUNCHER 0.0f
@@ -41,7 +41,7 @@ bool ParticleSystem::initialize(std::string pTextureName) {
     Particle particles[MAX_PARTICLES];
 
     particles[0].type = PARTICLE_TYPE_LAUNCHER;
-    particles[0].position = glm::vec3(0.0f, 0.0f, 1.0f);
+    particles[0].position = glm::vec3(0.0f, 0.0f, 6.0f);
     particles[0].velocity = glm::vec3(0.0f, 50.0f, 0.0f);
     particles[0].lifetimeMillis = 0.0f;
 
@@ -158,13 +158,13 @@ void ParticleSystem::setInitialParticleProperties() {
     // this is in milliseconds
     glUniform1i(m_randomTextureSamplerHandler, 4);
     glUniform1f(m_launcherLifetimeHandler, 100.0f);
-    glUniform1f(m_shellLifetimeHandler, 10000.0f);
+    glUniform1f(m_shellLifetimeHandler, 5000.0f);
 }
 
 void ParticleSystem::setInitialParticleBillboardProperties() {
     particleBillboardShader->enable();
     glUniform1i(particleSamplerHandler, 5);
-    glUniform1f(billboardSizeHandler, 0.09f);
+    glUniform1f(billboardSizeHandler, 0.05f);
 }
 
 bool ParticleSystem::initializeShader(Shader *pShader,
@@ -210,7 +210,7 @@ void ParticleSystem::updateParticles(unsigned int dt) {
     particleUpdateShader->enable();
     glUniform1f(m_timeHandler, (float) m_time);
     glUniform1f(m_deltaTimeMillisHandler, (float) dt);
-    glUniform1i(numToGenerateHandler, 10);
+    glUniform1i(numToGenerateHandler, 20);
 
     if (queryResult > MAX_PARTICLES) {
         glUniform1i(numToGenerateHandler, 0);
