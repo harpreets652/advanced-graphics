@@ -1,13 +1,5 @@
 #include "graphics.h"
 
-Graphics::Graphics() {
-
-}
-
-Graphics::~Graphics() {
-
-}
-
 bool Graphics::Initialize(int width, int height) {
     // Used for the linux OS
 #if !defined(__APPLE__) && !defined(MACOSX)
@@ -218,6 +210,18 @@ void Graphics::cameraInput(SDL_Keycode input) {
             break;
         case SDLK_RIGHT:
             m_camera->updatePosition(RIGHT);
+            break;
+        case SDLK_q:
+            m_camera->updatePosition(VERTICAL_POSITIVE);
+            break;
+        case SDLK_e:
+            m_camera->updatePosition(VERTICAL_NEGATIVE);
+            break;
+        case SDLK_z:
+            m_camera->updatePosition(HORIZONTAL_POSITIVE);
+            break;
+        case SDLK_c:
+            m_camera->updatePosition(HORIZONTAL_NEGATIVE);
             break;
         case SDLK_w:
             m_camera->updateDirection(UP);

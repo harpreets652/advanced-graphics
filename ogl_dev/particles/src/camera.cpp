@@ -56,6 +56,22 @@ void Camera::updatePosition(Direction direction) {
             moveRight_relative(positionStepSize);
             break;
         }
+        case VERTICAL_POSITIVE: {
+            moveVertical_relative(positionStepSize);
+            break;
+        }
+        case VERTICAL_NEGATIVE: {
+            moveVertical_relative(-positionStepSize);
+            break;
+        }
+        case HORIZONTAL_POSITIVE: {
+            moveHorizontal_relative(positionStepSize);
+            break;
+        }
+        case HORIZONTAL_NEGATIVE: {
+            moveHorizontal_relative(-positionStepSize);
+            break;
+        }
     }
 
     updateViewMatrix();
@@ -79,6 +95,13 @@ void Camera::updateDirection(Direction direction) {
             pivotRight_aroundFocus(positionStepSize);
             break;
         }
+        case VERTICAL_NEGATIVE:
+        case VERTICAL_POSITIVE:
+        case HORIZONTAL_POSITIVE:
+        case HORIZONTAL_NEGATIVE:
+            std::cout << "operation not supported for updating direction" << std::endl;
+            break;
+
     }
 
     updateViewMatrix();
@@ -120,6 +143,16 @@ void Camera::moveRight_relative(double distance) {
     updateViewMatrix();
 }
 
+void Camera::moveVertical_relative(double distance) {
+    position.y -= distance;
+    updateViewMatrix();
+}
+
+void Camera::moveHorizontal_relative(double distance) {
+    position.x -= distance;
+    updateViewMatrix();
+}
+
 void Camera::pivotLeft_aroundFocus(double distance) {
     glm::vec3 direction = float(distance) * glm::normalize(
             glm::cross(glm::vec3(0.0, 1.0, 0.0), focus - position)
@@ -145,6 +178,7 @@ void Camera::tiltUpward() {
     focus.y += DEFAULT_TRANSLATION_DISTANCE;
     updateViewMatrix();
 }
+
 void Camera::updateViewMatrix() {
     view = glm::lookAt(position, //Eye Position
                        focus, //Focus point

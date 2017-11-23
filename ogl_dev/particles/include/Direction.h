@@ -9,7 +9,11 @@ enum Direction {
     UP,
     DOWN,
     LEFT,
-    RIGHT
+    RIGHT,
+    VERTICAL_POSITIVE,
+    VERTICAL_NEGATIVE,
+    HORIZONTAL_POSITIVE,
+    HORIZONTAL_NEGATIVE
 };
 
 #endif //LIGHTING_DIRECTION_H

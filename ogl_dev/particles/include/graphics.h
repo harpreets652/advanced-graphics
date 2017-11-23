@@ -21,9 +21,9 @@ using namespace std;
 
 class Graphics {
 public:
-    Graphics();
+    Graphics() {}
 
-    ~Graphics();
+    ~Graphics() {}
 
     bool Initialize(int width, int height);
 

@@ -84,6 +84,10 @@ void Engine::keyboard() {
             case SDLK_s:
             case SDLK_d:
             case SDLK_a:
+            case SDLK_q:
+            case SDLK_e:
+            case SDLK_z:
+            case SDLK_c:
                 //camera movement
                 m_graphics->cameraInput(m_event.key.keysym.sym);
                 break;

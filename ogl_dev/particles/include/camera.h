@@ -36,6 +36,10 @@ private:
 
     void moveRight_relative(double distance);
 
+    void moveHorizontal_relative(double distance);
+
+    void moveVertical_relative(double distance);
+
     void pivotLeft_aroundFocus(double distance);
 
     void pivotRight_aroundFocus(double distance);
