@@ -4,6 +4,8 @@
 #include "graphics_headers.h"
 #include "Direction.h"
 
+static const double DEFAULT_TRANSLATION_DISTANCE = 0.5;
+
 class Camera {
 public:
     static float positionStepSize;
@@ -21,15 +23,28 @@ public:
 
     glm::vec3 getPosition();
 
-    //Note~ camera movement incomplete
     void updatePosition(Direction direction);
 
     void updateDirection(Direction direction);
 
 private:
+    void moveForward_relative(double distance);
+
+    void moveBackward_relative(double distance);
+
+    void moveLeft_relative(double distance);
+
+    void moveRight_relative(double distance);
+
+    void pivotLeft_aroundFocus(double distance);
+
+    void pivotRight_aroundFocus(double distance);
+
+    void tiltDownward();
+
+    void tiltUpward();
+
     void updateViewMatrix();
-    void initOrientation();
-    void updateFocusAndUp();
 
     glm::vec3 position;
     glm::vec3 focus;

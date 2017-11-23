@@ -26,27 +26,6 @@ bool Camera::Initialize(int w, int h) {
     return true;
 }
 
-void Camera::initOrientation() {
-    glm::vec3 hTarget(focus.x, 0.0, focus.z);
-    hTarget = glm::normalize(hTarget);
-
-    if (hTarget.z >= 0.0f) {
-        if (hTarget.x >= 0.0f) {
-            horizontalAngle = 360.0f - glm::degrees(glm::asin(hTarget.z));
-        } else {
-            horizontalAngle = 180.0f + glm::degrees(glm::asin(hTarget.z));
-        }
-    } else {
-        if (hTarget.x >= 0.0f) {
-            horizontalAngle = glm::degrees(glm::asin(-hTarget.z));
-        } else {
-            horizontalAngle = 180.0f - glm::degrees(glm::asin(-hTarget.z));
-        }
-    }
-
-    verticalAngle = -glm::degrees(glm::asin(focus.y));
-}
-
 glm::mat4 Camera::GetProjection() {
     return projection;
 }
@@ -62,19 +41,19 @@ glm::vec3 Camera::getPosition() {
 void Camera::updatePosition(Direction direction) {
     switch (direction) {
         case UP: {
-            position.y += positionStepSize;
+            moveForward_relative(positionStepSize);
             break;
         }
         case DOWN: {
-            position.y -= positionStepSize;
+            moveBackward_relative(positionStepSize);
             break;
         }
         case LEFT: {
-            position.x -= positionStepSize;
+            moveLeft_relative(positionStepSize);
             break;
         }
         case RIGHT: {
-            position.x += positionStepSize;
+            moveRight_relative(positionStepSize);
             break;
         }
     }
@@ -84,42 +63,88 @@ void Camera::updatePosition(Direction direction) {
 
 void Camera::updateDirection(Direction direction) {
     switch (direction) {
-        case UP:
-            verticalAngle += panStepSize;
+        case UP: {
+            tiltUpward();
             break;
-        case DOWN:
-            verticalAngle -= panStepSize;
+        }
+        case DOWN: {
+            tiltDownward();
             break;
-        case LEFT:
-            horizontalAngle -= panStepSize;
+        }
+        case LEFT: {
+            pivotLeft_aroundFocus(positionStepSize);
             break;
-        case RIGHT:
-            horizontalAngle += panStepSize;
+        }
+        case RIGHT: {
+            pivotRight_aroundFocus(positionStepSize);
             break;
+        }
     }
 
     updateViewMatrix();
 }
 
-void Camera::updateFocusAndUp() {
-    const glm::vec3 vAxis(0.0f, 1.0f, 0.0f);
-
-    glm::vec3 tempView(1.0f, 0.0f, 0.0f);
-    tempView = glm::rotate(tempView, horizontalAngle, vAxis);
-    tempView = glm::normalize(tempView);
-
-    // Rotate the view vector by the vertical angle around the horizontal axis
-    glm::vec3 hAxis = glm::cross(vAxis, tempView);
-    hAxis = glm::normalize(hAxis);
-    tempView = glm::rotate(tempView, verticalAngle, hAxis);
-    tempView = glm::normalize(tempView);
-
-    focus = tempView;
-
-    up = glm::cross(focus, hAxis);
-    up = glm::normalize(up);
+void Camera::moveForward_relative(double distance) {
+    glm::vec3 direction = float(distance) * glm::normalize(focus - position);
+    position += direction;
+    focus += direction;
+    updateViewMatrix();
 }
 
+void Camera::moveBackward_relative(double distance) {
+    glm::vec3 direction = float(distance) * glm::normalize(focus - position);
+    position -= direction;
+    focus -= direction;
+    updateViewMatrix();
+}
+
+void Camera::moveLeft_relative(double distance) {
+    glm::vec3 cameraDirection = focus - position;
+    cameraDirection.y = 0;
+    glm::vec3 direction = float(distance) * glm::normalize(
+            glm::cross(glm::vec3(0.0, 1.0, 0.0), cameraDirection)
+    );
+    position += direction;
+    focus += direction;
+    updateViewMatrix();
+}
+
+void Camera::moveRight_relative(double distance) {
+    glm::vec3 cameraDirection = focus - position;
+    cameraDirection.y = 0;
+    glm::vec3 direction = float(distance) * glm::normalize(
+            glm::cross(glm::vec3(0.0, 1.0, 0.0), cameraDirection)
+    );
+    position -= direction;
+    focus -= direction;
+    updateViewMatrix();
+}
+
+void Camera::pivotLeft_aroundFocus(double distance) {
+    glm::vec3 direction = float(distance) * glm::normalize(
+            glm::cross(glm::vec3(0.0, 1.0, 0.0), focus - position)
+    );
+    position += direction;
+    updateViewMatrix();
+}
+
+void Camera::pivotRight_aroundFocus(double distance) {
+    glm::vec3 direction = float(distance) * glm::normalize(
+            glm::cross(glm::vec3(0.0, 1.0, 0.0), focus - position)
+    );
+    position -= direction;
+    updateViewMatrix();
+}
+
+void Camera::tiltDownward() {
+    focus.y -= DEFAULT_TRANSLATION_DISTANCE;
+    updateViewMatrix();
+}
+
+void Camera::tiltUpward() {
+    focus.y += DEFAULT_TRANSLATION_DISTANCE;
+    updateViewMatrix();
+}
 void Camera::updateViewMatrix() {
     view = glm::lookAt(position, //Eye Position
                        focus, //Focus point
