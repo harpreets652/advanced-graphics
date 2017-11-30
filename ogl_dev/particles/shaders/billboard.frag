@@ -1,9 +1,9 @@
 #version 330
 
-uniform sampler2D billboardSampler;
-
 in vec2 TexCoord;
 out vec4 frag_color;
+
+uniform sampler2D billboardSampler;
 
 void main() {
     frag_color = texture(billboardSampler, TexCoord);
