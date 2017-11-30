@@ -18,7 +18,6 @@ uniform float gDeltaTimeMillis;
 uniform float gTime;
 uniform sampler1D gRandomTexture;
 uniform float gLauncherLifetime;
-uniform float gShellLifetime;
 uniform int numToGenerate;
 
 #define PARTICLE_TYPE_LAUNCHER 0.0f

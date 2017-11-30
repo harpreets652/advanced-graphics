@@ -62,7 +62,6 @@ private:
     GLint m_randomTextureSamplerHandler;
     GLint m_timeHandler;
     GLint m_launcherLifetimeHandler;
-    GLint m_shellLifetimeHandler;
     GLint numToGenerateHandler;
     GLuint numPrimitivesGenerated;
     GLint queryResult;

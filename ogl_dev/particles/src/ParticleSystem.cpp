@@ -143,14 +143,12 @@ bool ParticleSystem::getParticleUpdateHandlers() {
     m_timeHandler = particleUpdateShader->getUniformLocation("gTime");
     m_randomTextureSamplerHandler = particleUpdateShader->getUniformLocation("gRandomTexture");
     m_launcherLifetimeHandler = particleUpdateShader->getUniformLocation("gLauncherLifetime");
-    m_shellLifetimeHandler = particleUpdateShader->getUniformLocation("gShellLifetime");
     numToGenerateHandler = particleUpdateShader->getUniformLocation("numToGenerate");
 
     return !(m_deltaTimeMillisHandler == INVALID_UNIFORM_LOCATION ||
              m_timeHandler == INVALID_UNIFORM_LOCATION ||
              m_randomTextureSamplerHandler == INVALID_UNIFORM_LOCATION ||
-             m_launcherLifetimeHandler == INVALID_UNIFORM_LOCATION ||
-             m_shellLifetimeHandler == INVALID_UNIFORM_LOCATION);
+             m_launcherLifetimeHandler == INVALID_UNIFORM_LOCATION);
 }
 
 void ParticleSystem::setInitialParticleProperties() {
@@ -158,7 +156,6 @@ void ParticleSystem::setInitialParticleProperties() {
     // this is in milliseconds
     glUniform1i(m_randomTextureSamplerHandler, 4);
     glUniform1f(m_launcherLifetimeHandler, 100.0f);
-    glUniform1f(m_shellLifetimeHandler, 5000.0f);
 }
 
 void ParticleSystem::setInitialParticleBillboardProperties() {
