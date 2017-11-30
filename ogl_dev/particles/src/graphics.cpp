@@ -196,18 +196,17 @@ void Graphics::renderPass(unsigned int dt) {
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_board->GetModel()));
     m_board->Render();
 
+    //Add lighting
+    lightingModel->renderLighting();
+
     // Note~ uncomment for particle system
-/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
     //particle system
     particleSystem->render(dt, m_camera);
-*/
 
-    //Add lighting
-    lightingModel->renderLighting();
 
 
     // Get any errors from OpenGL
