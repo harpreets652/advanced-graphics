@@ -105,13 +105,13 @@ bool Graphics::Initialize(int width, int height) {
 
     std::string fountainTextures = "../textures/fountain_texture.jpg";
     if (!TextureManager::getInstance()->addTexture("fountain", fountainTextures)) {
-        std::cout << "Unable to load texture " << boardTexture << std::endl;
+        std::cout << "Unable to load texture " << fountainTextures << std::endl;
         return false;
     }
 
     std::string fountainNormal = "../textures/fountain_normal.png";
     if (!TextureManager::getInstance()->addTexture("fountainNormal", fountainNormal)) {
-        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
+        std::cout << "Unable to load texture " << fountainNormal << std::endl;
         return false;
     }
 
@@ -120,8 +120,6 @@ bool Graphics::Initialize(int width, int height) {
 
     m_chessPiece->setColorTextureId("fountain");
     m_chessPiece->setNormalMapTextureId("fountainNormal");
-
-    //Note~ add texture to fountain
 
     billboardRenderer = new Billboard();
     if (!billboardRenderer->initialize("../textures/tree_spring.jpg")) {

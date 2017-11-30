@@ -1,6 +1,6 @@
 #version 330
 
-// incoming topology is points, output topology are triangle strips
+// incoming topology is points, output topology is a triange strip
 layout(points) in;
 layout(triangle_strip) out;
 
@@ -19,7 +19,7 @@ out vec2 TexCoord;
 
 void main() {
     // built-in variable 'gl_in' variable is an array of structures
-    // input topology is point list so there is only a single vertex
+    // input topology is point list, so there is only a single vertex
     // if the input topology was a triangle we could have written 'gl_in[0]', 'gl_in[1]' and 'gl_in[2]' for the three vertices
     vec3 billboardPosition = gl_in[0].gl_Position.xyz;
 
