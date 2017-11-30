@@ -33,7 +33,8 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
-    m_chessPiece = new Object("../objects/cube.obj");
+    m_board->SetModel(glm::scale(m_board->GetModel(), glm::vec3(2, 2, 2)));
+    m_chessPiece = new Object("../objects/fountain.obj");
 
     // Set up the shaders
     m_shader = new Shader();
@@ -102,8 +103,10 @@ bool Graphics::Initialize(int width, int height) {
     m_board->setColorTextureId("floor");
     m_board->setNormalMapTextureId("floorNormal");
 
+    //Note~ add texture to fountain
+
     billboardRenderer = new Billboard();
-    if (!billboardRenderer->initialize("../textures/tree_billboard.jpg")) {
+    if (!billboardRenderer->initialize("../textures/tree_spring.jpg")) {
         std::cout << "Billboard renderer failed to initialize" << std::endl;
         return false;
     }
@@ -165,7 +168,7 @@ void Graphics::renderPass(unsigned int dt) {
 
     //render billboard
     glm::mat4 projectionView = m_camera->GetProjection() * m_camera->GetView();
-//    billboardRenderer->render(projectionView, m_camera->getPosition());
+    billboardRenderer->render(projectionView, m_camera->getPosition());
 
     // Render shader program
     m_shader->enable();
@@ -187,7 +190,7 @@ void Graphics::renderPass(unsigned int dt) {
     //Add lighting
     lightingModel->renderLighting();
 
-    particleSystem->render(dt, m_camera);
+//    particleSystem->render(dt, m_camera);
 
     // Get any errors from OpenGL
     auto error = glGetError();

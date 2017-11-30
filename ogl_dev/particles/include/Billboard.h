@@ -31,6 +31,7 @@ private:
     GLint projectViewMatrixHandler;
     GLint billboardSamplerHandler;
     GLint cameraPositionHandler;
+    GLint billboardSizeHandler;
 };
 
 
