@@ -103,8 +103,23 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    std::string fountainTextures = "../textures/fountain_texture.jpg";
+    if (!TextureManager::getInstance()->addTexture("fountain", fountainTextures)) {
+        std::cout << "Unable to load texture " << boardTexture << std::endl;
+        return false;
+    }
+
+    std::string fountainNormal = "../textures/fountain_normal.png";
+    if (!TextureManager::getInstance()->addTexture("fountainNormal", fountainNormal)) {
+        std::cout << "Unable to load texture " << boardNormalMap << std::endl;
+        return false;
+    }
+
     m_board->setColorTextureId("floor");
     m_board->setNormalMapTextureId("floorNormal");
+
+    m_chessPiece->setColorTextureId("fountain");
+    m_chessPiece->setNormalMapTextureId("fountainNormal");
 
     //Note~ add texture to fountain
 
@@ -136,7 +151,7 @@ bool Graphics::Initialize(int width, int height) {
 
     particleSystem = new ParticleSystem();
 
-    if (!particleSystem->initialize("../textures/raindrop.png")) {
+    if (!particleSystem->initialize("../textures/rainTexture.jpg")) {
         std::cout << "Unable to initialize particle system" << std::endl;
         return false;
     }
