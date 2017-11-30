@@ -58,7 +58,7 @@ bool Billboard::initialize(std::string pTextureName) {
     glm::vec3 billboardPositions[NUM_OF_ROWS * NUM_OF_COLS];
 
     int xOffset = -19;
-    int zOffset = -9;
+    int zOffset = -12;
     float xDiff = 5.0f;
     for (unsigned int j = 0 ; j < NUM_OF_ROWS; j++) {
         for (unsigned int i = 0 ; i < NUM_OF_COLS; i++) {

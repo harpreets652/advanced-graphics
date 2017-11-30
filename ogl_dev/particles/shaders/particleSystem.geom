@@ -62,7 +62,7 @@ void main() {
         vec3 DeltaV = vec3(DeltaTimeSecs) * vec3(0.0, -9.81, 0.0) * .05;
         vec3 newVel = Velocity0[0] + DeltaV;
 
-        if (Position0[0].y >= 3.6) {
+        if (Position0[0].y >= 2.4) {
             Type1 = PARTICLE_TYPE_SHELL;
             Position1 = newPos;
             Velocity1 = newVel;

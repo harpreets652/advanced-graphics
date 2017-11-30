@@ -34,7 +34,10 @@ bool Graphics::Initialize(int width, int height) {
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
     m_board->SetModel(glm::scale(m_board->GetModel(), glm::vec3(2, 2, 2)));
-    m_chessPiece = new Object("../objects/fountain.obj");
+
+    m_chessPiece = new Object("../objects/fountain_small.obj");
+    m_chessPiece->SetModel(glm::translate(m_chessPiece->GetModel(),
+                                          glm::vec3(0.0, 0.0, 2.0)));
 
     // Set up the shaders
     m_shader = new Shader();
@@ -181,16 +184,14 @@ void Graphics::renderPass(unsigned int dt) {
     m_board->Render();
 
     // render the chess piece
-/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
-*/
 
     //Add lighting
     lightingModel->renderLighting();
 
-//    particleSystem->render(dt, m_camera);
+    particleSystem->render(dt, m_camera);
 
     // Get any errors from OpenGL
     auto error = glGetError();
