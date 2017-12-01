@@ -9,6 +9,7 @@ in vec3 Position0[];
 in vec3 Velocity0[];
 in float Age0[];
 
+// these are written onto the transform feedback buffer
 out float Type1;
 out vec3 Position1;
 out vec3 Velocity1;

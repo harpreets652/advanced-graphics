@@ -10,7 +10,7 @@ uniform sampler2D billboardSampler;
 void main() {
     frag_color = texture(billboardSampler, TexCoord);
 
-    // ignore the white space around the tree, discard the color
+    // ignore the white space around the tree texture, discard the frag shader output
     float threshold = 0.7;
     if (frag_color.r > threshold && frag_color.g > threshold && frag_color.b > threshold) {
         discard;

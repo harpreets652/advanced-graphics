@@ -200,14 +200,12 @@ void Graphics::renderPass(unsigned int dt) {
     lightingModel->renderLighting();
 
     // Note~ uncomment for particle system
-/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
     //particle system
     particleSystem->render(dt, m_camera);
-*/
 
 
     // Get any errors from OpenGL
