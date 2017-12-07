@@ -4,8 +4,8 @@
 #include "LightingModel.h"
 
 LightingModel::LightingModel() {
-    lightPosition = glm::vec3(-12.0, 10.0, -6.0f);
-    lightDirection = glm::vec3(1.0f, -1.0f, 1.0f);
+    lightPosition = glm::vec3(-30.0, 10.0, 0.0f);
+    lightDirection = glm::vec3(5.0f, -1.0f, 1.0f);
 }
 
 bool LightingModel::initialize(Shader &shaderManager) {
@@ -117,7 +117,7 @@ void LightingModel::renderLighting() {
 
     DirectionalLight directionalLight;
     directionalLight.color = glm::vec3(1.0f, 1.0f, 1.0f);
-    directionalLight.ambientIntensity = 0.5f;
+    directionalLight.ambientIntensity = 0.009f;
     directionalLight.diffuseIntensity = 0.5f;
     directionalLight.direction = glm::vec3(0.0, 1.0, 0.0);
     setDirectionalLight(directionalLight);
@@ -139,7 +139,7 @@ void LightingModel::renderLighting() {
 
     SpotLight sl[2];
     sl[0].diffuseIntensity = 3.0f;
-    sl[0].ambientIntensity = 2.0;
+    sl[0].ambientIntensity = 1.5;
     sl[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
     sl[0].position = lightPosition;
     sl[0].direction = lightDirection;
@@ -155,7 +155,7 @@ void LightingModel::renderLighting() {
     sl[1].direction = glm::vec3(0.0, -1.0, 0.0);
     sl[1].cutoff = 20.0f;
 
-//    setSpotLights(1, sl);
+    setSpotLights(1, sl);
 }
 
 /*

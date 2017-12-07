@@ -38,6 +38,8 @@ private:
 
     void skyBoxPass();
 
+    void shadowPass();
+
     std::string ErrorString(GLenum error);
 
     Camera *m_camera;
@@ -46,6 +48,7 @@ private:
     Billboard *billboardRenderer;
     SkyBox *skyBox;
     ParticleSystem *particleSystem;
+    ShadowMap *shadowMap;
 
     GLint m_projectionMatrix;
     GLint m_viewMatrix;

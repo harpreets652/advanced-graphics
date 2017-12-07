@@ -85,6 +85,13 @@ bool Graphics::Initialize(int width, int height) {
         return false;
     }
 
+    //shadow map
+    shadowMap = new ShadowMap();
+    if (!shadowMap->initialize((*m_shader), width, height)) {
+        std::cout << "Unable to initialize shadow map" << std::endl;
+        return false;
+    }
+
     //load textures
     if (!TextureManager::getInstance()->initHandlers((*m_shader))) {
         std::cout << "Unable to get texture handlers from shader." << std::endl;
@@ -168,8 +175,25 @@ void Graphics::Update(unsigned int dt) {
 }
 
 void Graphics::Render(unsigned int dt) {
+    shadowPass();
     renderPass(dt);
     skyBoxPass();
+}
+
+void Graphics::shadowPass() {
+    shadowMap->bindForWriting();
+    glClear(GL_DEPTH_BUFFER_BIT);
+
+    // shadow shader program
+    shadowMap->enableProgram();
+
+    glm::mat4 chessPieceModel = m_board->GetModel() * m_chessPiece->GetModel();
+    glm::mat4 shadowMVP = m_camera->GetProjection() * lightingModel->getLightViewMatrix() * chessPieceModel;
+
+    shadowMap->setMVP(shadowMVP);
+    m_chessPiece->ShadowRender();
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void Graphics::skyBoxPass() {
@@ -189,6 +213,10 @@ void Graphics::renderPass(unsigned int dt) {
     // Render shader program
     m_shader->enable();
 
+    //set shadow map texture unit and buffer to 6
+    shadowMap->setTextureUnit(6);
+    shadowMap->bindForReading(GL_TEXTURE6);
+
     glUniformMatrix4fv(m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
     glUniformMatrix4fv(m_viewMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetView()));
 
@@ -199,14 +227,12 @@ void Graphics::renderPass(unsigned int dt) {
     //Add lighting
     lightingModel->renderLighting();
 
-/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
     //particle system
     particleSystem->render(dt, m_camera);
-*/
 
 
     // Get any errors from OpenGL

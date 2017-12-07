@@ -11,6 +11,8 @@
 
 class Object {
 public:
+    Object() {}
+
     Object(std::string fileName);
 
     ~Object();
@@ -31,7 +33,9 @@ public:
 
     void SetModel(glm::mat4 newModel);
 
-private:
+protected:
+    void assimpLoad(std::string fileName);
+
     void getVertices(const aiMesh *mesh, std::vector<glm::vec3> &vertices);
 
     void getFaces(const aiMesh *mesh, std::vector<glm::uvec3> &faces);

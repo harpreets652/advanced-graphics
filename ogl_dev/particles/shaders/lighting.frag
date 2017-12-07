@@ -98,8 +98,9 @@ vec4 CalcPointLight(PointLight l, vec3 pNormal, vec4 pLightSpacePos) {
     vec3 lightDirection = WorldPos0 - l.Position;
     float distance = length(lightDirection);
     lightDirection = normalize(lightDirection);
+    float shadowFactor = CalcShadowFactor(pLightSpacePos);
 
-    vec4 Color = CalcLightInternal(l.Base, lightDirection, pNormal, 1.0);
+    vec4 Color = CalcLightInternal(l.Base, lightDirection, pNormal, shadowFactor);
     float attenuation = l.Atten.Constant + l.Atten.Linear * distance + l.Atten.Exp * distance * distance;
 
     return Color / attenuation;
@@ -119,7 +120,8 @@ vec4 CalcSpotLight(SpotLight l, vec3 pNormal, vec4 pLightSpacePos) {
 }
 
 void main(void) {
-    vec3 normal = CalcBumpedNormal(); //normalize(Normal0); //
+    //Note~ shadow more visible when normal mapping is disabled
+    vec3 normal = normalize(Normal0); //CalcBumpedNormal(); //
     vec4 totalLight = CalcDirectionalLight(normal);
 
     for (int i = 0; i < gNumPointLights; i++) {

@@ -6,6 +6,20 @@ Object::~Object() {
 }
 
 Object::Object(std::string fileName) {
+    assimpLoad(fileName);
+
+    angle = 0.0f;
+
+    glGenBuffers(1, &VB);
+    glBindBuffer(GL_ARRAY_BUFFER, VB);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * Vertices.size(), &Vertices[0], GL_STATIC_DRAW);
+
+    glGenBuffers(1, &IB);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * Indices.size(), &Indices[0], GL_STATIC_DRAW);
+}
+
+void Object::assimpLoad(std::string fileName) {
     Assimp::Importer importer;
     //Note~ ASSIMP expects a newline at the end of the object file...otherwise it will not read the last face
     const aiScene *scene = importer.ReadFile(fileName.c_str(), aiProcess_Triangulate | //make triangles
@@ -44,16 +58,6 @@ Object::Object(std::string fileName) {
 
         buildGeometry(vertices, faces, normals, textureCoordinates, tangents);
     }
-
-    angle = 0.0f;
-
-    glGenBuffers(1, &VB);
-    glBindBuffer(GL_ARRAY_BUFFER, VB);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * Vertices.size(), &Vertices[0], GL_STATIC_DRAW);
-
-    glGenBuffers(1, &IB);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * Indices.size(), &Indices[0], GL_STATIC_DRAW);
 }
 
 void Object::buildGeometry(std::vector<glm::vec3> &vertices,
