@@ -41,7 +41,7 @@ bool ParticleSystem::initialize(std::string pTextureName) {
     Particle particles[MAX_PARTICLES];
 
     particles[0].type = PARTICLE_TYPE_LAUNCHER;
-    particles[0].position = glm::vec3(0.0f, 2.5f, 4.0f);
+    particles[0].position = glm::vec3(0.0f, 4.5f, 6.0f);
     particles[0].velocity = glm::vec3(0.0f, 10.0f, 0.0f);
     particles[0].lifetimeMillis = 0.0f;
 

@@ -33,7 +33,7 @@ bool Graphics::Initialize(int width, int height) {
 
     // Create the object
     m_board = new Object("../objects/chessboard.obj");
-    m_board->SetModel(glm::scale(m_board->GetModel(), glm::vec3(2, 2, 2)));
+    m_board->SetModel(glm::scale(m_board->GetModel(), glm::vec3(3, 3, 3)));
 
     m_chessPiece = new Object("../objects/fountain_small.obj");
     m_chessPiece->SetModel(glm::translate(m_chessPiece->GetModel(),
@@ -199,13 +199,14 @@ void Graphics::renderPass(unsigned int dt) {
     //Add lighting
     lightingModel->renderLighting();
 
-    // Note~ uncomment for particle system
+/*
     glm::mat4 chessModel = m_board->GetModel() * m_chessPiece->GetModel();
     glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(chessModel));
     m_chessPiece->Render();
 
     //particle system
     particleSystem->render(dt, m_camera);
+*/
 
 
     // Get any errors from OpenGL

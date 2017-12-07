@@ -56,7 +56,7 @@ bool SkyBox::init(const std::string &pBaseDirectory,
     //initialize cube
     skyBoxMesh = new Object("../objects/sphere.obj");
 //    skyBoxMesh->GetModel() = glm::scale(glm::vec3(21, 21, 21));
-    skyBoxMesh->SetModel(glm::scale(skyBoxMesh->GetModel(), glm::vec3(35, 35, 35)));
+    skyBoxMesh->SetModel(glm::scale(skyBoxMesh->GetModel(), glm::vec3(45, 45, 45)));
 
     return true;
 }
